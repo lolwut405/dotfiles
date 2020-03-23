@@ -3,21 +3,21 @@
 set -x  #echo on
 
 # KDE
-pacman -S --noconfirm xorg-server plasma-desktop
-pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
+#pacman -S --noconfirm xorg-server plasma-desktop
+#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
-pacman -S --noconfirm ark dolphin konsole kwrite ttf-croscore  #gwenview kolourpaint notepadqq spectacle
-systemctl enable sddm
+#pacman -S --noconfirm ark dolphin konsole kwrite ttf-croscore  #gwenview kolourpaint notepadqq spectacle
+#systemctl enable sddm
 
 # Gnome
-#pacman -S --noconfirm xorg-server gnome-shell 
-#pacman -S --noconfirm gdm gnome-control-center gnome-terminal gnome-tweak-tool nautilus
-#pacman -S --noconfirm chrome-gnome-shell flameshot file-roller
-#systemctl enable gdm
+pacman -S --noconfirm xorg-server gnome-shell 
+pacman -S --noconfirm gdm gnome-control-center gnome-terminal gnome-tweaks nemo #nautilus
+pacman -S --noconfirm chrome-gnome-shell file-roller
+systemctl enable gdm
 
 # Apps
 pacman -S --noconfirm git p7zip unzip vim zip
-pacman -S --noconfirm firefox mpv qbittorrent speedcrunch youtube-dl #notepadqq
+pacman -S --noconfirm firefox mpv qbittorrent speedcrunch youtube-dl  #notepadqq
 pacman -S --noconfirm keepassxc remmina freerdp
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
 
