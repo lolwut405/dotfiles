@@ -1,4 +1,4 @@
-# Services disable
+# Disable services
 mkdir ~/.config/autostart
 echo 'Hidden=true' >> ~/.config/autostart/at-spi-dbus-bus.desktop
 echo 'Hidden=true' >> ~/.config/autostart/baloo_file.desktop

@@ -1,4 +1,4 @@
-# Disable services 1st boot - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
+# Disable services - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
 systemctl --user mask at-spi-dbus-bus colord-session pipewire --now
 gsd-wacom gsd-smartcard gsd-color gsd-print-notifications gsd-wwan gsd-sharing gsd-rfkill --now
 sudo systemctl mask colord geoclue --now
