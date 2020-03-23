@@ -48,6 +48,7 @@ EOF
 chroot /mnt systemctl enable dbus-broker
 chroot /mnt systemctl --global enable dbus-broker
 chroot /mnt systemctl mask systemd-homed systemd-userdbd
+chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Account
