@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker
+pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker earlyoom
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
@@ -45,7 +45,7 @@ uri=
 EOF
 
 # System tweaks (LVM check, Swappiness, systemd, BFQ)
-chroot /mnt systemctl enable dbus-broker
+chroot /mnt systemctl enable dbus-broker earlyoom
 chroot /mnt systemctl --global enable dbus-broker
 chroot /mnt systemctl mask systemd-homed systemd-userdbd
 chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
