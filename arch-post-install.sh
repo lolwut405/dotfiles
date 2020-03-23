@@ -2,11 +2,8 @@
 # run as root
 set -x  #echo on
 
-# NTP
-timedatectl set-ntp true
-
 # KDE
-pacman -S --noconfirm xorg-server plasma-desktop  #plasma-meta
+pacman -S --noconfirm xorg-server plasma-desktop
 pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 pacman -S --noconfirm ark dolphin konsole kwrite ttf-croscore  #gwenview kolourpaint notepadqq spectacle
@@ -46,40 +43,8 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # Install AUR pkgs
-yes | baph -inN ksnip vimiv-qt #gscreenshot
-
-# System-homed - PAM module
-cat <<EOF > /etc/pam.d/system-auth
-#%PAM-1.0
-
-auth      sufficient pam_unix.so     try_first_pass nullok
--auth     sufficient pam_systemd_home.so
-auth      optional   pam_permit.so
-auth      required   pam_env.so
-auth      required   pam_deny.so
-
-account   sufficient pam_unix.so
--account  sufficient pam_systemd_home.so
-account   optional   pam_permit.so
-account   required   pam_time.so
-
--password sufficient pam_systemd_home.so
-password  sufficient pam_unix.so     try_first_pass nullok sha512 shadow
-password  optional   pam_permit.so
-
-session   required  pam_limits.so
--session  optional  pam_systemd_home.so
-session   required  pam_unix.so
-session   optional  pam_permit.so
-EOF
-
-# Create user
-homectl create blah --storage=luks -G wheel
-
-# Lock root account
-passwd -l root
+yes | baph -inN gscreenshot vimiv-qt
 
 # Done
-rm s86rewr
+rm fjkRv
 echo "Done! Reboot now"
-
