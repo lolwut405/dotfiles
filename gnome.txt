@@ -1,0 +1,68 @@
+Settings
+Privacy: disable camera, microphone
+Power: blank screen (10 mins), disable automatic suspend
+Devices > Keyboard shortcuts:
+Home folder (win+e)
+Web browser (win+f)
+Hide all normal windows (win+d)
+Switch Windows (alt+tab)
+Copy screenshot area to clipboard (print)
+Volume down (alt+z)
+Volume up (alt+x)
+Hide window (win+down)
+Close window (via terminal): gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4','<Alt>Q']"
+Add custom kb shortcut at bottom:  gnome-terminal (win+t), flameshot gui (printscreen)
+Details > Date/time > Time Format: 12hour
+Details > Users > create wanda user + contact pictures
+
+# Disable services 1st boot - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
+systemctl --user mask at-spi-dbus-bus gsd-wacom gsd-smartcard gsd-color gsd-print-notifications gsd-wwan gsd-sharing gsd-rfkill
+systemctl --user mask pipewire colord-session
+sudo systemctl mask colord geoclue
+
+Tweaks
+Fonts:
+Interface text: Fira Sans Regular 10
+Document text:  Fira Sans Regular 11
+Monospace Text: Cousine Regular 10 #Fira Mono Regular 10
+Window Titles:  Fira Sans Semibold 10
+Antialiasing:   Subpixel
+Keyboard & Mouse: Addition layout: caps an additional esc, Mouse Acceleration: flat
+Top Bar: weekday
+Window Titlebar: left placement
+Windows: resize secondary-click, window action: Alt
+#Workspaces: static: 2
+
+Extentions
+Dash to Dock: disable animate show apps, trash can/mounts, scroll: cycle, shrink the dash, use built-in theme
+https://extensions.gnome.org/extension/307/dash-to-dock/
+Dash to Panel: Left, clock bottom sys indic, margin (4) not all monitors, running indic (left), uncheck: animate show apps, switching app/new apps
+https://extensions.gnome.org/extension/1160/dash-to-panel/
+Quick close in overview
+https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
+
+# Nautilus tracker disable
+mkdir -p ~/.config/autostart
+cd ~/.config/autostart
+cp /etc/xdg/autostart/tracker* ./
+for FILE in *.desktop; do echo Hidden=true >> $FILE; done
+tracker daemon -t
+rm -rf ~/.cache/tracker ~/.local/share/tracker
+systemctl --user mask tracker-extract tracker-miner-fs tracker-miner-rss tracker-writeback
+
+# Nautilus backspace key
+wget -qO- https://raw.githubusercontent.com/7aman/backspace-up/master/install.sh | bash
+
+nautilus: sort folders before files
+Terminal: color change
+
+# FF2MPV
+git clone https://github.com/woodruffw/ff2mpv; cd ff2mpv
+mkdir ~/.mozilla/native-messaging-hosts
+chmod +x ff2mpv.py
+sed -i 's:/home/william/scripts/ff2mpv:/home/blah/.mozilla/native-messaging-hosts/ff2mpv.py:' ff2mpv.json
+cp ff2mpv.py ff2mpv.json ~/.mozilla/native-messaging-hosts/
+cd ..; rm -rf ff2mpv
+
+# MPV tweak
+echo 'keep-open=yes' >> ~/.config/mpv/mpv.conf
