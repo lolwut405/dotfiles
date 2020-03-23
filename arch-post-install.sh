@@ -2,6 +2,13 @@
 # run as root
 set -x  #echo on
 
+# Gnome
+pacman -S --noconfirm xorg-server gnome-shell 
+pacman -S --noconfirm gdm gnome-control-center gnome-tweaks noto-fonts
+pacman -S --noconfirm eog file-roller gedit gnome-screenshot gnome-terminal nautilus  #gnome-remote-desktop 
+pacman -S --noconfirm chrome-gnome-shell  #gnome-software gnome-software-packagekit-plugin
+systemctl enable gdm
+
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop
 #pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
@@ -9,17 +16,14 @@ set -x  #echo on
 #pacman -S --noconfirm ark dolphin konsole kwrite ttf-croscore  #gwenview kolourpaint notepadqq spectacle
 #systemctl enable sddm
 
-# Gnome
-pacman -S --noconfirm xorg-server gnome-shell 
-pacman -S --noconfirm gdm gnome-control-center gnome-terminal gnome-tweaks nemo #nautilus
-pacman -S --noconfirm chrome-gnome-shell file-roller
-systemctl enable gdm
-
 # Apps
 pacman -S --noconfirm git p7zip unzip vim zip
-pacman -S --noconfirm firefox mpv qbittorrent speedcrunch youtube-dl  #notepadqq
+pacman -S --noconfirm firefox mpv qbittorrent speedcrunch youtube-dl  #galculator notepadqq
 pacman -S --noconfirm keepassxc remmina freerdp
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
+
+# AUR
+#gscreenshot vimiv-qt
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
@@ -41,9 +45,6 @@ git clone https://bitbucket.org/natemaia/baph.git
 cp baph/baph /usr/local/bin
 chmod +x /usr/local/bin/baph
 rm -rf baph
-
-# Install AUR pkgs
-yes | baph -inN gscreenshot vimiv-qt
 
 # Done
 rm fjkRv
