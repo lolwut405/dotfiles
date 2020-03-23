@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh vi wget dbus-broker connman  #dhclient networkmanager chrony
+pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
@@ -34,31 +34,28 @@ chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Chrony (NTP)
-#chroot /mnt systemctl enable chronyd
-#sed -i "s/! server/server/" /mnt/etc/chrony.conf
+chroot /mnt systemctl enable chronyd
+sed -i "s/! server/server/" /mnt/etc/chrony.conf
 
 # Network
-chroot /mnt systemctl enable connman  #NetworkManager
-chroot /mnt systemctl mask connman-vpn wpa_supplicant
-#cat <<EOF >> /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
-#[connectivity]
-#uri=
-#EOF
+chroot /mnt systemctl enable NetworkManager
+cat <<EOF >> /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
+[connectivity]
+uri=
+EOF
 
 # System tweaks (LVM check, Swappiness, systemd, BFQ)
 chroot /mnt systemctl enable dbus-broker
 chroot /mnt systemctl --global enable dbus-broker
-#chroot /mnt systemctl mask systemd-homed systemd-userdbd
+chroot /mnt systemctl mask systemd-homed systemd-userdbd
 #chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
-echo 'vm.swappiness = 1' > /mnt/etc/sysctl.d/99-sysctl.conf
-sed -i 's/#KillUserProcesses=no/KillUserProcesses=yes/' /mnt/etc/systemd/logind.conf
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
-chroot /mnt passwd
-#chroot /mnt useradd -m -G wheel blah
-#chroot /mnt passwd blah
+chroot /mnt useradd -m -G wheel blah
+chroot /mnt passwd blah
+#chroot /mnt passwd
 
 # Done
 echo "Done! Please reboot and login as root account"
