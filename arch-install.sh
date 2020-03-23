@@ -39,7 +39,7 @@ sed -i "s/! server/server/" /mnt/etc/chrony.conf
 
 # Network
 chroot /mnt systemctl enable NetworkManager
-cat <<EOF >> /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
+cat <<EOF > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
 [connectivity]
 uri=
 EOF
