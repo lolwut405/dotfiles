@@ -33,7 +33,7 @@ chroot /mnt locale-gen
 chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-# Chrony (NTP)
+# NTP
 chroot /mnt systemctl enable chronyd
 sed -i "s/! server/server/" /mnt/etc/chrony.conf
 
@@ -48,15 +48,12 @@ EOF
 chroot /mnt systemctl enable dbus-broker
 chroot /mnt systemctl --global enable dbus-broker
 chroot /mnt systemctl mask systemd-homed systemd-userdbd
-#chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -G wheel blah
 chroot /mnt passwd blah
-#chroot /mnt passwd
 
 # Done
-echo "Done! Please reboot and login as root account"
-
+echo "Done! Please reboot"
