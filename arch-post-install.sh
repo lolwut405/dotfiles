@@ -9,16 +9,6 @@ pacman -S --noconfirm eog file-roller gedit gnome-screenshot gnome-terminal naut
 pacman -S --noconfirm chrome-gnome-shell  #gnome-software gnome-software-packagekit-plugin
 systemctl enable gdm
 
-# Gnome services disable
-su - blah
-systemctl --user mask at-spi-dbus-bus colord-session pipewire
-systemctl --user mask gsd-wacom gsd-smartcard gsd-color gsd-print-notifications gsd-wwan gsd-sharing gsd-rfkill
-sudo systemctl mask colord geoclue
-tracker daemon -t
-mkdir -p ~/.config/autostart
-echo 'Hidden=true' | tee ~/.config/autostart/{tracker-miner-fs,tracker-miner-rss,tracker-writeback,tracker-store}.desktop
-exit
-
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop
 #pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
