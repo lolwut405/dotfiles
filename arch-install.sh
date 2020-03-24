@@ -4,8 +4,7 @@ set -x  #echo on
 # Partition (do lsblk first. cfdisk if need done manually)
 wipefs -a /dev/sda
 parted -s -a optimal /dev/sda 'mklabel msdos'
-parted -s -a optimal /dev/sda 'mkpart primary xfs 1Mib -1Gib set 1 boot on'
-parted -s -a optimal /dev/sda 'mkpart primary linux-swap -1GiB 100%'
+parted -s -a optimal /dev/sda 'mkpart primary xfs 1Mib 100% set 1 boot on'
 mkfs.xfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
