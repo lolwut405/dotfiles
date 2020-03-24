@@ -22,9 +22,6 @@ pacman -S --noconfirm firefox mpv qbittorrent speedcrunch youtube-dl  #galculato
 pacman -S --noconfirm keepassxc remmina freerdp
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
 
-# AUR
-#gscreenshot vimiv-qt
-
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
 #pacman -S --noconfirm lxappearance-gtk3 lximage-qt lxrandr-gtk3 obconf-qt pcmanfm-qt xarchiver mate-panel #tint2
@@ -45,6 +42,9 @@ git clone https://bitbucket.org/natemaia/baph.git
 cp baph/baph /usr/local/bin
 chmod +x /usr/local/bin/baph
 rm -rf baph
+
+# AUR Apps
+su - blah -c "baph -inN ytop-bin"  #vimiv-qt gscreenshot bcompare
 
 # Done
 rm fjkRv
