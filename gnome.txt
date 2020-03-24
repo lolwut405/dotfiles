@@ -1,7 +1,14 @@
-# Disable services - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
-systemctl --user mask at-spi-dbus-bus colord-session pipewire --now
-gsd-wacom gsd-smartcard gsd-color gsd-print-notifications gsd-wwan gsd-sharing gsd-rfkill --now
+# Disable stuff - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
+systemctl --user mask accounts-daemon at-spi-dbus-bus gsd-{color,datetime,media-keys,print-notifications,sharing,smartcard,wacom,wwan,rfkill} --now
 sudo systemctl mask colord geoclue --now
+sudo chmod -x /usr/bin/gjs  #disable notifications
+
+# Tracker disable
+tracker daemon -k
+systemctl --user mask tracker-{extract,miner-fs,miner-rss,store} --now
+mkdir ~/.config/autostart
+echo 'Hidden=true' | tee ~/.config/autostart/tracker-{extract,miner-fs,miner-rss,store}.desktop
+rm -rf ~/.cache/tracker ~/.local/share/tracker
 
 Settings
 Privacy: disable camera, microphone
@@ -10,8 +17,8 @@ Devices > Keyboard shortcuts:
 Home folder (win+e)
 Web browser (win+f)
 Hide all normal windows (win+d)
-Switch Windows (alt+tab)
-#Copy screenshot area to clipboard (print)
+#Switch Windows (alt+tab)
+Copy screenshot area to clipboard (print)
 Volume down (alt+z)
 Volume up (alt+x)
 Hide window (win+down)
@@ -34,21 +41,16 @@ Window Titlebar: maximize, minimize
 Windows: Uncheck: Edge tiling. Check: resize secondary-click. window action: Alt
 
 Extensions
+Simple Task Bar
+https://extensions.gnome.org/extension/2672/simple-task-bar/
+Quick close in overview
+https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
 Dash to Dock: disable animate show apps, trash can/mounts, scroll: cycle, shrink the dash, use built-in theme
 https://extensions.gnome.org/extension/307/dash-to-dock/
 Dash to Panel: Left, clock bottom sys indic, margin (4) not all monitors, running indic (left), uncheck: animate show apps, switching app/new apps
 https://extensions.gnome.org/extension/1160/dash-to-panel/
-Quick close in overview
-https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
 
-# Nautilus tracker disable
-mkdir -p ~/.config/autostart
-cd ~/.config/autostart
-cp /etc/xdg/autostart/tracker* .
-for FILE in *.desktop; do echo Hidden=true >> $FILE; done
-tracker daemon -t
-rm -rf ~/.cache/tracker ~/.local/share/tracker
-systemctl --user mask tracker-extract tracker-miner-fs tracker-miner-rss tracker-writeback tracker-store --now
+
 
 nautilus: sort folders before files
 Terminal: color change

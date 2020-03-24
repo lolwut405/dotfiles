@@ -1,11 +1,7 @@
 # Disable services
+systemctl --user mask at-spi-dbus-bus --now
 mkdir ~/.config/autostart
-echo 'Hidden=true' >> ~/.config/autostart/at-spi-dbus-bus.desktop
-echo 'Hidden=true' >> ~/.config/autostart/baloo_file.desktop
-echo 'Hidden=true' >> ~/.config/autostart/gmenudbusmenuproxy.desktop
-echo 'Hidden=true' >> ~/.config/autostart/xembedsniproxy.desktop
-systemctl --user mask at-spi-dbus-bus
-balooctl disable
+echo 'Hidden=true' | tee ~/.config/autostart/{gmenudbusmenuproxy,xembedsniproxy}.desktop
 
 Start menu:
 Alternatives > Application Menu
@@ -22,7 +18,6 @@ Hidden System tray (right-click) configure > Clipboard + Night Color Control + V
 Pin common applications: Dolphin, Firefox, Konsole, NPQQ
 
 Desktop (set per monitor):
-Wallpaper > Add image
 Mouse Actions > Remove (minus button): Vertical-Scroll (Switch Desktop)
 Icons > Arrangement: Arrange in Columns. No thumbnails/previews
 
