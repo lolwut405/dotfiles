@@ -38,10 +38,7 @@ sed -i "s/! server/server/" /mnt/etc/chrony.conf
 
 # Network
 chroot /mnt systemctl enable NetworkManager
-cat <<EOF > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
-[connectivity]
-uri=
-EOF
+echo -e "[connectivity]\nuri=" > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
 
 # System tweaks (LVM check, Swappiness, systemd, BFQ)
 chroot /mnt systemctl enable dbus-broker earlyoom
