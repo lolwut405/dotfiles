@@ -11,7 +11,7 @@ systemctl enable gdm
 
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop
-#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kmix kscreen plasma-nm sddm  #plasma-pa
+#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm  #kmix
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 #pacman -S --noconfirm ark dolphin konsole kwrite ttf-croscore  #gwenview kolourpaint notepadqq spectacle
 #systemctl enable sddm
