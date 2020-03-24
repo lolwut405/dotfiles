@@ -44,7 +44,8 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # AUR Apps
-su - blah -c "baph -inN ytop-bin"  #vimiv-qt gscreenshot bcompare
+su - blah -c "baph -inN ytop-bin zramswap"  #vimiv-qt gscreenshot bcompare
+systemctl enable zramswap --now
 
 # Done
 rm fjkRv
