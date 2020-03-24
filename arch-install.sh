@@ -38,13 +38,14 @@ sed -i "s/! server/server/" /mnt/etc/chrony.conf
 
 # Network
 chroot /mnt systemctl enable NetworkManager
-echo -e "[connectivity]\nuri=" > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
+echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
 
 # System tweaks (LVM check, Swappiness, systemd, BFQ)
 chroot /mnt systemctl enable dbus-broker earlyoom
 chroot /mnt systemctl --global enable dbus-broker
 chroot /mnt systemctl mask systemd-homed systemd-userdbd
 chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
+echo -e 'vm.swappiness = 10\nvm.vfs_cache_pressure = 50' > /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Account
