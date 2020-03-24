@@ -11,8 +11,7 @@ echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/00recommends
 # System tweaks
 systemctl disable accounts-daemon cron networkd-dispatcher rsyslog --now
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sudo
-echo 'vm.swappiness = 1' > /etc/sysctl.d/99-sysctl.conf
-sed -i 's/#KillUserProcesses=no/KillUserProcesses=yes/' /etc/systemd/logind.conf
+echo 'vm.swappiness = 10' > /etc/sysctl.d/99-sysctl.conf
 chmod -x /etc/update-motd.d/*
 apt install -y htop neofetch
 
