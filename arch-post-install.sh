@@ -5,7 +5,7 @@ set -x  #echo on
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell 
 pacman -S --noconfirm gdm gnome-control-center gnome-tweaks noto-fonts
-pacman -S --noconfirm eog file-roller gedit gnome-screenshot gnome-terminal nautilus 
+pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus 
 pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
