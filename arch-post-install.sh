@@ -15,10 +15,8 @@ systemctl enable gdm
 #systemctl enable sddm
 
 # Apps
-pacman -S --noconfirm p7zip unzip vim youtube-dl zip
-pacman -S --noconfirm firefox #chromium 
-#pacman -S --noconfirm mpv #AUR: mpv-git
-pacman -S --noconfirm galculator transmission-gtk #qbittorrent speedcrunch
+pacman -S --noconfirm ncdu p7zip unzip vim zip
+pacman -S --noconfirm firefox mpv galculator transmission-gtk youtube-dl #qbittorrent speedcrunch
 #pacman -S --noconfirm keepassxc remmina freerdp
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
 
