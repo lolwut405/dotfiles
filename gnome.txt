@@ -1,5 +1,5 @@
 # Disable stuff - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
-systemctl --user mask accounts-daemon at-spi-dbus-bus gsd-{color,datetime,media-keys,print-notifications,sharing,smartcard,wacom,wwan,rfkill} --now
+systemctl --user mask accounts-daemon at-spi-dbus-bus gsd-{color,datetime,print-notifications,sharing,smartcard,wacom,wwan,rfkill} --now
 sudo systemctl mask colord geoclue --now
 sudo chmod -x /usr/bin/gjs  #disable notifications
 
@@ -28,12 +28,12 @@ Users > create wanda user + contact pictures
 Date/time > Time Format: 12hour
 
 Tweaks
-General: Uncheck: animations
+#General: Uncheck: animations
 Fonts:
-Interface text: Noto Sans Regular 10
-Document text:  Noto Sans Regular 11
+#Interface text: Noto Sans Regular 10
+#Document text:  Noto Sans Regular 11
 Monospace Text: Cousine Regular 10 
-Window Titles:  Noto Sans Semibold 10
+#Window Titles:  Noto Sans Semibold 10
 Antialiasing:   Subpixel
 Keyboard & Mouse: Addition layout: caps an additional esc, Mouse Acceleration: adaptive (or flat)
 Top Bar: weekday
@@ -45,12 +45,10 @@ Simple Task Bar
 https://extensions.gnome.org/extension/2672/simple-task-bar/
 Quick close in overview
 https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
-Dash to Dock: disable animate show apps, trash can/mounts, scroll: cycle, shrink the dash, use built-in theme
+#Dash to Dock: disable animate show apps, trash can/mounts, scroll: cycle, shrink the dash, use built-in theme
 https://extensions.gnome.org/extension/307/dash-to-dock/
-Dash to Panel: Left, clock bottom sys indic, margin (4) not all monitors, running indic (left), uncheck: animate show apps, switching app/new apps
+#Dash to Panel: Left, clock bottom sys indic, margin (4) not all monitors, running indic (left), uncheck: animate show apps, switching app/new apps
 https://extensions.gnome.org/extension/1160/dash-to-panel/
-
-
 
 nautilus: sort folders before files
 Terminal: color change
