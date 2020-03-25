@@ -5,20 +5,20 @@ set -x  #echo on
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-control-center gnome-tweaks chrome-gnome-shell
-pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus
+pacman -S --noconfirm eog file-roller geany gnome-terminal nautilus
 systemctl enable gdm
 
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
 #pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
-#pacman -S --noconfirm ark dolphin kate konsole #gwenview kmix kolourpaint spectacle
+#pacman -S --noconfirm ark dolphin konsole notepadqq #gwenview kmix kolourpaint spectacle
 #systemctl enable sddm
 
 # Apps
 pacman -S --noconfirm p7zip unzip vim youtube-dl zip
 pacman -S --noconfirm firefox #chromium 
 #pacman -S --noconfirm mpv #AUR: mpv-git
-pacman -S --noconfirm galculator transmission-gtk #notepadqq qbittorrent speedcrunch
+pacman -S --noconfirm galculator transmission-gtk #qbittorrent speedcrunch
 #pacman -S --noconfirm keepassxc remmina freerdp
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
 
