@@ -4,9 +4,8 @@ set -x  #echo on
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore
-pacman -S --noconfirm gdm gnome-control-center gnome-tweaks
+pacman -S --noconfirm gdm gnome-control-center gnome-tweaks chrome-gnome-shell
 pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus
-pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
 # KDE
