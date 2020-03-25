@@ -25,14 +25,12 @@ pacman -S --noconfirm keepassxc remmina freerdp
 #pacman -S --noconfirm compton flameshot galculator i3lock lightdm-gtk-greeter rofi sxhkd xterm
 #pacman -S --noconfirm alsa-utils papirus-icon-theme pavucontrol pulseaudio-alsa ttf-fira-sans
 #systemctl enable lightdm
- 
-# KDE misc
-#kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 
 # Unused Apps
 #alacritty arqiver-git autorandr bash-completion chrony dunst eog fff glances gsimplecal jnettop kate kitty lf-bin neovim
 #network-manager-applet nitrogen nnn notepadqq qimgv-git qt5ct qview peek rclone rsync slock textosaurus tmux     
 #udevil volumeicon xautomation xwallpaper lavalauncher
+#kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 
 # LAPTOP
 #pacman -S --noconfirm broadcom-wl ntfs-3g
