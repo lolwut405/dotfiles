@@ -3,17 +3,14 @@
 set -x  #echo on
 
 # Gnome
-pacman -S --noconfirm xorg-server gnome-shell 
-pacman -S --noconfirm gdm gnome-control-center gnome-tweaks ttf-croscore
+pacman -S --noconfirm xorg-server gnome-shell gdm gnome-control-center gnome-tweaks ttf-croscore
 pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus 
 pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
 # KDE
-#pacman -S --noconfirm xorg-server plasma-desktop
-#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm ttf-croscore  #kmix
-#kde-gtk-config kdeplasma-addons sddm-kcm user-manager
-#pacman -S --noconfirm ark dolphin kate konsole ttf-croscore  #gwenview kolourpaint notepadqq spectacle
+#pacman -S --noconfirm xorg-server plasma-desktop breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm ttf-croscore
+#pacman -S --noconfirm ark dolphin kate konsole ttf-croscore  #gwenview kmix kolourpaint notepadqq spectacle
 #systemctl enable sddm
 
 # Apps
@@ -29,6 +26,9 @@ pacman -S --noconfirm keepassxc remmina freerdp
 #pacman -S --noconfirm alsa-utils papirus-icon-theme pavucontrol pulseaudio-alsa ttf-fira-sans
 #systemctl enable lightdm
  
+# KDE misc
+#kde-gtk-config kdeplasma-addons sddm-kcm user-manager
+
 # Unused Apps
 #alacritty arqiver-git autorandr bash-completion chrony dunst eog fff glances gsimplecal jnettop kate kitty lf-bin neovim
 #network-manager-applet nitrogen nnn notepadqq qimgv-git qt5ct qview peek rclone rsync slock textosaurus tmux     
