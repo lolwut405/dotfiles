@@ -3,13 +3,15 @@
 set -x  #echo on
 
 # Gnome
-pacman -S --noconfirm xorg-server gnome-shell gdm gnome-control-center gnome-tweaks ttf-croscore
+pacman -S --noconfirm xorg-server gnome-shell ttf-croscore
+pacman -S --noconfirm gdm gnome-control-center gnome-tweaks
 pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus
 pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
 # KDE
-#pacman -S --noconfirm xorg-server plasma-desktop breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm ttf-croscore
+#pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore
+#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
 #pacman -S --noconfirm ark dolphin kate konsole ttf-croscore  #gwenview kmix kolourpaint spectacle
 #systemctl enable sddm
 
