@@ -4,14 +4,14 @@ set -x  #echo on
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell 
-pacman -S --noconfirm gdm gnome-control-center gnome-tweaks noto-fonts
+pacman -S --noconfirm gdm gnome-control-center gnome-tweaks ttf-croscore
 pacman -S --noconfirm eog file-roller gedit gnome-terminal nautilus 
 pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop
-#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm  #kmix
+#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm ttf-croscore  #kmix
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 #pacman -S --noconfirm ark dolphin kate konsole ttf-croscore  #gwenview kolourpaint notepadqq spectacle
 #systemctl enable sddm
