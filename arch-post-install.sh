@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # run as root
 set -x  #echo on
 
