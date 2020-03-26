@@ -16,18 +16,21 @@ https://addons.mozilla.org/addon/ublock-origin/
 Ads: Adblock Warning Removal List
 Privacy: Fanboy Enhanced Tracking List
 Annoyances: Anti-Facebook + Fanboy Annoyance
-Custom: Antifonts:
-https://fanboy.co.nz/fanboy-antifonts.txt
-Firemonkey; #import backup;
-https://addons.mozilla.org/en-US/firefox/addon/firemonkey/
+#Custom: Antifonts: https://fanboy.co.nz/fanboy-antifonts.txt
+ViolentMonkey;
+https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/
 Vimium-FF; #import backup 
 https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/
 
-# Linux
-FFMPV;
+# ff2mpv
+Linux version;
 https://addons.mozilla.org/en-US/firefox/addon/ff2mpv/?src=search
+Windows version;
+https://addons.mozilla.org/en-US/firefox/addon/ff2mpv-for-windows/
 
 # Recently disabled
+Firemonkey; #import backup;
+https://addons.mozilla.org/en-US/firefox/addon/firemonkey/
 Tomato Clock;
 https://addons.mozilla.org/en-US/firefox/addon/tomato-clock/
 HTTPZ; 
@@ -77,8 +80,6 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
    user_pref("toolkit.cosmeticAnimations.enabled", false); // disable tab animations
    user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // enable userchrome
    user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar
-   user_pref("media.videocontrols.picture-in-picture.enabled", disabled);
-   user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", disabled);
 
 /* Disable What's New */
    user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
@@ -113,11 +114,12 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
 
 /* PERSONAL LINUX TWEAKS ***/
     user_pref("browser.urlbar.clickSelectsAll", true);
+    user_pref("browser.urlbar.doubleClickSelectsAll", false);
     user_pref("general.autoScroll", true);
     user_pref("gfx.webrender.all", true);
     user_pref("layers.acceleration.force-enabled", true);
-    user_pref("layers.omtp.enabled", true);
-    user_pref("layout.display-list.retain", true);
+//  user_pref("layers.omtp.enabled", true);
+//  user_pref("layout.display-list.retain", true);
     user_pref("mousewheel.min_line_scroll_amount", 20);
 
 /* DISABLED FOR NOW */
