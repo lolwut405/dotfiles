@@ -17,7 +17,7 @@ systemctl enable gdm
 # Apps
 pacman -S --noconfirm ncdu p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv galculator transmission-gtk youtube-dl #qbittorrent speedcrunch
-#pacman -S --noconfirm keepassxc remmina freerdp
+#pacman -S --noconfirm keepassxc remmina freerdp libvncserver
 #chromium meld thunderbird virtualbox virtualbox-host-modules-arch
 
 # Openbox
