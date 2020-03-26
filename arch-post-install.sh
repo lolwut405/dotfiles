@@ -5,7 +5,7 @@ set -x  #echo on
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
-pacman -S --noconfirm eog file-roller geany gnome-terminal nautilus
+pacman -S --noconfirm eog file-roller geany gnome-terminal nemo #nautilus
 systemctl enable gdm
 
 # KDE
