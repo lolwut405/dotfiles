@@ -4,7 +4,7 @@ set -x  #echo on
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
-pacman -S --noconfirm gdm gnome-control-center gnome-tweaks chrome-gnome-shell
+pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
 pacman -S --noconfirm eog file-roller geany gnome-terminal nautilus
 systemctl enable gdm
 
@@ -17,8 +17,10 @@ systemctl enable gdm
 # Apps
 pacman -S --noconfirm ncdu p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv galculator transmission-gtk youtube-dl #qbittorrent speedcrunch
-#pacman -S --noconfirm keepassxc remmina freerdp libvncserver
-#chromium meld thunderbird virtualbox virtualbox-host-modules-arch
+
+# Bloat (full install)
+#pacman -S --noconfirm keepassxc meld remmina freerdp libvncserver
+#pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
@@ -45,6 +47,9 @@ rm -rf baph
 # AUR Apps
 su - blah -c "baph -inN ytop-bin zramswap"  #vimiv-qt gscreenshot
 systemctl enable zramswap
+
+# AUR Gnome Control Center without cheese...
+su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Done
 rm fjkRv
