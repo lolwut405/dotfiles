@@ -20,7 +20,7 @@ mount -t sysfs sys /mnt/sys
 mount -o rbind /dev /mnt/dev
 
 # Config
-echo blah > /mnt/etc/hostname
+echo vm > /mnt/etc/hostname  #desktop/laptop
 chroot /mnt hwclock --systohc --utc
 chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 export LANG=en_US.UTF-8
