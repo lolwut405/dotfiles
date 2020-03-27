@@ -48,15 +48,15 @@ chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
 echo -e 'vm.swappiness = 10\nvm.vfs_cache_pressure = 50' > /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
-chroot /mnt pacman -Sy --noconfirm dracut
+pacman -Sy --noconfirm dracut
 cat <<EOF >> /mnt/etc/dracut.conf.d/myflags.conf
 hostonly="yes"
 omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live-ntfs multipath stratis cifs fcoe fcoe-uefi iscsi nbd ssh-client biosdevname btrfs"
 stdloglvl="3"
 show_modules="yes"
 EOF
-chroot /mnt dracut /mnt/boot/initramfs-linux.img
-chroot /mnt dracut -N /mnt/boot/initramfs-linux-fallback.img
+dracut --force /mnt/boot/initramfs-linux.img
+dracut --force -N /mnt/boot/initramfs-linux-fallback.img
 chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 
 # Account
