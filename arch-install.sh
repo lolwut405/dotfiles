@@ -31,7 +31,7 @@ chroot /mnt locale-gen
 # Dracut
 pacman -Sy dracut
 echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
-dracut --force /mnt/boot/initramfs-linux.img
+dracut /mnt/boot/initramfs-linux.img
 dracut -N /mnt/boot/initramfs-linux-fallback.img
 
 # Grub (dual-boot: os-prober ntfs-3g)
