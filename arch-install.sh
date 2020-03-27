@@ -11,7 +11,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker earlyoom
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker earlyoom dracut
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
@@ -47,6 +47,7 @@ chroot /mnt systemctl mask systemd-homed systemd-userdbd
 chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
 echo -e 'vm.swappiness = 10\nvm.vfs_cache_pressure = 50' > /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
+echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
