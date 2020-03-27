@@ -7,6 +7,7 @@ pacman -Sy --noconfirm dracut
 echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
 dracut /boot/initramfs-linux.img
 dracut -N /boot/initramfs-linux-fallback.img
+pacman -Rcs --noconfirm mkinitcpio
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
