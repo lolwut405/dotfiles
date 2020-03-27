@@ -59,8 +59,8 @@ omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live
 stdloglvl="3"
 show_modules="yes"
 EOF
-dracut /boot/initramfs-linux.img
-dracut -N /boot/initramfs-linux-fallback.img
+dracut --force /boot/initramfs-linux.img
+dracut --force -N /boot/initramfs-linux-fallback.img
 pacman -Rcs --noconfirm mkinitcpio
 su - blah -c "baph -inN dracut-hook"
 
