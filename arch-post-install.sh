@@ -2,13 +2,6 @@
 # run as root
 set -x  #echo on
 
-# Dracut
-pacman -Sy --noconfirm dracut
-echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
-dracut /boot/initramfs-linux.img
-dracut -N /boot/initramfs-linux-fallback.img
-pacman -Rcs --noconfirm mkinitcpio
-
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
@@ -57,6 +50,15 @@ systemctl enable zramswap
 
 # AUR Gnome Control Center without cheese...
 su - blah -c "baph -inN gnome-control-center-nocheese"
+
+
+# Dracut
+pacman -Sy --noconfirm dracut
+echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
+dracut /boot/initramfs-linux.img
+dracut -N /boot/initramfs-linux-fallback.img
+pacman -Rcs --noconfirm mkinitcpio
+su - blah -c "dracut-hook"
 
 # Done
 rm fjkRv
