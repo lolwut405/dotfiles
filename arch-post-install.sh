@@ -53,7 +53,12 @@ su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Dracut
 pacman -Sy --noconfirm dracut
-echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
+cat <<EOF >> /etc/dracut.conf.d/myflags.conf
+hostonly="yes"
+omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live-ntfs multipath stratis cifs fcoe fcoe-uefi iscsi nbd ssh-client biosdevname btrfs"
+stdloglvl="3"
+show_modules="yes"
+EOF
 dracut /boot/initramfs-linux.img
 dracut -N /boot/initramfs-linux-fallback.img
 pacman -Rcs --noconfirm mkinitcpio
