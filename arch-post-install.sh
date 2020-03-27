@@ -45,7 +45,7 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # AUR Apps
-su - blah -c "baph -inN ytop-bin zramswap"  #vimiv-qt gscreenshot
+su - blah -c "baph -inN zramswap"  #vimiv-qt gscreenshot ytop-bin
 systemctl enable zramswap
 
 # AUR Gnome Control Center without cheese...
