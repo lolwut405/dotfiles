@@ -2,6 +2,12 @@
 # run as root
 set -x  #echo on
 
+# Dracut
+pacman -Sy --noconfirm dracut
+echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
+dracut /boot/initramfs-linux.img
+dracut -N /boot/initramfs-linux-fallback.img
+
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
