@@ -11,7 +11,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker earlyoom dracut
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi wget dhclient networkmanager chrony dbus-broker earlyoom
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
@@ -27,12 +27,6 @@ export LANG=en_US.UTF-8
 echo LANG=$LANG > /mnt/etc/locale.conf
 echo $LANG UTF-8 > /mnt/etc/locale.gen
 chroot /mnt locale-gen
-
-# Dracut
-pacman -Sy --noconfirm dracut
-echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
-dracut /mnt/boot/initramfs-linux.img
-dracut -N /mnt/boot/initramfs-linux-fallback.img
 
 # Grub (dual-boot: os-prober ntfs-3g)
 chroot /mnt grub-install /dev/sda
