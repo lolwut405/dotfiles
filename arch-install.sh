@@ -28,6 +28,12 @@ echo LANG=$LANG > /mnt/etc/locale.conf
 echo $LANG UTF-8 > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 
+# Dracut
+pacman -Sy dracut
+echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
+dracut --force /mnt/boot/initramfs-linux.img
+dracut -N /mnt/boot/initramfs-linux-fallback.img
+
 # Grub (dual-boot: os-prober ntfs-3g)
 chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
@@ -47,7 +53,6 @@ chroot /mnt systemctl mask systemd-homed systemd-userdbd
 chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
 echo -e 'vm.swappiness = 10\nvm.vfs_cache_pressure = 50' > /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
-echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
