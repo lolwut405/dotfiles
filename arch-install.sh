@@ -29,7 +29,7 @@ echo $LANG UTF-8 > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 
 # Dracut
-pacman -Sy dracut
+pacman -Sy --noconfirm dracut
 echo 'hostonly="yes"' > /mnt/etc/dracut.conf.d/myflags.conf
 dracut /mnt/boot/initramfs-linux.img
 dracut -N /mnt/boot/initramfs-linux-fallback.img
