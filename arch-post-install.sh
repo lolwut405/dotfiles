@@ -17,7 +17,7 @@ systemctl enable gdm
 # Apps
 pacman -S --noconfirm ncdu p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch
+pacman -S --noconfirm glances notepadqq qbittorrent speedcrunch
 
 # Bloat (full install)
 #pacman -S --noconfirm keepassxc meld remmina freerdp libvncserver
@@ -46,7 +46,7 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # AUR Apps
-su - blah -c "baph -inN zramswap"  #vimiv-qt gscreenshot ytop-bin
+su - blah -c "baph -inN zramswap"  #vimiv-qt gscreenshot
 systemctl enable zramswap
 
 # AUR Gnome Control Center without cheese...
