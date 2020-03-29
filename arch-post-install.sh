@@ -5,7 +5,7 @@ set -x  #echo on
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
-pacman -S --noconfirm eog file-roller geany gnome-terminal nemo #nautilus
+pacman -S --noconfirm eog file-roller gnome-terminal nemo #nautilus
 systemctl enable gdm
 
 # KDE
@@ -16,7 +16,8 @@ systemctl enable gdm
 
 # Apps
 pacman -S --noconfirm ncdu p7zip unzip vim zip
-pacman -S --noconfirm firefox mpv galculator transmission-gtk youtube-dl #qbittorrent speedcrunch
+pacman -S --noconfirm firefox mpv youtube-dl
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch
 
 # Bloat (full install)
 #pacman -S --noconfirm keepassxc meld remmina freerdp libvncserver
@@ -31,7 +32,7 @@ pacman -S --noconfirm firefox mpv galculator transmission-gtk youtube-dl #qbitto
 
 # Unused Apps
 #alacritty arqiver-git autorandr bash-completion chrony dunst eog fff glances gsimplecal jnettop kate kitty lf-bin neovim
-#network-manager-applet nitrogen nnn notepadqq qimgv-git qt5ct qview peek rclone rsync slock textosaurus tmux     
+#network-manager-applet nitrogen nnn qimgv-git qt5ct qview peek rclone rsync slock textosaurus tmux     
 #udevil volumeicon xautomation xwallpaper lavalauncher
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 
