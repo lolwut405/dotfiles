@@ -51,7 +51,7 @@ pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv  #paint
 #alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop kate kitty lf-bin neovim network-manager-applet 
 #nitrogen nnn qimgv-git qview peek rclone rsync slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
-broadcom-wl ntfs-3g
+#broadcom-wl ntfs-3g
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
