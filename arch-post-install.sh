@@ -4,7 +4,7 @@ set -x  #echo on
 # System tweaks
 systemctl mask systemd-homed systemd-userdbd
 systemctl mask lvm2-lvmetad.{service,socket}
-echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
+echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /etc/udev/rules.d/60-ioschedulers.rules
 
 # Dbus broker and Earlyoom
 pacman -S  --noconfirm dbus-broker earlyoom
