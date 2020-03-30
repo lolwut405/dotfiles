@@ -1,6 +1,23 @@
 #!/bin/sh
-# run as root
 set -x  #echo on
+
+# System tweaks
+systemctl mask systemd-homed systemd-userdbd
+systemctl mask lvm2-lvmetad.{service,socket}
+echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
+
+# Dbus broker and Earlyoom
+pacman -S  --noconfirm dbus-broker earlyoom
+systemctl enable dbus-broker earlyoom --now
+systemctl --global enable dbus-broker --now
+
+# Zram
+pacman -S  --noconfirm systemd-swap
+echo 'vm.swappiness = 5' > /etc/sysctl.d/99-sysctl.conf
+echo 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.d/99-sysctl.conf
+echo 'zswap_enabled=0' > /etc/systemd/swap.conf.d/10-swap.conf
+echo 'zram_enabled=1' >> /etc/systemd/swap.conf.d/10-swap.conf
+echo 'zram_size=$(( ${RAM_SIZE} / 8 ))' >> /etc/systemd/swap.conf.d/10-swap.conf
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
@@ -14,40 +31,33 @@ systemctl enable gdm
 #pacman -S --noconfirm ark dolphin konsole notepadqq #gwenview kmix kolourpaint spectacle
 #systemctl enable sddm
 
-# Apps
-pacman -S --noconfirm ncdu p7zip unzip vim zip
+# Typical Apps
+pacman -S --noconfirm p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm glances notepadqq qbittorrent speedcrunch
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv  #paint
 
-# Bloat (full install)
-#pacman -S --noconfirm keepassxc meld remmina freerdp libvncserver
+# Full App
+#pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
 #pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
 #pacman -S --noconfirm lxappearance-gtk3 lximage-qt lxrandr-gtk3 obconf-qt pcmanfm-qt xarchiver mate-panel #tint2
 #pacman -S --noconfirm compton flameshot galculator i3lock lightdm-gtk-greeter rofi sxhkd xterm
-#pacman -S --noconfirm alsa-utils papirus-icon-theme pavucontrol pulseaudio-alsa ttf-fira-sans
+#pacman -S --noconfirm alsa-utils papirus-icon-theme pavucontrol pulseaudio-alsa 
 #systemctl enable lightdm
 
 # Unused Apps
-#alacritty arqiver-git autorandr bash-completion chrony dunst eog fff glances gsimplecal jnettop kate kitty lf-bin neovim
-#network-manager-applet nitrogen nnn qimgv-git qt5ct qview peek rclone rsync slock textosaurus tmux     
-#udevil volumeicon xautomation xwallpaper lavalauncher
+#alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop kate kitty lf-bin neovim network-manager-applet 
+#nitrogen nnn qimgv-git qview peek rclone rsync slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
-
-# LAPTOP
-#pacman -S --noconfirm broadcom-wl ntfs-3g
+broadcom-wl ntfs-3g
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
 cp baph/baph /usr/local/bin
 chmod +x /usr/local/bin/baph
 rm -rf baph
-
-# AUR Apps
-su - blah -c "baph -inN zramswap"  #vimiv-qt gscreenshot
-systemctl enable zramswap
 
 # AUR Gnome Control Center without cheese...
 su - blah -c "baph -inN gnome-control-center-nocheese"
