@@ -1,14 +1,8 @@
 # Disable stuff - https://gist.github.com/shizonic/48c540019198148bee61a3862ce453e4 + https://eklitzke.org/lobotomizing-gnome
-systemctl --user mask accounts-daemon at-spi-dbus-bus gsd-{color,datetime,print-notifications,sharing,smartcard,wacom,wwan,rfkill} --now
+systemctl --user mask at-spi-dbus-bus gsd-{ally-settings,color,datetime,housekeeping,print-notifications,rfkill,sharing,smartcard,usb-protection,wacom,wwan} --now 
 sudo systemctl mask colord geoclue --now
 sudo chmod -x /usr/bin/gjs  #disable notifications
-
-# Tracker disable
-tracker daemon -k
-systemctl --user mask tracker-{extract,miner-fs,miner-rss,store} --now
-mkdir ~/.config/autostart
-echo 'Hidden=true' | tee ~/.config/autostart/tracker-{extract,miner-fs,miner-rss,store}.desktop
-rm -rf ~/.cache/tracker ~/.local/share/tracker
+Login screen > use Xorg instead of wayland
 
 Settings
 Privacy: disable camera, microphone
@@ -17,41 +11,32 @@ Devices > Keyboard shortcuts:
 Home folder (win+e)
 Web browser (win+f)
 Hide all normal windows (win+d)
-#Switch Windows (alt+tab)
+Switch Windows (alt+tab)
 Copy screenshot area to clipboard (print)
 Volume down (alt+z)
 Volume up (alt+x)
-Hide window (win+down)
 Close window (via terminal): gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4','<Alt>Q']"
-Add custom kb shortcut at bottom:  gnome-terminal (win+t), flameshot gui (printscreen)
+Add custom kb shortcut at bottom:  gnome-terminal (win+t) and again (ctrl+alt+t)
 Users > create wanda user + contact pictures
 Date/time > Time Format: 12hour
 
 Tweaks
-#General: Uncheck: animations
-Fonts:
-#Interface text: Noto Sans Regular 10
-#Document text:  Noto Sans Regular 11
-Monospace Text: Cousine Regular 10 
-#Window Titles:  Noto Sans Semibold 10
-Antialiasing:   Subpixel
-Keyboard & Mouse: Addition layout: caps an additional esc, Mouse Acceleration: adaptive (or flat)
+Keyboard & Mouse: Addition layout: caps an additional esc
 Top Bar: weekday
 Window Titlebar: maximize, minimize
 Windows: Uncheck: Edge tiling. Check: resize secondary-click. window action: Alt
+nautilus: details view, sort folders before files
+#Terminal: theme variant: dark
 
 Extensions
-Simple Task Bar
-https://extensions.gnome.org/extension/2672/simple-task-bar/
+Impatience
+https://extensions.gnome.org/extension/277/impatience/
 Quick close in overview
 https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
-#Dash to Dock: disable animate show apps, trash can/mounts, scroll: cycle, shrink the dash, use built-in theme
-https://extensions.gnome.org/extension/307/dash-to-dock/
 #Dash to Panel: Left, clock bottom sys indic, margin (4) not all monitors, running indic (left), uncheck: animate show apps, switching app/new apps
 https://extensions.gnome.org/extension/1160/dash-to-panel/
-
-nautilus: sort folders before files
-Terminal: color change
+#Dash to Dock: disable autohide, animate show apps, trash can/mounts, scroll: switch workspace, shrink the dash, use built-in theme
+https://extensions.gnome.org/extension/307/dash-to-dock/
 
 # FF2MPV
 git clone https://github.com/woodruffw/ff2mpv; cd ff2mpv
@@ -64,7 +49,30 @@ mkdir ~/.config/mpv
 echo 'keep-open=yes' >> ~/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 
-# Fedora
+# Disable mouse acceleration
+cat <<EOF >> /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+Section "InputClass"
+	Identifier "My Mouse"
+	Driver "libinput"
+	MatchIsPointer "yes"
+	Option "AccelProfile" "flat"
+	Option "AccelSpeed" "0"
+EndSection
+EOF
+
+# VNC Server
+pacman -S x11vnc
+x11vnc -storepasswd PASSWORD ~/.vnc/passwd
+/usr/bin/x11vnc -rfbauth /home/blah/.vnc/passwd -forever -shared -bg -display :0
+
+# Tracker disable (only if nautilus is installed)
+#tracker daemon -k
+#systemctl --user mask tracker-{extract,miner-fs,miner-rss,store} --now
+#mkdir ~/.config/autostart
+#echo 'Hidden=true' | tee ~/.config/autostart/tracker-{extract,miner-fs,miner-rss,store}.desktop
+#rm -rf ~/.cache/tracker ~/.local/share/tracker
+
+# Fedora only
 systemctl --user mask evolution-addressbook-factory evolution-calendar-factory evolution-source-registry
 cp /etc/xdg/autostart/org.gnome.Evolution-alarm-notify.desktop ./  #Fedora only
 sudo systemctl mask switcheroo-control --now
