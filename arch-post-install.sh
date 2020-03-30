@@ -17,7 +17,7 @@ echo 'vm.swappiness = 5' > /etc/sysctl.d/99-sysctl.conf
 echo 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.d/99-sysctl.conf
 echo 'zswap_enabled=0' > /etc/systemd/swap.conf.d/10-swap.conf
 echo 'zram_enabled=1' >> /etc/systemd/swap.conf.d/10-swap.conf
-echo 'zram_size=$(( ${RAM_SIZE} / 8 ))' >> /etc/systemd/swap.conf.d/10-swap.conf
+echo 'zram_size=2G' >> /etc/systemd/swap.conf.d/10-swap.conf
 
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
@@ -34,7 +34,7 @@ systemctl enable gdm
 # Typical Apps
 pacman -S --noconfirm p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv  #paint
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
 
 # Full App
 #pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
@@ -64,16 +64,12 @@ su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Dracut
 pacman -Sy --noconfirm dracut
-cat <<EOF >> /etc/dracut.conf.d/myflags.conf
-hostonly="yes"
-omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live-ntfs multipath stratis cifs fcoe fcoe-uefi iscsi nbd ssh-client biosdevname btrfs"
-stdloglvl="3"
-show_modules="yes"
-EOF
+echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
+echo 'omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live-ntfs multipath stratis cifs fcoe fcoe-uefi iscsi nbd ssh-client biosdevname btrfs"' >> /etc/dracut.conf.d/myflags.conf
 dracut --force /boot/initramfs-linux.img
 dracut --force -N /boot/initramfs-linux-fallback.img
-pacman -Rcs --noconfirm mkinitcpio
 su - blah -c "baph -inN dracut-hook"
+pacman -Rcs --noconfirm mkinitcpio
 
 # Done
 rm fjkRv
