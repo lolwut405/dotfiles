@@ -28,15 +28,15 @@ systemctl enable gdm
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
 #pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
-#pacman -S --noconfirm ark dolphin konsole notepadqq #gwenview kmix kolourpaint spectacle
+#pacman -S --noconfirm ark dolphin konsole notepadqq vimiv #gwenview kmix kolourpaint spectacle
 #systemctl enable sddm
 
 # Typical Apps
 pacman -S --noconfirm p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch
 
-# Full App
+# Full Apps
 #pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
 #pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 
