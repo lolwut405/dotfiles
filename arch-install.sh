@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 timedatectl set-ntp true
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi vim wget xfsprogs chrony dhclient networkmanager systemd-swap
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi vim wget xfsprogs chrony dhclient networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
