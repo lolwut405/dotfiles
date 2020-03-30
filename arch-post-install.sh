@@ -37,7 +37,7 @@ pacman -S --noconfirm firefox mpv youtube-dl
 pacman -S --noconfirm notepadqq qbittorrent speedcrunch
 
 # Full Apps
-#pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
+#pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver #peek
 #pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 
 # Openbox
