@@ -9,9 +9,10 @@ mkfs.xfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Install
+timedatectl set-ntp true
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi wget xfsprogs dhclient networkmanager chrony dbus-broker earlyoom
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh vi vim wget xfsprogs chrony dhclient networkmanager systemd-swap
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Mount temp filesystems
@@ -39,14 +40,6 @@ sed -i "s/! server/server/" /mnt/etc/chrony.conf
 # Network
 chroot /mnt systemctl enable NetworkManager
 echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
-
-# System tweaks (LVM check, Swappiness, systemd, BFQ)
-chroot /mnt systemctl enable dbus-broker earlyoom
-chroot /mnt systemctl --global enable dbus-broker
-chroot /mnt systemctl mask systemd-homed systemd-userdbd
-chroot /mnt systemctl mask lvm2-lvmetad.{service,socket}
-echo -e 'vm.swappiness = 10\nvm.vfs_cache_pressure = 50' > /mnt/etc/sysctl.d/99-sysctl.conf
-echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
