@@ -1,12 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 set -x  #echo on
 
+# Disk
+lsblk
+read -p "Enter Your disk: "  disk
+
 # Partition (do lsblk first. cfdisk if need done manually)
-wipefs -a /dev/sda
-parted -s -a optimal /dev/sda 'mklabel msdos'
-parted -s -a optimal /dev/sda 'mkpart primary xfs 1Mib 100% set 1 boot on'
-mkfs.xfs /dev/sda1 -f
-mount /dev/sda1 /mnt
+wipefs -a /dev/$disk
+parted -s -a optimal /dev/$disk 'mklabel msdos'
+parted -s -a optimal /dev/$disk 'mkpart primary xfs 1Mib 100% set 1 boot on'
+mkfs.xfs /dev/$disk1 -f
+mount /dev/$disk1 /mnt
 
 # Install
 timedatectl set-ntp true
@@ -30,7 +34,7 @@ echo $LANG UTF-8 > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 
 # Grub (dual-boot: os-prober ntfs-3g)
-chroot /mnt grub-install /dev/sda
+chroot /mnt grub-install /dev/$disk
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # NTP
