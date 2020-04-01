@@ -22,7 +22,7 @@ echo 'zram_size=2G' >> /etc/systemd/swap.conf.d/10-swap.conf
 # Gnome
 pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
 pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
-pacman -S --noconfirm eog file-roller gnome-terminal nemo #nautilus
+pacman -S --noconfirm file-roller gthumb gnome-terminal nemo #eog nautilus
 systemctl enable gdm
 
 # KDE
