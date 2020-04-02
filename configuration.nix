@@ -108,6 +108,7 @@
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
   
+  ########
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
   boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
