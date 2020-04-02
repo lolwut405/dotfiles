@@ -5,5 +5,4 @@
     $: wget https://git.io/fjkRv
     $: sh fjkRv
   
-### NixOS - [configuration.nix](configuration.nix)
-    #: curl -LO https://git.io/JvFRA
+### NixOS - [install_guide](install_nixos)/[configuration file](configuration.nix)
