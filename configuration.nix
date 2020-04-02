@@ -65,9 +65,11 @@
   # fonts.fonts = with pkgs; [
   #   dejavu_fonts
   #   noto-fonts
-  #   liberation_ttf
-  #   source-code-pro    
   # ];
+  
+  # Sound
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = true;
   
   # Services
   # services.openssh.enable = true;
@@ -77,10 +79,6 @@
   # Services for external mounting
   # services.udisks2.enable = true;
   # services.devmon.enable = true;
-    
-  # Sound
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
 
   # Disable Mouse acceleration
   # services.xserver.config = ''
@@ -104,7 +102,7 @@
   # services.xserver.libinput.enable = true;
   
   # Server
-  # networking.firewall.allowedTCPPorts = [ ];  #22 wont need opened
+  # networking.firewall.allowedTCPPorts = [ 80 443 ];  # 22 auto allowed when ssh is enabled
   # networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
