@@ -12,7 +12,7 @@
   
   networking.hostName = "vm"; # desktop/laptop
   #networking.interfaces.enp0s3.useDHCP = true; # if want to use dhcpcd instead of NM
-  networking.networkmanager.enable = true; # comment out if will use dhcpcd
+  networking.networkmanager.enable = true; # installs NM. comment out if will use dhcpcd
   time.timeZone = "America/New_York";
   
   environment.systemPackages = with pkgs; [
@@ -52,12 +52,12 @@
   ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN YOU'RE READY FOR DESKTOP INSTALLATION ###
   
   # Xorg
-  # services.xserver.enable = true; #auto-installs Xorg pkgs
+  # services.xserver.enable = true; #auto-installs Xorg suite
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "caps:escape,terminate:ctrl_alt_bksp";
   
   # KDE
-  # services.xserver.desktopManager.plasma5.enable = true; #auto-installs Plasma pkgs
+  # services.xserver.desktopManager.plasma5.enable = true; #auto-installs Plasma suite
   # services.xserver.desktopManager.xterm.enable = false;
   # services.xserver.displayManager.sddm.enable = true;
   # environment.variables = { TERM = "konsole-256color"; };
