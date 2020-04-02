@@ -98,12 +98,6 @@
   # services.printing.drivers = with pkgs; [ <BLAH> ];
 
   ########
-  # System
-  boot.kernel.sysctl = { "vm.swappiness" = 5;};
-  boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
-  security.rngd.enable = false; # vm only
-  security.sudo.wheelNeedsPassword = false;
-  
   # Laptop
   # nixpkgs.config.allowUnfree = true;
   # networking.wireless.enable = true;
@@ -115,7 +109,12 @@
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
   
+  # System
+  boot.kernel.sysctl = { "vm.swappiness" = 5;};
+  boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
+  security.rngd.enable = false; # vm only
+  security.sudo.wheelNeedsPassword = false;
+  
   # System level
   system.stateVersion = "19.09";
 }
-
