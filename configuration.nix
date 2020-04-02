@@ -6,12 +6,8 @@
     ./hardware-configuration.nix
   ];
 
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
-  
   networking.hostName = "vm"; # desktop/laptop
-  #networking.interfaces.enp0s3.useDHCP = true; # if want to use dhcpcd instead of NM
   networking.networkmanager.enable = true; # installs NM. comment out if will use dhcpcd
   time.timeZone = "America/New_York";
   
@@ -112,4 +108,7 @@
 
   # System level
   system.stateVersion = "19.09";
+  
+  # Keep disabled
+  # networking.interfaces.enp0s3.useDHCP = true; # if want to use dhcpcd instead of NM
 }
