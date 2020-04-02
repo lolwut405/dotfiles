@@ -11,9 +11,8 @@
   boot.loader.grub.device = "/dev/sda";
   
   networking.hostName = "vm"; # desktop/laptop
-  #  networking.networkmanager.enable = true;networking.useDHCP = false;
-  #networking.interfaces.enp0s3.useDHCP = true;
-  networking.networkmanager.enable = true;
+  #networking.interfaces.enp0s3.useDHCP = true; # minimal dhcpcd 
+  networking.networkmanager.enable = true; # comment out if will use dhcpcd
   time.timeZone = "America/New_York";
   
   environment.systemPackages = with pkgs; [
