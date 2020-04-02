@@ -49,7 +49,7 @@
     #plasma-pa
   ];
   
-  ### UNCOMMENT THE NEXT SECTIONS FOR  WHEN READY ###
+  ### UNCOMMENT THE NEXT SECTIONS WHEN READY FOR DESKTOP + APPS ABOVE ###
   # Xorg
   # services.xserver.enable = true; #auto-installs Xorg
   # services.xserver.layout = "us";
