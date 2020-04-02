@@ -6,8 +6,8 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
   
   networking.hostName = "vm"; # desktop/laptop
@@ -52,14 +52,15 @@
   ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN YOU'RE READY FOR DESKTOP INSTALLATION ###
   
   # Xorg
-  # services.xserver.enable = true; #auto-installs Xorg suite
+  # services.xserver.enable = true; # auto-installs the Xorg suite
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "caps:escape,terminate:ctrl_alt_bksp";
   
   # KDE
-  # services.xserver.desktopManager.plasma5.enable = true; #auto-installs Plasma suite
+  # services.xserver.desktopManager.plasma5.enable = true; # auto-installs the Plasma suite
   # services.xserver.desktopManager.xterm.enable = false;
   # services.xserver.displayManager.sddm.enable = true;
+  # services.udisks2.enable = true;  # drive mounting
   # environment.variables = { TERM = "konsole-256color"; };
 
   # Fonts
@@ -72,13 +73,8 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
   
-  # Services
+  # OpenSSH
   # services.openssh.enable = true;
-  # services.flatpak.enable = true;
-
-  # Services for external mounting
-  # services.udisks2.enable = true;
-  # services.devmon.enable = true;
 
   # Disable Mouse acceleration
   # services.xserver.config = ''
@@ -91,7 +87,7 @@
   #   EndSection
   # '';
 
-  # Enable CUPS
+  # CUPS
   # services.printing.enable = true;
   # services.printing.drivers = with pkgs; [ <BLAH> ];
 
