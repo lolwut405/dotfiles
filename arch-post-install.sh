@@ -19,17 +19,17 @@ echo 'zswap_enabled=0' > /etc/systemd/swap.conf.d/10-swap.conf
 echo 'zram_enabled=1' >> /etc/systemd/swap.conf.d/10-swap.conf
 echo 'zram_size=2G' >> /etc/systemd/swap.conf.d/10-swap.conf
 
-# Gnome
-pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
-pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
-pacman -S --noconfirm file-roller gthumb gnome-terminal nemo #eog nautilus
-systemctl enable gdm
-
 # KDE
-#pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
-#pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
-#pacman -S --noconfirm ark dolphin konsole notepadqq vimiv #gwenview kmix kolourpaint spectacle
-#systemctl enable sddm
+pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
+pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
+pacman -S --noconfirm ark dolphin konsole notepadqq vimiv #gwenview kmix kolourpaint spectacle
+systemctl enable sddm
+
+# Gnome
+#pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
+#pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
+#pacman -S --noconfirm file-roller gthumb gnome-terminal nemo #eog nautilus
+#systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm p7zip unzip vim zip
@@ -60,7 +60,7 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # AUR Gnome Control Center without cheese...
-su - blah -c "baph -inN gnome-control-center-nocheese"
+#su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Dracut
 pacman -Sy --noconfirm dracut
