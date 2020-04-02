@@ -5,3 +5,5 @@
     $: wget https://git.io/fjkRv
     $: sh fjkRv
   
+### NixOS - [configuration.nix](configuration.nix)
+    #: wget https://git.io/JvFRA
