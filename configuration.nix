@@ -17,25 +17,38 @@
   
   environment.systemPackages = with pkgs; [
     # Minimal
-    htop vim wget
-    gitMinimal p7zip unzip zip
+    htop 
+    neofetch 
+    vim
+    
+    gitMinimal
+    p7zip 
+    unzip 
+    wget 
+    zip
     #earlyoom
   
     # GUI
-    firefox mpv youtube-dl-light
-    keepassxc notepadqq qbittorrent speedcrunch vimiv
+    #firefox 
+    #mpv 
+    #youtube-dl-light
+    #keepassxc 
+    #notepadqq 
+    #qbittorrent 
+    #speedcrunch 
+    #vimiv
     #meld
 	
     # Plasma
     #ark gnome-breeze spectacle
-	#plasma-nm plasma-pa
+    #plasma-nm plasma-pa
   ];
 
   fonts.fonts = with pkgs; [
     dejavu-fonts
-	noto-fonts
-	liberation_ttf
-	source-code-pro    
+    noto-fonts
+    liberation_ttf
+    source-code-pro    
   ];
   
   # Xorg
@@ -79,7 +92,8 @@
 
   # Kernel
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
-  
+  boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
+
   # Enable CUPS
   # services.printing.enable = true;
   # services.printing.drivers = with pkgs; [ <BLAH> ];
@@ -88,15 +102,15 @@
   # networking.wireless.enable = true;
   # services.xserver.libinput.enable = true;
 
-  # Open ports in the firewall.
+  # Open ports in the firewall
   # networking.firewall.allowedTCPPorts = [ ];
   # networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether.
+  # Or disable the firewall altogether
   # networking.firewall.enable = false;
 
   # nixpkgs.config = {
   #   allowUnfree = true;
   # };
 
-  system.stateVersion = "19.09"
+  system.stateVersion = "19.09";
 }
