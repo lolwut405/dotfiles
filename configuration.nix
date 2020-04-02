@@ -60,7 +60,6 @@
   # services.xserver.desktopManager.plasma5.enable = true; # auto-installs the Plasma suite
   # services.xserver.desktopManager.xterm.enable = false;
   # services.xserver.displayManager.sddm.enable = true;
-  # services.udisks2.enable = true;  # drive mounting
   # environment.variables = { TERM = "konsole-256color"; };
 
   # Fonts
