@@ -37,13 +37,13 @@
     #notepadqq 
     #qbittorrent 
     #speedcrunch 
-    #vimiv
     #youtube-dl-light
     #earlyoom
 
     # Plasma apps
     #ark 
     #gnome-breeze 
+    #gwenview
     #spectacle
     #plasma-nm 
     #plasma-pa
