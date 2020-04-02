@@ -1,16 +1,12 @@
 #!/bin/bash
 set -x  #echo on
 
-# Disk
-lsblk
-read -p "Enter Your disk: "  disk
-
 # Partition (do lsblk first. cfdisk if need done manually)
-wipefs -a /dev/$disk
-parted -s -a optimal /dev/$disk 'mklabel msdos'
-parted -s -a optimal /dev/$disk 'mkpart primary xfs 1Mib 100% set 1 boot on'
-mkfs.xfs /dev/$disk1 -f
-mount /dev/$disk1 /mnt
+wipefs -a /dev/sda
+parted /dev/sda -- mklabel msdos
+parted /dev/sda -- mkpart primary 1Mib 100%
+mkfs.xfs /dev/sda1
+mount /dev/sda1 /mnt
 
 # Install
 timedatectl set-ntp true
