@@ -16,19 +16,19 @@
   time.timeZone = "America/New_York";
   
   environment.systemPackages = with pkgs; [
-    # Minimal
-    htop 
+    # CLI Minimal
+    htop
     neofetch 
     vim
     
-    # Less minimal
-    gitMinimal
-    p7zip 
-    unzip 
-    wget 
-    zip
+    # Desktop minimal
+    #gitMinimal
+    #p7zip 
+    #unzip 
+    #wget 
+    #zip
       
-    # GUI
+    # Desktop
     #firefox 
     #mpv 
     #youtube-dl-light
@@ -38,6 +38,7 @@
     #speedcrunch 
     #vimiv
     #meld
+    #ncdu
 	
     # Plasma
     #ark 
