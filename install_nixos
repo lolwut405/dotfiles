@@ -8,9 +8,13 @@ mount /dev/sda1 /mnt
 # Generate config
 nixos-generate-config --root /mnt
 
-# Modify config (NOTE: can pull down my customized config here instead)
+# Modify config
 vim /mnt/etc/nixos/configuration.nix 
-uncomment: boot.loader.grub.device = "/dev/sda";
+uncomment the line:
+boot.loader.grub.device = "/dev/sda";
+
+### ADVANCED use my config instead
+### curl -L https://git.io/JvFRA -o /mnt/etc/nixos/configuration.nix
 
 # Install and reboot
 nixos-install
