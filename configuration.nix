@@ -11,8 +11,9 @@
   boot.loader.grub.device = "/dev/sda";
   
   networking.hostName = "vm"; # desktop/laptop
-  networking.useDHCP = false;
-  networking.interfaces.enp0s3.useDHCP = true;
+  #  networking.networkmanager.enable = true;networking.useDHCP = false;
+  #networking.interfaces.enp0s3.useDHCP = true;
+  networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
   
   environment.systemPackages = with pkgs; [
@@ -53,7 +54,7 @@
   # Xorg
   # services.xserver.enable = true; #auto-installs Xorg
   # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "caps:swapescape";
+  # services.xserver.xkbOptions = "caps:escape,terminate:ctrl_alt_bksp";
   
   # KDE
   # services.xserver.desktopManager.plasma5.enable = true; #auto-installs KDE
@@ -106,6 +107,15 @@
   # networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
+  
+  # Bashrc-like
+  environment.shellAliases = {
+    nbt = "sudo nixos-rebuild test";
+    nbb = "sudo nixos-rebuild boot";
+    nb  = "sudo nixos-rebuild switch";
+    ne  = "sudo emacs /etc/nixos/configuration.nix";
+    e   = "emacseditor";
+  };
   
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
