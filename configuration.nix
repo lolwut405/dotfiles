@@ -45,7 +45,7 @@
     #plasma-pa
   ];
   
-  ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN YOU'RE READY FOR DESKTOP INSTALLATION ###
+  ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN READY FOR DESKTOP INSTALLATION ###
   
   # Xorg
   # services.xserver.enable = true; # auto-installs the Xorg suite
