@@ -53,7 +53,7 @@
   # Xorg
   # services.xserver.enable = true; #auto-installs Xorg
   # services.xserver.layout = "us";
-  # services.xkbOptions = "caps:swapescape";
+  # services.xserver.xkbOptions = "caps:swapescape";
   
   # KDE
   # services.xserver.desktopManager.plasma5.enable = true; #auto-installs KDE
