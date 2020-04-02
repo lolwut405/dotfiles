@@ -45,7 +45,7 @@
   ];
 
   fonts.fonts = with pkgs; [
-    dejavu-fonts
+    dejavu_fonts
     noto-fonts
     liberation_ttf
     source-code-pro    
