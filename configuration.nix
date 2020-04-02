@@ -74,7 +74,7 @@
   
   # Services
   # services.openssh.enable = true;
-  # services.earlyoom.service = true;
+  # services.earlyoom.enable = true;
   # services.flatpak.enable = true;
 
   # Services for external mounting
