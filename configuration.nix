@@ -107,15 +107,6 @@
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
   
-  # Bashrc-like
-  environment.shellAliases = {
-    nbt = "sudo nixos-rebuild test";
-    nbb = "sudo nixos-rebuild boot";
-    nb  = "sudo nixos-rebuild switch";
-    ne  = "sudo emacs /etc/nixos/configuration.nix";
-    e   = "emacseditor";
-  };
-  
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
   boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
