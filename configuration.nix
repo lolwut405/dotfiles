@@ -68,6 +68,7 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
   
+  ### Optional ###
   # OpenSSH
   # services.openssh.enable = true;
 
