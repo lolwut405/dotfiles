@@ -6,4 +6,4 @@
     $: sh fjkRv
   
 ### NixOS - [configuration.nix](configuration.nix)
-    #: wget https://git.io/JvFRA
+    #: curl -LO https://git.io/JvFRA
