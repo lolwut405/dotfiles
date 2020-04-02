@@ -23,6 +23,7 @@
     
     # Desktop minimal
     #gitMinimal
+    #ncdu
     #p7zip 
     #unzip 
     #wget 
@@ -31,21 +32,21 @@
     # Desktop
     #firefox 
     #mpv 
-    #youtube-dl-light
     #keepassxc 
+    #meld
     #notepadqq 
     #qbittorrent 
     #speedcrunch 
     #vimiv
-    #meld
-    #ncdu
-	
-    # Plasma
+    #youtube-dl-light
+    #earlyoom
+
+    # Plasma apps
     #ark 
     #gnome-breeze 
     #spectacle
-    #plasma-nm plasma-pa
-    #earlyoom
+    #plasma-nm 
+    #plasma-pa
   ];
   
   ### UNCOMMENT THE NEXT SECTIONS FOR  WHEN READY ###
@@ -69,8 +70,8 @@
   # ];
   
   # Services
-  # services.earlyoom.service = true;
   # services.openssh.enable = true;
+  # services.earlyoom.service = true;
   # services.flatpak.enable = true;
 
   # Services for external mounting
@@ -96,23 +97,25 @@
   # services.printing.enable = true;
   # services.printing.drivers = with pkgs; [ <BLAH> ];
 
-  # Open ports in the firewall
-  # networking.firewall.allowedTCPPorts = [ ];  #22 wont need opened
-  # networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether
-  # networking.firewall.enable = false;
-
-  # Laptop
-  # nixpkgs.config.allowUnfree = true;
-  # networking.wireless.enable = true;
-  # services.xserver.libinput.enable = true;
-  
+  ########
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
   boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
   security.rngd.enable = false; # vm only
   security.sudo.wheelNeedsPassword = false;
   
+  # Laptop
+  # nixpkgs.config.allowUnfree = true;
+  # networking.wireless.enable = true;
+  # services.xserver.libinput.enable = true;
+  
+  # Server
+  # networking.firewall.allowedTCPPorts = [ ];  #22 wont need opened
+  # networking.firewall.allowedUDPPorts = [ ];
+  # Or disable the firewall altogether
+  # networking.firewall.enable = false;
+  
   # System level
   system.stateVersion = "19.09";
 }
+
