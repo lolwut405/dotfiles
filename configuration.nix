@@ -28,17 +28,17 @@
     #unzip 
     #wget 
     #zip
-      
+    #earlyoom
+
     # Desktop
     #firefox 
-    #mpv 
     #keepassxc 
     #meld
+    #mpv 
     #notepadqq 
     #qbittorrent 
     #speedcrunch 
     #youtube-dl-light
-    #earlyoom
 
     # Plasma apps
     #ark 
@@ -49,15 +49,15 @@
     #plasma-pa
   ];
   
-  ### UNCOMMENT THE NEXT SECTIONS WHEN READY FOR DESKTOP + APPS FROM ABOVE ###
+  ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN YOU'RE READY FOR DESKTOP INSTALLATION ###
   
   # Xorg
-  # services.xserver.enable = true; #auto-installs Xorg
+  # services.xserver.enable = true; #auto-installs Xorg pkgs
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "caps:escape,terminate:ctrl_alt_bksp";
   
   # KDE
-  # services.xserver.desktopManager.plasma5.enable = true; #auto-installs KDE
+  # services.xserver.desktopManager.plasma5.enable = true; #auto-installs Plasma pkgs
   # services.xserver.desktopManager.xterm.enable = false;
   # services.xserver.displayManager.sddm.enable = true;
   # environment.variables = { TERM = "konsole-256color"; };
@@ -74,7 +74,6 @@
   
   # Services
   # services.openssh.enable = true;
-  # services.earlyoom.enable = true;
   # services.flatpak.enable = true;
 
   # Services for external mounting
@@ -114,7 +113,8 @@
   boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
   security.rngd.enable = false; # vm only
   security.sudo.wheelNeedsPassword = false;
-  
+  # services.earlyoom.enable = true;
+
   # System level
   system.stateVersion = "19.09";
 }
