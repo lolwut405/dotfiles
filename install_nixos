@@ -17,6 +17,7 @@ poweroff and remove livecd
 # First boot as root
 useradd -m -G wheel blah
 passwd blah
+passwd -l root
 
 Pull down custom configuration
 curl -L https://git.io/JvFRA -o /etc/nixos/configuration.nix
