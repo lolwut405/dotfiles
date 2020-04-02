@@ -23,6 +23,10 @@ Pull down custom configuration
 curl -L https://git.io/JvFRA -o /etc/nixos/configuration.nix
 nixos-rebuild switch
 
+Add packages and tweaks
+vim /etc/nixos/configuration.nix
+nixos-rebuild switch
+
 # Guides
 # https://nixos.org/nixos/manual/
 # https://nixos.org/nixos/packages.html
