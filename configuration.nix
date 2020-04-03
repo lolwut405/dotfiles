@@ -44,9 +44,6 @@
     #spectacle
     #plasma-nm 
     #plasma-pa
-    
-    # Home RDP
-    #xrdp
   ];
   
   ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN READY FOR DESKTOP INSTALLATION ###
@@ -76,13 +73,10 @@
   # OpenSSH
   # services.openssh.enable = true;
   # services.openssh.permitRootLogin = "no";
-
-  # XRDP
-  # services.xrdp.enable = true;
   
-  # Firewall (ex: for XRDP)
-  # networking.firewall.allowedTCPPorts = [ 3389 ];  # 22 auto allowed when ssh is enabled
-  # networking.firewall.allowedUDPPorts = [ 3389 ];
+  # Firewall
+  # networking.firewall.allowedTCPPorts = [ XX ];  # 22 auto allowed when ssh is enabled
+  # networking.firewall.allowedUDPPorts = [ XX ];
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
   
