@@ -88,17 +88,20 @@
   # services.printing.drivers = with pkgs; [ <BLAH> ];
 
   ########
-  # Laptop
-  # nixpkgs.config.allowUnfree = true;
-  # networking.wireless.enable = true;
-  # services.xserver.libinput.enable = true;
-  
-  # Server
+  # Firewall
   # networking.firewall.allowedTCPPorts = [ 80 443 ];  # 22 auto allowed when ssh is enabled
   # networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether
   # networking.firewall.enable = false;
   
+  # Laptop Wifi
+  # networking.wireless.enable = true;
+  # nixpkgs.config.allowUnfree = true;
+  # boot.initrd.kernelModules = [ "wl" ];
+  # boot.kernelModules = [ "wl" ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # services.xserver.libinput.enable = true;
+
   ########
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
