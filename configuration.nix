@@ -116,7 +116,7 @@
   # services.earlyoom.enable = true;
 
   # System level
-  system.stateVersion = "19.09";
+  system.stateVersion = "20.03";
   
   # Keep disabled
   # networking.interfaces.enp0s3.useDHCP = true; # if want to use dhcpcd instead of NM
