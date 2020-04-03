@@ -89,6 +89,7 @@
   # boot.initrd.kernelModules = [ "wl" ];
   # boot.kernelModules = [ "wl" ];
   # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # services.logind.lidSwitch = "ignore";
   # services.xserver.libinput.enable = true;
 
   # Disable Mouse acceleration
