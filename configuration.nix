@@ -33,6 +33,7 @@
     #mpv 
     #notepadqq 
     #qbittorrent 
+    #remmina freerdp
     #speedcrunch 
     #youtube-dl-light
 
@@ -43,6 +44,9 @@
     #spectacle
     #plasma-nm 
     #plasma-pa
+    
+    # Home RDP
+    #xrdp
   ];
   
   ### UNCOMMENT THE NEXT SECTIONS (AND APPS FROM ABOVE) WHEN READY FOR DESKTOP INSTALLATION ###
@@ -72,6 +76,9 @@
   # OpenSSH
   # services.openssh.enable = true;
 
+  # XRDP
+  # services.xrdp.enable = true;
+  
   # Disable Mouse acceleration
   # services.xserver.config = ''
   #   Section "InputClass"
