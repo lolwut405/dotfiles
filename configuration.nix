@@ -90,7 +90,6 @@
   # services.printing.drivers = with pkgs; [ <BLAH> ];
   
   # Laptop Wifi
-  # networking.wireless.enable = true;
   # nixpkgs.config.allowUnfree = true;
   # boot.initrd.kernelModules = [ "wl" ];
   # boot.kernelModules = [ "wl" ];
@@ -120,4 +119,5 @@
   
   # Keep disabled
   # networking.interfaces.enp0s3.useDHCP = true; # if want to use dhcpcd instead of NM
+  # networking.wireless.enable = true; # not compatible with NM
 }
