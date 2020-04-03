@@ -1,3 +1,5 @@
+# 20.03 beta - minimal iso - https://releases.nixos.org/nixos/20.03/nixos-20.03beta874.b0c285807d6
+
 # Partition
 sudo su -
 parted /dev/sda -- mklabel msdos
