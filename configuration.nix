@@ -79,6 +79,24 @@
   # XRDP
   # services.xrdp.enable = true;
   
+  # Firewall (ex: for XRDP)
+  # networking.firewall.allowedTCPPorts = [ 3389 ];  # 22 auto allowed when ssh is enabled
+  # networking.firewall.allowedUDPPorts = [ 3389 ];
+  # Or disable the firewall altogether
+  # networking.firewall.enable = false;
+  
+  # CUPS
+  # services.printing.enable = true;
+  # services.printing.drivers = with pkgs; [ <BLAH> ];
+  
+  # Laptop Wifi
+  # networking.wireless.enable = true;
+  # nixpkgs.config.allowUnfree = true;
+  # boot.initrd.kernelModules = [ "wl" ];
+  # boot.kernelModules = [ "wl" ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # services.xserver.libinput.enable = true;
+
   # Disable Mouse acceleration
   # services.xserver.config = ''
   #   Section "InputClass"
@@ -89,27 +107,7 @@
   #     Option "AccelSpeed" "0"
   #   EndSection
   # '';
-
-  # CUPS
-  # services.printing.enable = true;
-  # services.printing.drivers = with pkgs; [ <BLAH> ];
-
-  ########
-  # Firewall
-  # networking.firewall.allowedTCPPorts = [ 80 443 ];  # 22 auto allowed when ssh is enabled
-  # networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether
-  # networking.firewall.enable = false;
   
-  # Laptop Wifi
-  # networking.wireless.enable = true;
-  # nixpkgs.config.allowUnfree = true;
-  # boot.initrd.kernelModules = [ "wl" ];
-  # boot.kernelModules = [ "wl" ];
-  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-  # services.xserver.libinput.enable = true;
-
-  ########
   # System
   boot.kernel.sysctl = { "vm.swappiness" = 5;};
   boot.kernel.sysctl = { "vm.vfs_cache_pressure" = 50;};
