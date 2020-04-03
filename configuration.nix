@@ -75,6 +75,7 @@
   ### Optional ###
   # OpenSSH
   # services.openssh.enable = true;
+  # services.openssh.permitRootLogin = "no";
 
   # XRDP
   # services.xrdp.enable = true;
