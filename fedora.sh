@@ -62,7 +62,7 @@ EOF
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
-# Optional config
+# Other config
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 
