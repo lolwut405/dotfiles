@@ -6,3 +6,6 @@
     $: sh fjkRv
   
 ### NixOS - [install_guide](install_nixos)/[configuration file](configuration.nix)
+
+### Fedora - [install](fedora.sh)
+    Minimal Fedora install from chroot
