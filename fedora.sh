@@ -32,7 +32,6 @@ chroot /mnt grub2-install /dev/sda
 chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
 
 # Services
-systemctl enable dhcpcd@enp0s3.service --root=/mnt
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
