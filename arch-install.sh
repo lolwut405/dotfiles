@@ -30,7 +30,7 @@ echo $LANG UTF-8 > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 
 # Grub (dual-boot: os-prober ntfs-3g)
-chroot /mnt grub-install /dev/$disk
+chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # NTP
