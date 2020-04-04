@@ -26,23 +26,6 @@ chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Systemd-firstboot
 systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=arch --setup-machine-id
 
-# Config
-#echo vm > /mnt/etc/hostname  #desktop/laptop
-#chroot /mnt hwclock --systohc --utc
-#chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-#export LANG=en_US.UTF-8
-#echo LANG=$LANG > /mnt/etc/locale.conf
-#echo $LANG UTF-8 > /mnt/etc/locale.gen
-#chroot /mnt locale-gen
-
-# NTP
-#chroot /mnt systemctl enable chronyd
-#sed -i "s/! server/server/" /mnt/etc/chrony.conf
-
-# Network
-#chroot /mnt systemctl enable NetworkManager
-#echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
-
 # Systemd-networkd
 systemctl enable systemd-networkd --root=/mnt
 cat <<EOF > /mnt/etc/systemd/network/20-wired.network
@@ -65,6 +48,7 @@ EOF
 # Other services
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
+systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 
 # Other config
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
@@ -72,3 +56,21 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
+
+#######
+# Config
+#echo vm > /mnt/etc/hostname  #desktop/laptop
+#chroot /mnt hwclock --systohc --utc
+#chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+#export LANG=en_US.UTF-8
+#echo LANG=$LANG > /mnt/etc/locale.conf
+#echo $LANG UTF-8 > /mnt/etc/locale.gen
+#chroot /mnt locale-gen
+
+# NTP
+#chroot /mnt systemctl enable chronyd
+#sed -i "s/! server/server/" /mnt/etc/chrony.conf
+
+# Network
+#chroot /mnt systemctl enable NetworkManager
+#echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
