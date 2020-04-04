@@ -61,4 +61,4 @@ echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 # User account
 setenforce 0  #disable selinux since interrupts setting pw 
 chroot /mnt useradd -m -g users -G wheel blah
-chroot /mnt passwd blah
+chroot /mnt passwd blah  #ignore dictionary check error
