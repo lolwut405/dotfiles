@@ -1,15 +1,16 @@
 #!/bin/sh
 set -x  #echo on
 
-# System tweaks
-systemctl mask systemd-homed systemd-userdbd.{service,socket}
-systemctl mask lvm2-lvmetad.{service,socket}
-echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /etc/udev/rules.d/60-ioschedulers.rules
+# Dracut
+#su - blah -c "baph -inN dracut-hook"
+#pacman -Rcs --noconfirm mkinitcpio
+
+# BFQ
 
 # Dbus broker and Earlyoom
-pacman -S  --noconfirm dbus-broker earlyoom
-systemctl enable dbus-broker earlyoom --now
-systemctl --global enable dbus-broker --now
+#pacman -S  --noconfirm dbus-broker earlyoom
+#systemctl enable dbus-broker earlyoom --now
+#systemctl --global enable dbus-broker --now
 
 # Zram
 pacman -S  --noconfirm systemd-swap
@@ -61,15 +62,6 @@ rm -rf baph
 
 # AUR Gnome Control Center without cheese...
 #su - blah -c "baph -inN gnome-control-center-nocheese"
-
-# Dracut
-pacman -Sy --noconfirm dracut
-echo 'hostonly="yes"' > /etc/dracut.conf.d/myflags.conf
-echo 'omit_dracutmodules+="bootchart dash busybox network-legacy network dmsquash-live-ntfs multipath stratis cifs fcoe fcoe-uefi iscsi nbd ssh-client biosdevname btrfs"' >> /etc/dracut.conf.d/myflags.conf
-dracut --force /boot/initramfs-linux.img
-dracut --force -N /boot/initramfs-linux-fallback.img
-su - blah -c "baph -inN dracut-hook"
-pacman -Rcs --noconfirm mkinitcpio
 
 # Done
 rm fjkRv
