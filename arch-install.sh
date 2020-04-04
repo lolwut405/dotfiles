@@ -59,10 +59,10 @@ systemctl --global enable dbus-broker --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
 # Arch switch from mkinitcpio
-#pacman -Sy --noconfirm dracut pigz
+pacman -Sy --noconfirm dracut pigz
 echo -e 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
-dracut --force /boot/initramfs-linux.img
-dracut --force -N /boot/initramfs-linux-fallback.img
+dracut --force /mnt/boot/initramfs-linux.img
+dracut --force -N /mnt/boot/initramfs-linux-fallback.img
 
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
