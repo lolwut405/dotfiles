@@ -1,39 +1,43 @@
-# Partition
+#!/bin/bash
+set -x  #echo on
+
+# Reference: https://glacion.com/2019/06/16/Fedora.html
+# Fedora workstation 32 workstation livecd - open terminal, become root
+
+# Partition (do lsblk first. cfdisk if need done manually)
+wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 1Mib 100%
 mkfs.xfs /dev/sda1
 mount /dev/sda1 /mnt
 
+# Mount temp filesystems
+mkdir /mnt/{proc,sys,dev}
+mount -t proc proc /mnt/proc
+mount -t sysfs sys /mnt/sys
+mount -o rbind /dev /mnt/dev
+
+# Dracut custom config
+mkdir -p /mnt/etc/dracut.conf.d
+echo -e 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
+
 # Install
 dnf --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs -y install \
-glibc-langpack-en kernel rootfiles systemd systemd-udev  \
+dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
 audit dnf grub2 kbd less iproute iputils passwd pigz sudo xfsprogs \
-htop neofetch vim-minimal
+htop neofetch vim-minimal 
 
 # Fstab
 wget https://github.com/glacion/genfstab/releases/download/1.0/genfstab
 chmod +x genfstab
 ./genfstab -U /mnt >> /mnt/etc/fstab
 
-# Mount temp filesystems
-mount -t proc proc /mnt/proc
-mount -t sysfs sys /mnt/sys
-mount -o rbind /dev /mnt/dev
-
-# Mandatory config
-systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=fedora --setup-machine-id
-
-# Dracut
-echo -e 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
-chroot /mnt dracut --regenerate-all -f
-
 # Grub
 chroot /mnt grub2-install /dev/sda
 chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
 
-# Services
-systemctl enable systemd-timesyncd --root=/mnt
-systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
+# Systemd-firstboot
+systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=fedora --setup-machine-id
 
 # Systemd-networkd
 systemctl enable systemd-networkd --root=/mnt
@@ -53,6 +57,10 @@ FallbackDNS=149.112.112.112
 DNSOverTLS=opportunistic
 DNSSEC=true
 EOF
+
+# Other services
+systemctl enable systemd-timesyncd --root=/mnt
+systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Optional config
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
