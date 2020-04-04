@@ -43,7 +43,7 @@ echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.
 
 # Account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
-chroot /mnt useradd -m -G wheel blah
+chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
 
 # Done
