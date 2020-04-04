@@ -11,7 +11,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh sudo vi vim wget xfsprogs #dhclient networkmanager chrony
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker dracut #dhclient networkmanager chrony
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -48,10 +48,21 @@ EOF
 # Other services
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
-systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 
 # Other config
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
+
+# Arch specific tweaks
+systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
+systemctl enable dbus-broker --root=/mnt
+systemctl --global enable dbus-broker --root=/mnt
+echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
+
+# Arch switch from mkinitcpio
+#pacman -Sy --noconfirm dracut pigz
+echo -e 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
+dracut --force /boot/initramfs-linux.img
+dracut --force -N /boot/initramfs-linux-fallback.img
 
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
