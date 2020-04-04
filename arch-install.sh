@@ -8,12 +8,6 @@ parted /dev/sda -- mkpart primary 1Mib 100%
 mkfs.xfs /dev/sda1
 mount /dev/sda1 /mnt
 
-# Mount temp filesystems
-#mkdir /mnt/{proc,sys,dev}
-#mount -t proc proc /mnt/proc
-#mount -t sysfs sys /mnt/sys
-#mount -o rbind /dev /mnt/dev
-
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
@@ -23,6 +17,9 @@ pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openss
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
+mount -t proc proc /mnt/proc
+mount -t sysfs sys /mnt/sys
+mount -o rbind /dev /mnt/dev
 chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -75,6 +72,3 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
-
-# Done
-echo "Done! Please reboot"
