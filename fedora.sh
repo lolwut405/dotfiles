@@ -25,7 +25,7 @@ echo -e 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 dnf --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs -y install \
 dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
 audit dnf grub2 kbd less iproute iputils passwd pigz sudo xfsprogs \
-htop neofetch vim-minimal 
+htop neofetch vim-minimal zram
 
 # Fstab
 wget https://github.com/glacion/genfstab/releases/download/1.0/genfstab
@@ -62,11 +62,15 @@ EOF
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
-# Other config
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
+# Swap
+echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
+echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
+
+# Fedora specifc config
 echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 
-# User account
+# User
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 setenforce 0  #disable selinux since interrupts setting pw 
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
