@@ -13,8 +13,8 @@ mount /dev/sda1 /mnt
 
 # Mount temp filesystems
 mkdir /mnt/{proc,sys,dev}
-mount -t proc proc /mnt/proc
-mount -t sysfs sys /mnt/sys
+mount -t proc /proc /mnt/proc
+mount -t sysfs /sys /mnt/sys
 mount -o rbind /dev /mnt/dev
 
 # Dracut custom config
