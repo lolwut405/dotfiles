@@ -45,8 +45,8 @@ rm -rf baph
 #su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Dracut switch from mkinitcpio
-pacman -Sy --noconfirm dracut pigz
-echo -e 'hostonly="yes" \ncompress="pigz"' >> /etc/dracut.conf.d/custom.conf
+pacman -Sy --noconfirm dracut
+echo -e 'hostonly="yes" \ncompress="lz4"' >> /etc/dracut.conf.d/custom.conf
 dracut --force /boot/initramfs-linux.img
 dracut --force -N /boot/initramfs-linux-fallback.img
 su - blah -c "baph -inN dracut-hook"
