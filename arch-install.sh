@@ -50,6 +50,7 @@ systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Swap
+systemctl enable systemd-swap --root=/mnt
 echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
 
