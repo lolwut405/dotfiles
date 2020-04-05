@@ -2,7 +2,7 @@
 set -x  #echo on
 
 # KDE
-pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
+pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu noto-fonts
 pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
 pacman -S --noconfirm ark dolphin konsole notepadqq vimiv #gwenview kmix kolourpaint spectacle
 systemctl enable sddm
