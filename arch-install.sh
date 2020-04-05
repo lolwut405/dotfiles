@@ -35,16 +35,6 @@ Name=en*
 DHCP=ipv4
 EOF
 
-# Systemd-resolved - https://www.ctrl.blog/entry/systemd-resolved.html
-systemctl enable systemd-resolved --root=/mnt
-chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-cat <<EOF >> /mnt/etc/systemd/resolved.conf
-DNS=9.9.9.9
-FallbackDNS=149.112.112.112
-DNSOverTLS=opportunistic
-DNSSEC=true
-EOF
-
 # Other services
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
