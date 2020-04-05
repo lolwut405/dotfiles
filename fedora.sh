@@ -63,8 +63,8 @@ systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Swap
-echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 systemctl enable zram-swap --root=/mnt
+echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Fedora specifc config
 echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
