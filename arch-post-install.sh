@@ -1,17 +1,6 @@
 #!/bin/sh
 set -x  #echo on
 
-# Dracut
-#su - blah -c "baph -inN dracut-hook"
-#pacman -Rcs --noconfirm mkinitcpio
-
-# BFQ
-
-# Dbus broker and Earlyoom
-#pacman -S  --noconfirm dbus-broker earlyoom
-#systemctl enable dbus-broker earlyoom --now
-#systemctl --global enable dbus-broker --now
-
 # Zram
 pacman -S  --noconfirm systemd-swap
 echo 'vm.swappiness = 5' > /etc/sysctl.d/99-sysctl.conf
@@ -63,6 +52,18 @@ rm -rf baph
 # AUR Gnome Control Center without cheese...
 #su - blah -c "baph -inN gnome-control-center-nocheese"
 
+# Dracut switch from mkinitcpio
+pacman -Sy --noconfirm dracut pigz
+echo -e 'hostonly="yes" \ncompress="pigz"' >> /etc/dracut.conf.d/custom.conf
+dracut --force /boot/initramfs-linux.img
+dracut --force -N /boot/initramfs-linux-fallback.img
+su - blah -c "baph -inN dracut-hook"
+pacman -Rcs --noconfirm mkinitcpio
+
 # Done
 rm fjkRv
 echo "Done! Reboot now"
+
+# Earlyoom
+#pacman -S  --noconfirm earlyoom
+#systemctl enable db earlyoom --now
