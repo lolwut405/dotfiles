@@ -62,9 +62,7 @@ echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", AT
 pacman -S --noconfirm systemd-swap
 echo 'vm.swappiness = 5' > /mnt/etc/sysctl.d/99-sysctl.conf
 echo 'vm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
-echo 'zswap_enabled=0' > /mnt/etc/systemd/swap.conf.d/10-swap.conf
-echo 'zram_enabled=1' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
-echo 'zram_size=2G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
+echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
 
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
