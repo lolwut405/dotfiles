@@ -55,6 +55,8 @@ echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sy
 echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
 
 # Arch specific tweaks
+echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
+chroot /mnt locale-gen
 systemctl enable dbus-broker --root=/mnt
 systemctl --global enable dbus-broker --root=/mnt
 systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
@@ -67,8 +69,6 @@ chroot /mnt passwd blah
 
 #######
 # Config
-echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
-chroot /mnt locale-gen
 #echo vm > /mnt/etc/hostname  #desktop/laptop
 #chroot /mnt hwclock --systohc --utc
 #chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
