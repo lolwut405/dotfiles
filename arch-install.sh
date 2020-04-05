@@ -11,7 +11,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker #dhclient networkmanager chrony
+pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker systemd-swap #dhclient networkmanager chrony
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -49,8 +49,9 @@ EOF
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
-# Other config
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
+# Swap
+echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
+echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
 
 # Arch specific tweaks
 systemctl enable dbus-broker --root=/mnt
@@ -58,13 +59,8 @@ systemctl --global enable dbus-broker --root=/mnt
 systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
-# Zram
-pacman -S --noconfirm systemd-swap
-echo 'vm.swappiness = 5' > /mnt/etc/sysctl.d/99-sysctl.conf
-echo 'vm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
-echo 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
-
 # User account
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
 
