@@ -58,6 +58,14 @@ systemctl --global enable dbus-broker --root=/mnt
 systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 
+# Zram
+pacman -S --noconfirm systemd-swap
+echo 'vm.swappiness = 5' > /mnt/etc/sysctl.d/99-sysctl.conf
+echo 'vm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
+echo 'zswap_enabled=0' > /mnt/etc/systemd/swap.conf.d/10-swap.conf
+echo 'zram_enabled=1' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
+echo 'zram_size=2G' >> /mnt/etc/systemd/swap.conf.d/10-swap.conf
+
 # User account
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
