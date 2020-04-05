@@ -19,7 +19,7 @@ mount -o rbind /dev /mnt/dev
 
 # Dracut custom config
 mkdir -p /mnt/etc/dracut.conf.d
-echo -e 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
+printf 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
 dnf --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs -y install \
