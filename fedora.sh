@@ -4,7 +4,7 @@ set -x  #echo on
 # Reference: https://glacion.com/2019/06/16/Fedora.html
 # Fedora workstation 32 workstation livecd - open terminal, become root
 
-# Partition (do lsblk first. cfdisk if need done manually)
+# Partioning. msdos layout. Do lsblk first. cfdisk as an alternative
 wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 1Mib 100%
