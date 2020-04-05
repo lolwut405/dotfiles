@@ -17,8 +17,8 @@ pacstrap /mnt base base-devel linux linux-firmware grub git htop neofetch openss
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
-mount -t proc proc /mnt/proc
-mount -t sysfs sys /mnt/sys
+mount -t proc /proc /mnt/proc
+mount -t sysfs /sys /mnt/sys
 mount -o rbind /dev /mnt/dev
 chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
