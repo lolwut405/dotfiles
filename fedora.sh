@@ -64,10 +64,10 @@ systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Swap
 systemctl enable zram-swap --root=/mnt
-echo 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
+echo -e 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Fedora specifc config
-echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
+echo -e  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 dnf --installroot=/mnt -y install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
