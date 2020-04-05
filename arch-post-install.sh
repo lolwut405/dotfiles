@@ -1,14 +1,6 @@
 #!/bin/sh
 set -x  #echo on
 
-# Zram
-pacman -S  --noconfirm systemd-swap
-echo 'vm.swappiness = 5' > /etc/sysctl.d/99-sysctl.conf
-echo 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.d/99-sysctl.conf
-echo 'zswap_enabled=0' > /etc/systemd/swap.conf.d/10-swap.conf
-echo 'zram_enabled=1' >> /etc/systemd/swap.conf.d/10-swap.conf
-echo 'zram_size=2G' >> /etc/systemd/swap.conf.d/10-swap.conf
-
 # KDE
 pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu
 pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
