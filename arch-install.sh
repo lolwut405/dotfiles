@@ -67,6 +67,8 @@ chroot /mnt passwd blah
 
 #######
 # Config
+echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
+chroot /mnt locale-gen
 #echo vm > /mnt/etc/hostname  #desktop/laptop
 #chroot /mnt hwclock --systohc --utc
 #chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
