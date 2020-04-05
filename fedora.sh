@@ -68,7 +68,7 @@ systemctl enable zram-swap --root=/mnt
 
 # Fedora specifc config
 echo -n  'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
-dnf --installroot=/mnt -y \
+dnf --installroot=/mnt -y install \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
