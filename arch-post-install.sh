@@ -3,8 +3,8 @@ set -x  #echo on
 
 # KDE
 pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu noto-fonts
-pacman -S --noconfirm breeze-gtk khotkeys kinfocenter kscreen plasma-pa plasma-nm sddm
-pacman -S --noconfirm ark dolphin konsole notepadqq vimiv #gwenview kmix kolourpaint spectacle
+pacman -S --noconfirm ark breeze-gtk dolphin khotkeys konsole kinfocenter kscreen plasma-pa plasma-nm sddm
+#gwenview kolourpaint spectacle
 systemctl enable sddm
 
 # Gnome
@@ -14,9 +14,9 @@ systemctl enable sddm
 #systemctl enable gdm
 
 # Typical Apps
-pacman -S --noconfirm p7zip unzip vim zip
+pacman -S --noconfirm git p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
 
 # Full Apps
 #pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver #peek
