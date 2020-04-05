@@ -12,7 +12,7 @@ apt install -y htop neofetch
 # System tweaks
 systemctl disable accounts-daemon cron networkd-dispatcher rsyslog --now
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sudo
-echo -e 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /etc/sysctl.d/99-sysctl.conf
+printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /etc/sysctl.d/99-sysctl.conf
 sed -i 's/.*motd/#&/' /etc/pam.d/login
 
 # KDE
