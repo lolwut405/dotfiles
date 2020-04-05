@@ -4,9 +4,10 @@
   
     $: wget https://git.io/fjkRv
     $: sh fjkRv
-  
-### NixOS - [install_guide](install_nixos)/[configuration file](configuration.nix)
-
+### Ubuntu - [post-install](ubuntu.sh)
+    #: wget https://git.io/JvNVl
+    #: sh JvNVl
 ### Fedora - [install](fedora.sh)
     #: wget https://git.io/JvNeQ
     #: sh JvNeQ
+### NixOS - [install_guide](install_nixos)/[configuration file](configuration.nix)
