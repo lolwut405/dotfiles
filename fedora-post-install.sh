@@ -21,3 +21,7 @@ systemctl disable avahi-daemon
 pacman -S --noconfirm git p7zip unzip vim zip
 pacman -S --noconfirm firefox mpv youtube-dl
 pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
+
+# Done
+rm JvkWH
+echo "Done! Reboot now"
