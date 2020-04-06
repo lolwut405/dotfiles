@@ -25,7 +25,7 @@ printf 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
 dnf --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs -y install \
 dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
 audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
-htop neofetch vim-minimal zram NetworkManager
+htop neofetch vim-minimal zram #NetworkManager
 
 # Fstab
 wget https://github.com/glacion/genfstab/releases/download/1.0/genfstab
@@ -40,23 +40,17 @@ chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
 systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=fedora --setup-machine-id
 
 # Systemd-networkd
-#systemctl enable systemd-networkd --root=/mnt
-#cat <<EOF > /mnt/etc/systemd/network/20-wired.network
-#[Match]
-#Name=en*
-#[Network]
-#DHCP=ipv4
-#EOF
+systemctl enable systemd-networkd --root=/mnt
+cat <<EOF > /mnt/etc/systemd/network/20-wired.network
+[Match]
+Name=en*
+[Network]
+DHCP=ipv4
+EOF
 
-# Systemd-resolved - https://www.ctrl.blog/entry/systemd-resolved.html
+# Systemd-resolved
 systemctl enable systemd-resolved --root=/mnt
 chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-cat <<EOF >> /mnt/etc/systemd/resolved.conf
-DNS=9.9.9.9
-FallbackDNS=149.112.112.112
-DNSOverTLS=opportunistic
-DNSSEC=true
-EOF
 
 # Other services
 systemctl enable systemd-timesyncd --root=/mnt
