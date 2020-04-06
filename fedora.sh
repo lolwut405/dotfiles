@@ -12,10 +12,10 @@ mkfs.xfs /dev/sda1
 mount /dev/sda1 /mnt
 
 # Mount temp filesystems
-mkdir /mnt/{proc,sys,dev}
-mount -t proc /proc /mnt/proc
-mount -t sysfs /sys /mnt/sys
-mount -o rbind /dev /mnt/dev
+#mkdir /mnt/{proc,sys,dev}
+#mount -t proc /proc /mnt/proc
+#mount -t sysfs /sys /mnt/sys
+#mount -o rbind /dev /mnt/dev
 
 # Dracut custom config
 mkdir -p /mnt/etc/dracut.conf.d
@@ -33,8 +33,10 @@ chmod +x genfstab
 ./genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
-chroot /mnt grub2-install /dev/sda
-chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
+#chroot /mnt grub2-install /dev/sda
+#chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-install --root-directory=/mnt /dev/sda
+grub2-mkconfig -o /mnt/boot/grub2/grub.cfg
 
 # Systemd-firstboot
 systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=fedora --setup-machine-id
@@ -67,7 +69,7 @@ https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fed
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # User
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
+printf "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 setenforce 0  #disable selinux since interrupts setting pw 
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
