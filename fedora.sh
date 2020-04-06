@@ -22,7 +22,7 @@ mkdir -p /mnt/etc/dracut.conf.d
 printf 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
-dnf --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs -y install \
+dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
 dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
 audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
 htop neofetch vim-minimal zram #NetworkManager
