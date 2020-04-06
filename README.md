@@ -4,9 +4,6 @@
   
     $: wget https://git.io/fjkRv
     $: sh fjkRv
-### Ubuntu - [post-install](ubuntu.sh)
-    #: wget https://git.io/JvNVl
-    #: sh JvNVl
 ### Fedora - [install](fedora.sh)
     #: wget https://git.io/JvNeQ
     #: sh JvNeQ
