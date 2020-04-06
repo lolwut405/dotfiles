@@ -11,21 +11,17 @@ parted /dev/sda -- mkpart primary 1Mib 100%
 mkfs.xfs /dev/sda1
 mount /dev/sda1 /mnt
 
-# Mount temp filesystems
-#mkdir /mnt/{proc,sys,dev}
-#mount -t proc /proc /mnt/proc
-#mount -t sysfs /sys /mnt/sys
-#mount -o rbind /dev /mnt/dev
-
 # Dracut custom config
 mkdir -p /mnt/etc/dracut.conf.d
-printf 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
+printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
-rm -f /etc/yum.repos.d/*{*cisco*,*testing*,*modular*}*
+rm -f /etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 dnf install -y --installroot=/mnt --releasever=32 --nodocs \
-@core \
-htop neofetch zram
+@core glibc-langpack-en grub2-pc htop kernel xfsprogs zram \
+--exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,sssd-*
+
+#neofetch
 
 #dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
 #dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
@@ -68,14 +64,20 @@ systemctl enable zram-swap --root=/mnt
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Fedora specifc config
-rm -f /mnt/etc/yum.repos.d/*{*cisco*,*testing*,*modular*}*
+rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 dnf install -y --installroot=/mnt \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # User
-printf "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 setenforce 0  #disable selinux since interrupts setting pw 
+printf "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
+
+# Mount temp filesystems
+#mkdir /mnt/{proc,sys,dev}
+#mount -t proc /proc /mnt/proc
+#mount -t sysfs /sys /mnt/sys
+#mount -o rbind /dev /mnt/dev
