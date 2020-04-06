@@ -27,11 +27,6 @@ dnf install -y --installroot=/mnt --releasever=32 --nodocs \
 @core glibc-langpack-en grub2-pc htop kernel wget xfsprogs zram \
 --exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,selinux-*,sssd-*
 
-#dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
-#dracut glibc-langpack-en rootfiles systemd systemd-udev  \
-#audit dnf grub2 kbd kernel less lz4 iproute iputils passwd sudo xfsprogs \
-#htop neofetch vim-minimal zram #NetworkManager
-
 # Fstab
 wget https://github.com/glacion/genfstab/releases/download/1.0/genfstab
 chmod +x genfstab
@@ -81,3 +76,9 @@ setenforce 0  #disable selinux since interrupts setting pw
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
+
+######
+#dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
+#dracut glibc-langpack-en rootfiles systemd systemd-udev  \
+#audit dnf grub2 kbd kernel less lz4 iproute iputils passwd sudo xfsprogs \
+#htop neofetch vim-minimal zram #NetworkManager
