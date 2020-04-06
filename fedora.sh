@@ -25,13 +25,11 @@ printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 rm -f /etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 dnf install -y --installroot=/mnt --releasever=32 --nodocs \
 @core glibc-langpack-en grub2-pc htop kernel xfsprogs zram \
---exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,sssd-*
-
-#neofetch
+--exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,selinux-policy-targeted,sssd-*
 
 #dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
-#dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
-#audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
+#dracut glibc-langpack-en rootfiles systemd systemd-udev  \
+#audit dnf grub2 kbd kernel less lz4 iproute iputils passwd sudo xfsprogs \
 #htop neofetch vim-minimal zram #NetworkManager
 
 # Fstab
@@ -40,10 +38,8 @@ chmod +x genfstab
 ./genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
-#chroot /mnt grub2-install /dev/sda
-#chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
-grub2-install --root-directory=/mnt /dev/sda
-grub2-mkconfig -o /mnt/boot/grub2/grub.cfg
+chroot /mnt grub2-install /dev/sda
+chroot /mnt grub2-mkconfig -o /boot/grub2/grub.cfg
 
 # Systemd-firstboot
 systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=fedora --setup-machine-id
