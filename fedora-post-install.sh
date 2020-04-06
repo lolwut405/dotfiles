@@ -18,10 +18,11 @@ systemctl set-default graphical.target
 systemctl disable avahi-daemon
 
 # Typical Apps
-pacman -S --noconfirm git p7zip unzip vim zip
-pacman -S --noconfirm firefox mpv youtube-dl
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
+dnf install -y git p7zip unzip zip
+dnf install -y firefox mpv youtube-dl
+dnf install -y notepadqq qbittorrent speedcrunch vimiv
 
 # Done
 rm JvkWH
 echo "Done! Reboot now"
+echo "NOTE: SELINUX will cause the system to reboot a 2nd time"
