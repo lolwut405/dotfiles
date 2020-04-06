@@ -22,9 +22,14 @@ mkdir -p /mnt/etc/dracut.conf.d
 printf 'hostonly="yes" \ncompress="lz4"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
-dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
-dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
-audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
+rm -f /etc/yum.repos.d/*{*cisco*,*testing*,*modular*}*
+dnf install -y --installroot=/mnt --releasever=32 --nodocs \
+@core \
+htop neofetch zram
+
+#dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
+#dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
+#audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
 htop neofetch vim-minimal zram #NetworkManager
 
 # Fstab
@@ -63,8 +68,9 @@ systemctl enable zram-swap --root=/mnt
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Fedora specifc config
+rm -f /mnt/etc/yum.repos.d/*{*cisco*,*testing*,*modular*}*
 printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
-dnf --installroot=/mnt -y install \
+dnf install -y --installroot=/mnt \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
