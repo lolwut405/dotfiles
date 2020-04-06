@@ -24,7 +24,7 @@ printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 # Install
 rm -f /etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 dnf install -y --installroot=/mnt --releasever=32 --nodocs \
-@core glibc-langpack-en grub2-pc htop kernel xfsprogs zram \
+@core glibc-langpack-en grub2-pc htop kernel wget xfsprogs zram \
 --exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,selinux-*,sssd-*
 
 #dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
