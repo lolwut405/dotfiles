@@ -78,8 +78,6 @@ https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -
 
 # User
 setenforce 0  #disable selinux since interrupts setting pw 
-printf "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
-
-
