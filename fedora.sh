@@ -11,6 +11,12 @@ parted /dev/sda -- mkpart primary 1Mib 100%
 mkfs.xfs /dev/sda1
 mount /dev/sda1 /mnt
 
+# Mount temp filesystems (for Dracut and Chroot)
+mkdir /mnt/{proc,sys,dev}
+mount -t proc /proc /mnt/proc
+mount -t sysfs /sys /mnt/sys
+mount -o rbind /dev /mnt/dev
+
 # Dracut custom config
 mkdir -p /mnt/etc/dracut.conf.d
 printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
@@ -26,7 +32,7 @@ dnf install -y --installroot=/mnt --releasever=32 --nodocs \
 #dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
 #dracut glibc-langpack-en kernel rootfiles systemd systemd-udev  \
 #audit dnf grub2 kbd less lz4 iproute iputils passwd sudo xfsprogs \
-htop neofetch vim-minimal zram #NetworkManager
+#htop neofetch vim-minimal zram #NetworkManager
 
 # Fstab
 wget https://github.com/glacion/genfstab/releases/download/1.0/genfstab
@@ -76,8 +82,4 @@ printf "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah  #ignore dictionary check error
 
-# Mount temp filesystems
-#mkdir /mnt/{proc,sys,dev}
-#mount -t proc /proc /mnt/proc
-#mount -t sysfs /sys /mnt/sys
-#mount -o rbind /dev /mnt/dev
+
