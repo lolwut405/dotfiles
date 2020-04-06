@@ -66,8 +66,8 @@ systemctl enable zram-swap --root=/mnt
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Neofetch
-wget https://raw.githubusercontent.com/lolwut405/dotfiles/master/neofetch -P /usr/bin
-chmod +x /usr/bin/neofetch
+wget https://raw.githubusercontent.com/lolwut405/dotfiles/master/neofetch -P /mnt/usr/bin
+chmod +x /mnt/usr/bin/neofetch
 
 # Fedora specifc config
 rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
