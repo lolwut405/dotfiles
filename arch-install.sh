@@ -2,6 +2,7 @@
 set -x  #echo on
 
 # Partioning. msdos layout. Do lsblk first. cfdisk as an alternative
+# dd if=/path/to/image.iso of=/dev/sdX bs=8M status=progress oflag=direct
 wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 1Mib 100%
