@@ -27,13 +27,12 @@ dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps
-flatpak install -y flathub \
-org.mozilla.firefox \               #freedesktop platform 19.08
-com.georgefb.haruna \               #no platform
-org.kde.krita \                     #no platform
-com.uploadedlobster.peek \          #no platform
-org.gnome.Tau \                     #no platform
-org.fedoraproject.MediaWriter \     #no platform
+flatpak install -y flathub org.mozilla.firefox           #freedesktop platform 19.08
+flatpak install -y flathub com.georgefb.haruna           #no platform
+flatpak install -y flathub org.kde.krita                 #no platform
+flatpak install -y flathub com.uploadedlobster.peek      #no platform
+flatpak install -y flathub org.gnome.Tau                 #no platform
+flatpak install -y flathub org.fedoraproject.MediaWriter #no platform
 #org.gnome.Boxes                    #no platform
 #org.libreoffice.LibreOffice        #no platform
 #com.notepadqq.Notepadqq            #kde platform 5.11
