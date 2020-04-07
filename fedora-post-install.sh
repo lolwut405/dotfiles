@@ -20,7 +20,7 @@ systemctl disable avahi-daemon
 # Typical Apps
 dnf install -y git p7zip unzip zip
 dnf install -y youtube-dl #firefox mpv
-dnf install -y qbittorrent speedcrunch vimiv #notepadqq
+dnf install -y qbittorrent speedcrunch qimgv #notepadqq
 
 # Flatpak
 dnf install -y flatpak
