@@ -11,9 +11,9 @@ localectl set-x11-keymap us "" "" caps:escape,terminate:ctrl_alt_bksp
 # KDE
 dnf install -y plasma-desktop
 dnf install -y breeze-gtk kde-settings-pulseaudio kinfocenter kscreen phonon-qt5-backend-gstreamer sddm sddm-breeze 
-dnf install -y ark dolphin konsole udisks2 upower
+dnf install -y ark dolphin konsole
 #ksysguard gstreamer1-plugins-good-qt plasma-user-manager pulseaudio-module-gconf qt5-qtimageformats sddm-kcm 
-#kolourpaint gwenview plasma-nm
+#kolourpaint gwenview plasma-nm upower udisks2
 systemctl set-default graphical.target
 systemctl disable avahi-daemon
 
