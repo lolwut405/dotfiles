@@ -76,7 +76,7 @@ rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 setenforce 0  #disable selinux on livecd environment since it interrupts setting pw 
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
-chroot /mnt passwd blah  #ignore dictionary check error
+chroot /mnt passwd blah
 
 ######
 #dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
