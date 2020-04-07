@@ -26,6 +26,8 @@ printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 rm -f /etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 dnf install -y --installroot=/mnt --releasever=32 --nodocs \
 @core glibc-langpack-en grub2-pc htop kernel wget xfsprogs zram \
+https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
 --exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,selinux-*,sssd-*
 
 # Fstab
@@ -66,9 +68,6 @@ wget https://raw.githubusercontent.com/lolwut405/dotfiles/master/neofetch -P /mn
 chmod +x /mnt/usr/bin/neofetch
 
 # Fedora specifc config
-dnf install -y --installroot=/mnt \
-https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 
