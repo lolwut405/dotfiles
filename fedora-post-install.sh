@@ -27,20 +27,21 @@ dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps
-flatpak install flathub \
+flatpak install -y flathub \
 org.mozilla.firefox \               #freedesktop platform 19.08
 com.georgefb.haruna \               #no platform
 org.kde.krita \                     #no platform
-com.uploadedlobster.peek            #no platform
-com.notepadqq.Notepadqq \           #kde platform 5.11
+com.uploadedlobster.peek \          #no platform
+org.gnome.Tau                       #no platform
 #org.gnome.Boxes                    #no platform
 #org.libreoffice.LibreOffice        #no platform
-#org.remmina.Remmina                #gnome platform 3.36
-#org.keepassxc.KeePassXC            #kde platform 5.13
+#com.notepadqq.Notepadqq            #kde platform 5.11
 #io.github.martinrotter.textosaurus #kde platform 5.12
+#org.keepassxc.KeePassXC            #kde platform 5.13
 #org.qbittorrent.qBittorrent        #kde platform 5.14
-#com.github.muriloventuroso.easyssh #no platform
+#org.remmina.Remmina                #gnome platform 3.36
 #org.kde.kolourpaint                #no platform
+#com.github.muriloventuroso.easyssh #no platform
 
 # Laptop
 dnf install -y broadcom-wl
