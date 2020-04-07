@@ -8,8 +8,8 @@ set -x  #echo on
 # Partioning. msdos layout. Do lsblk first. cfdisk as an alternative
 wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
-parted /dev/sda -- mkpart primary 1Mib 100% set 1 boot on
-mkfs.xfs /dev/sda1
+parted /dev/sda -- mkpart primary 1Mib 100%
+mkfs.xfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Mount temp filesystems (for Dracut and Chroot)
