@@ -46,6 +46,7 @@ flatpak install -y flathub org.fedoraproject.MediaWriter #no platform
 # Laptop
 #dnf install -y broadcom-wl
 #echo 'set-card-profile 0 output:hdmi-stereo' >> /etc/pulse/default.pa
+#https://wiki.archlinux.org/index.php/Iwd
 #dnf install -y NetworkManager NetworkManager-wifi plasma-nm
 #systemctl disable systemd-networkd
 #systemctl enable NetworkManager
