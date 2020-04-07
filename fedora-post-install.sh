@@ -28,13 +28,13 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Flatpak apps
 flatpak install -y flathub org.mozilla.firefox           #freedesktop platform 19.08
-flatpak install -y flathub com.georgefb.haruna           #no platform
-flatpak install -y flathub org.kde.krita                 #no platform
-flatpak install -y flathub com.uploadedlobster.peek      #no platform
-flatpak install -y flathub org.gnome.Tau                 #no platform
-flatpak install -y flathub org.fedoraproject.MediaWriter #no platform
+flatpak install -y flathub com.georgefb.haruna           #no platform. MPV qt frontend
+flatpak install -y flathub org.kde.krita                 #no platform. Image editor
+flatpak install -y flathub com.uploadedlobster.peek      #no platform. Screen recorder
+flatpak install -y flathub org.gnome.Tau                 #no platform. Similar to npqq/geany
+flatpak install -y flathub org.fedoraproject.MediaWriter #no platform. Similiar to Etcher
 flatpak install -y org.libreoffice.LibreOffice           #no platform
-#org.gnome.Boxes                    #no platform
+#org.gnome.Boxes                    #no platform. Virtualization
 #com.notepadqq.Notepadqq            #kde platform 5.11
 #io.github.martinrotter.textosaurus #kde platform 5.12
 #org.keepassxc.KeePassXC            #kde platform 5.13
