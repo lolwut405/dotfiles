@@ -64,11 +64,11 @@ wget https://raw.githubusercontent.com/lolwut405/dotfiles/master/neofetch -P /mn
 chmod +x /mnt/usr/bin/neofetch
 
 # Fedora specifc config
-rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
-printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
 dnf install -y --installroot=/mnt \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
+rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
 
 # User
 setenforce 0  #disable selinux on livecd environment since it interrupts setting pw 
