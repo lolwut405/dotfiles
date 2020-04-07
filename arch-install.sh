@@ -6,7 +6,7 @@ set -x  #echo on
 wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 1Mib 100%
-mkfs.xfs /dev/sda1
+mkfs.xfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Install
