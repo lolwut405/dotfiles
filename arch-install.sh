@@ -36,6 +36,10 @@ Name=en*
 DHCP=ipv4
 EOF
 
+# Systemd-resolved
+systemctl enable systemd-resolved --root=/mnt
+chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
 # Other services
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
