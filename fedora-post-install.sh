@@ -33,7 +33,7 @@ flatpak install -y flathub org.kde.krita                 #no platform. Image edi
 flatpak install -y flathub com.uploadedlobster.peek      #no platform. Screen recorder
 flatpak install -y flathub org.gnome.Tau                 #no platform. Similar to npqq/geany
 flatpak install -y flathub org.fedoraproject.MediaWriter #no platform. Similiar to Etcher
-flatpak install -y org.libreoffice.LibreOffice           #no platform
+flatpak install -y flathub org.libreoffice.LibreOffice   #no platform
 #org.gnome.Boxes                    #no platform. Virtualization
 #com.notepadqq.Notepadqq            #kde platform 5.11
 #io.github.martinrotter.textosaurus #kde platform 5.12
