@@ -45,7 +45,7 @@ rm -rf baph
 #su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # AUR - Haruna (QT MPV frontend)
-su - blah -c "baph -inN haruna-git"
+su - blah -c "baph -inN haruna-git tau-editor"
 
 # Dracut switch from mkinitcpio
 pacman -Sy --noconfirm dracut
