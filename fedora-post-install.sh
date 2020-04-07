@@ -33,12 +33,18 @@ com.georgefb.haruna \               #no platform
 org.kde.krita \                     #no platform
 com.uploadedlobster.peek            #no platform
 com.notepadqq.Notepadqq \           #kde platform 5.11
-#org.libreoffice.LibreOffice \      #no platform
-#org.remmina.Remmina \              #gnome platform 3.36
+#org.gnome.Boxes                    #no platform
+#org.libreoffice.LibreOffice        #no platform
+#org.remmina.Remmina                #gnome platform 3.36
+#org.keepassxc.KeePassXC            #kde platform 5.13
 #io.github.martinrotter.textosaurus #kde platform 5.12
-#org.qbittorrent.qBittorrent \      #kde platform 5.14
+#org.qbittorrent.qBittorrent        #kde platform 5.14
 #com.github.muriloventuroso.easyssh #no platform
-#org.kde.kolourpaint \              #no platform
+#org.kde.kolourpaint                #no platform
+
+# Laptop
+dnf install -y broadcom-wl
+#echo 'set-card-profile 0 output:hdmi-stereo' >> /etc/pulse/default.pa
 
 # Done
 rm JvkWH
