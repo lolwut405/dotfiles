@@ -16,7 +16,7 @@ systemctl enable sddm
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip vim zip
 pacman -S --noconfirm firefox youtube-dl  #mpv
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch vimiv
+pacman -S --noconfirm notepadqq qbittorrent speedcrunch
 
 # Full Apps
 #pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
@@ -45,7 +45,7 @@ rm -rf baph
 #su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # AUR - Haruna (QT MPV frontend)
-su - blah -c "baph -inN haruna-git tau-editor"
+su - blah -c "baph -inN haruna-git tau-editor qimgv"
 
 # Dracut switch from mkinitcpio
 pacman -Sy --noconfirm dracut
