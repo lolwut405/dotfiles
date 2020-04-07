@@ -32,7 +32,8 @@ org.mozilla.firefox \               #freedesktop platform 19.08
 com.georgefb.haruna \               #no platform
 org.kde.krita \                     #no platform
 com.uploadedlobster.peek \          #no platform
-org.gnome.Tau                       #no platform
+org.gnome.Tau \                     #no platform
+org.fedoraproject.MediaWriter \     #no platform
 #org.gnome.Boxes                    #no platform
 #org.libreoffice.LibreOffice        #no platform
 #com.notepadqq.Notepadqq            #kde platform 5.11
@@ -44,7 +45,7 @@ org.gnome.Tau                       #no platform
 #com.github.muriloventuroso.easyssh #no platform
 
 # Laptop
-dnf install -y broadcom-wl
+#dnf install -y broadcom-wl
 #echo 'set-card-profile 0 output:hdmi-stereo' >> /etc/pulse/default.pa
 
 # Done
