@@ -6,10 +6,9 @@ dnf install -y selinux-policy-targeted
 
 # Xorg
 dnf install -y xorg-x11-server-Xorg dejavu-s* google-croscore-* google-noto-{sans,serif}-fonts 
-#localectl set-x11-keymap us "" "" caps:escape,terminate:ctrl_alt_bksp
 
 # Gnome
-dnf install -y gnome-shell gnome-terminal nemo #nautilus alacritty termite
+dnf install -y gnome-shell gnome-terminal nautilus
 systemctl set-default graphical.target
 
 # KDE
@@ -20,6 +19,7 @@ systemctl set-default graphical.target
 #kolourpaint gwenview plasma-nm
 #systemctl set-default graphical.target
 #systemctl disable avahi-daemon
+#localectl set-x11-keymap us "" "" caps:escape,terminate:ctrl_alt_bksp
 
 # Typical Apps
 dnf install -y git p7zip unzip zip
