@@ -1,26 +1,45 @@
 #!/bin/sh
 set -x  #echo on
 
-# KDE
-pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu noto-fonts
-pacman -S --noconfirm ark breeze-gtk dolphin khotkeys konsole kinfocenter kscreen plasma-pa plasma-nm sddm
-#gwenview kolourpaint spectacle
-systemctl enable sddm
-
 # Gnome
 #pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
-#pacman -S --noconfirm gdm gnome-tweaks  #gnome-control-center chrome-gnome-shell
+#pacman -S --noconfirm gdm gnome-tweaks #gnome-control-center chrome-gnome-shell
 #pacman -S --noconfirm file-roller gthumb gnome-terminal nautilus #nemo eog
 #systemctl enable gdm
 
+# KDE
+#pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu noto-fonts
+#pacman -S --noconfirm ark breeze-gtk dolphin khotkeys konsole kinfocenter kscreen plasma-pa plasma-nm sddm
+#gwenview kolourpaint spectacle
+#systemctl enable sddm
+#localectl set-x11-keymap us "" "" caps:escape,terminate:ctrl_alt_bksp
+
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip vim zip
-pacman -S --noconfirm firefox youtube-dl  #mpv
-pacman -S --noconfirm notepadqq qbittorrent speedcrunch
+pacman -S --noconfirm youtube-dl  #firefox mpv
+pacman -S --noconfirm keepassxc qbittorrent speedcrunch
+#meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
-# Full Apps
-#pacman -S --noconfirm glances keepassxc meld ncdu remmina freerdp libvncserver
-#pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
+# Flatpak
+dnf install -y flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Flatpak apps
+flatpak install -y flathub org.mozilla.firefox           #freedesktop platform 19.08
+flatpak install -y flathub com.georgefb.haruna           #no platform. MPV qt frontend
+flatpak install -y flathub org.gnome.Tau                 #no platform. Similar to npqq/geany
+flatpak install -y flathub org.kde.krita                 #no platform. Image editor
+#com.uploadedlobster.peek             #no platform. Screen recorder
+#org.fedoraproject.MediaWriter        #no platform. Similiar to Etcher
+#org.libreoffice.LibreOffice          #no platform
+#org.gnome.Boxes                      #no platform. Virtualization
+#com.notepadqq.Notepadqq              #kde platform 5.11
+#io.github.martinrotter.textosaurus   #kde platform 5.12
+#org.keepassxc.KeePassXC              #kde platform 5.13
+#org.qbittorrent.qBittorrent          #kde platform 5.14
+#org.remmina.Remmina                  #gnome platform 3.36
+#org.kde.kolourpaint                  #no platform
+#com.github.muriloventuroso.easyssh   #no platform
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
@@ -30,7 +49,7 @@ pacman -S --noconfirm notepadqq qbittorrent speedcrunch
 #systemctl enable lightdm
 
 # Unused Apps
-#alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop kate kitty lf-bin neovim network-manager-applet 
+#alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop glances kate kitty lf-bin neovim network-manager-applet 
 #nitrogen nnn qimgv-git qview peek rclone rsync slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 #broadcom-wl ntfs-3g
@@ -42,10 +61,10 @@ chmod +x /usr/local/bin/baph
 rm -rf baph
 
 # AUR - Gnome Control Center without cheese...
-#su - blah -c "baph -inN gnome-control-center-nocheese"
+su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # AUR - Haruna (QT MPV frontend)
-su - blah -c "baph -inN haruna-git tau-editor qimgv"
+#su - blah -c "baph -inN haruna-git tau-editor qimgv"
 
 # Dracut switch from mkinitcpio
 pacman -Sy --noconfirm dracut
@@ -58,7 +77,3 @@ pacman -Rcs --noconfirm mkinitcpio
 # Done
 rm fjkRv
 echo "Done! Reboot now"
-
-# Earlyoom
-#pacman -S  --noconfirm earlyoom
-#systemctl enable db earlyoom --now
