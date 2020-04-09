@@ -21,7 +21,7 @@ pacman -S --noconfirm keepassxc qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
-dnf install -y flatpak
+pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps
