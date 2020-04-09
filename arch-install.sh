@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker systemd-swap #dhclient networkmanager chrony
+pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker earlyoom systemd-swap #dhclient networkmanager chrony
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -41,6 +41,7 @@ systemctl enable systemd-resolved --root=/mnt
 chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Other services
+systemctl enable earlyoom --root=/mnt
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
