@@ -20,7 +20,7 @@ mount -o rbind /dev /mnt/dev
 
 # Dracut custom config
 mkdir -p /mnt/etc/dracut.conf.d
-printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
+echo 'hostonly="yes"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
 rm -f /etc/yum.repos.d/*{*test*,*modular*}*
