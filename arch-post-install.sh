@@ -26,7 +26,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Flatpak apps
 flatpak install -y flathub org.mozilla.firefox           #freedesktop platform 19.08
-flatpak install -y flathub com.georgefb.haruna           #no platform. MPV qt frontend
+flatpak install -y flathub com.georgefb.haruna           #kde platform. MPV qt frontend
 flatpak install -y flathub org.gnome.Tau                 #no platform. Similar to npqq/geany
 flatpak install -y flathub org.kde.krita                 #no platform. Image editor
 #com.uploadedlobster.peek             #no platform. Screen recorder
