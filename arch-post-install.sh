@@ -60,11 +60,16 @@ cp baph/baph /usr/local/bin
 chmod +x /usr/local/bin/baph
 rm -rf baph
 
-# AUR - Gnome Control Center without cheese...
-su - blah -c "baph -inN gnome-control-center-nocheese"
+# AUR - Gnome AUR
+su - blah -c "baph -inN gnome-control-center-nocheese nautilus-typeahead"
 
 # AUR - Haruna (QT MPV frontend)
 #su - blah -c "baph -inN haruna-git tau-editor qimgv"
+
+# Laptop only
+#pacman -S broadcom-wl networkmanager 
+#systemctl disable systemd-networkd
+#systemctl enable NetworkManager
 
 # Dracut switch from mkinitcpio
 pacman -Sy --noconfirm dracut
@@ -73,6 +78,11 @@ dracut --force /boot/initramfs-linux.img
 dracut --force -N /boot/initramfs-linux-fallback.img
 su - blah -c "baph -inN dracut-hook"
 pacman -Rcs --noconfirm mkinitcpio
+
+# TODO
+echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
+#wget https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gnome-control-center
+#vnc
 
 # Done
 rm fjkRv
