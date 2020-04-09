@@ -23,9 +23,9 @@ mkdir -p /mnt/etc/dracut.conf.d
 printf 'hostonly="yes" \ncompress="pigz"' >> /mnt/etc/dracut.conf.d/custom.conf
 
 # Install
-rm -f /etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
+rm -f /etc/yum.repos.d/*{*test*,*modular*}*
 dnf install -y --installroot=/mnt --releasever=32 --nodocs \
-@core glibc-langpack-en grub2-pc htop kernel wget xfsprogs zram \
+@core earlyoom glibc-langpack-en grub2-pc htop kernel wget xfsprogs zram \
 https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
 --exclude=firewalld,geolite2-*,gnome-keyring,NetworkManager,openssh-server,plymouth,selinux-*,sssd-*
@@ -56,6 +56,7 @@ systemctl enable systemd-resolved --root=/mnt
 chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Other services
+systemctl enable earlyoom --root=/mnt
 systemctl enable systemd-timesyncd --root=/mnt
 systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
@@ -69,7 +70,7 @@ chmod +x /mnt/usr/bin/neofetch
 
 # Fedora specifc config
 printf 'install_weak_deps=False \ntsflags=nodocs' >> /mnt/etc/dnf/dnf.conf
-rm -f /mnt/etc/yum.repos.d/*{*cisco*,*test*,*modular*}*
+rm -f /mnt/etc/yum.repos.d/*{*test*,*modular*}*
 
 # User
 setenforce 0  #disable selinux on livecd environment since it interrupts setting pw 
