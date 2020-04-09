@@ -76,4 +76,4 @@ rm -f /mnt/etc/yum.repos.d/*{*test*,*modular*}*
 setenforce 0  #disable selinux on livecd environment since it interrupts setting pw 
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
-chroot /mnt passwd bla
+chroot /mnt passwd blah
