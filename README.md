@@ -7,6 +7,7 @@
 ### Fedora - [install](fedora-install.sh)/[post-install](fedora-post-install.sh)
     #: wget https://git.io/JvAO4
     #: sh JvA04
+    
     #: wget https://git.io/JvkWH
     #: sh JvkWH
 ### NixOS - [install_guide](install_nixos)/[configuration file](configuration.nix)
