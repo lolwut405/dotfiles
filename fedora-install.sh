@@ -76,10 +76,4 @@ rm -f /mnt/etc/yum.repos.d/*{*test*,*modular*}*
 setenforce 0  #disable selinux on livecd environment since it interrupts setting pw 
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
-chroot /mnt passwd blah
-
-######
-#dnf install -y --installroot=/mnt --releasever=32 --setopt=install_weak_deps=False --nodocs \
-#dracut glibc-langpack-en rootfiles systemd systemd-udev  \
-#audit dnf grub2 kbd kernel less lz4 iproute iputils passwd sudo xfsprogs \
-#htop neofetch vim-minimal zram #NetworkManager
+chroot /mnt passwd bla
