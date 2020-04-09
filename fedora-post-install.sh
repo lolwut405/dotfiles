@@ -24,7 +24,8 @@ systemctl set-default graphical.target
 # Typical Apps
 dnf install -y git p7zip unzip zip
 dnf install -y youtube-dl #firefox mpv
-dnf install -y qbittorrent speedcrunch #qimgv
+dnf install -y keepassxc qbittorrent speedcrunch #qimgv
+#meld ncdu remmina freerdp libvncserver virtualbox
 
 # Flatpak
 dnf install -y flatpak
