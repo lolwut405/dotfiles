@@ -2,10 +2,10 @@
 set -x  #echo on
 
 # Gnome
-#pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
-#pacman -S --noconfirm gdm gnome-tweaks #gnome-control-center chrome-gnome-shell
-#pacman -S --noconfirm file-roller gthumb gnome-terminal nautilus #nemo eog
-#systemctl enable gdm
+pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
+pacman -S --noconfirm gdm gnome-tweaks #gnome-control-center chrome-gnome-shell
+pacman -S --noconfirm file-roller gthumb gnome-terminal nautilus #nemo eog
+systemctl enable gdm
 
 # KDE
 #pacman -S --noconfirm xorg-server plasma-desktop ttf-croscore ttf-dejavu noto-fonts
