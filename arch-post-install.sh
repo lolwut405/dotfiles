@@ -9,8 +9,8 @@ systemctl enable sddm
 
 # Gnome
 #pacman -S --noconfirm xorg-server gnome-shell ttf-croscore ttf-dejavu
-#pacman -S --noconfirm gdm gnome-tweaks chrome-gnome-shell  #gnome-control-center
-#pacman -S --noconfirm file-roller gthumb gnome-terminal nemo #eog nautilus
+#pacman -S --noconfirm gdm gnome-tweaks  #gnome-control-center chrome-gnome-shell
+#pacman -S --noconfirm file-roller gthumb gnome-terminal nautilus #nemo eog
 #systemctl enable gdm
 
 # Typical Apps
