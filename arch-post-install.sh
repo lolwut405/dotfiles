@@ -20,33 +20,38 @@ wget https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=pack
 #systemctl enable sddm
 
 # Typical Apps
-pacman -S --noconfirm git p7zip unzip vim zip
-pacman -S --noconfirm keepassxc qbittorrent speedcrunch youtube-dl 
-#firefox mpv meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
+pacman -S --noconfirm git p7zip unzip zip youtube-dl
+#firefox keepassxc mpv qbittorrent speedcrunch
+#meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
 pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Flatpak apps
-flatpak install -y flathub org.mozilla.firefox             #freedesktop platform 19.08
-flatpak install -y flathub org.gnome.Tau                   #no platform. Similar to npqq/geany
-flatpak install -y flathub com.transmissionbt.Transmission #no platform. torrent
-flatpak install -y flathub io.github.celluloid_player.Celluloid #? platform. mpv gtk frontend
-flatpak install -y flathub org.kde.krita                   #no platform. Image editor
-#flathub com.georgefb.haruna          #kde platform. MPV qt frontend
-#com.uploadedlobster.peek             #no platform. Screen recorder
-#org.fedoraproject.MediaWriter        #no platform. Similiar to Etcher
-#org.libreoffice.LibreOffice          #no platform
-#org.gnome.Boxes                      #no platform. Virtualization
-#com.notepadqq.Notepadqq              #kde platform 5.11
-#io.github.martinrotter.textosaurus   #kde platform 5.12
-#org.keepassxc.KeePassXC              #kde platform 5.13
-#org.qbittorrent.qBittorrent          #kde platform 5.14
-#org.remmina.Remmina                  #gnome platform 3.36
-#org.kde.kolourpaint                  #no platform
-#com.github.muriloventuroso.easyssh   #no platform
-#com.obsproject.Studio                #Screen recorder
+# Flatpak apps - Typical
+flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub org.gnome.Calculator                 
+flatpak install -y flathub org.gnome.Tau
+flatpak install -y flathub org.kde.kolourpaint
+flatpak install -y flathub org.keepassxc.KeePassXC
+flatpak install -y flathub org.qbittorrent.qBittorrent
+flatpak install -y flathub org.remmina.Remmina
+flatpak install -y flathub org.fedoraproject.MediaWriter
+flatpak install -y flathub io.github.celluloid_player.Celluloid
+
+# Flatpak apps - large
+#flatpak install flathub com.visualstudio.code
+#flatpak install flathub org.libreoffice.LibreOffice
+#flatpak install flathub org.libretro.RetroArch
+#flatpak install flathub org.kde.krita
+
+# Flatpak apps - unused currently
+#flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
+#flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
+#flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
+#flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
+#flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
+#flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
