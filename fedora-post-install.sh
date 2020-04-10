@@ -1,10 +1,10 @@
 #!/bin/sh
 set -x  #echo on
 
-# SELinux enable
+# Fedora only. SELinux enable
 dnf install -y selinux-policy-targeted
 
-# Xorg
+# Xorg/Fonts
 dnf install -y xorg-x11-server-Xorg dejavu-s* google-croscore-* google-noto-{sans,serif}-fonts 
 
 # Gnome
@@ -12,20 +12,16 @@ dnf install -y gnome-shell gnome-terminal nautilus
 systemctl set-default graphical.target
 
 # KDE
-#dnf install -y plasma-desktop
-#dnf install -y breeze-gtk kde-settings-pulseaudio kinfocenter kscreen phonon-qt5-backend-gstreamer sddm sddm-breeze udisks2 upower
-#dnf install -y ark dolphin konsole 
-#ksysguard gstreamer1-plugins-good-qt plasma-user-manager pulseaudio-module-gconf qt5-qtimageformats sddm-kcm 
-#kolourpaint gwenview plasma-nm
+#dnf install -y plasma-desktop dolphin konsole sddm sddm-breeze
+#dnf install -y ark breeze-gtk kde-settings-pulseaudio kinfocenter kscreen phonon-qt5-backend-gstreamer udisks2 upower 
+#gwenview kolourpaint plasma-nm gstreamer1-plugins-good-qt plasma-user-manager pulseaudio-module-gconf sddm-kcm 
 #systemctl set-default graphical.target
 #systemctl disable avahi-daemon
-#localectl set-x11-keymap us "" "" caps:escape,terminate:ctrl_alt_bksp
 
 # Typical Apps
 dnf install -y git p7zip unzip zip
-dnf install -y youtube-dl #firefox mpv
-dnf install -y keepassxc qbittorrent speedcrunch #qimgv
-#meld ncdu remmina freerdp libvncserver virtualbox
+dnf install -y keepassxc qbittorrent speedcrunch youtube-dl
+#firefox mpv qimgv meld ncdu remmina freerdp libvncserver virtualbox
 
 # Flatpak
 dnf install -y flatpak
@@ -34,7 +30,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Flatpak apps
 ## SEE ARCH POST INSTALL ##
 
-# Laptop
+# Additional user
+#useradd -m -g users -G guest
+#passwd guest
+
+# Laptop only
 #dnf install -y broadcom-wl
 #echo 'set-card-profile 0 output:hdmi-stereo' >> /etc/pulse/default.pa
 #https://wiki.archlinux.org/index.php/Iwd
