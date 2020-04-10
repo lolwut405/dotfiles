@@ -47,9 +47,7 @@ flatpak install -y flathub org.kde.krita                 #no platform. Image edi
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
-cp baph/baph /usr/local/bin
-chmod +x /usr/local/bin/baph
-rm -rf baph
+cd baph; make install; cd ../; rm -rf baph
 
 # AUR - Gnome AUR
 su - blah -c "baph -inN gnome-control-center-nocheese nautilus-typeahead"
@@ -92,3 +90,9 @@ echo "Done! Reboot now"
 #alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop glances kate kitty lf-bin neovim network-manager-applet 
 #nitrogen nnn qimgv-git qview peek rclone rsync slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
+
+# AUR helper
+#git clone https://bitbucket.org/natemaia/baph.git
+#cp baph/baph /usr/local/bin
+#chmod +x /usr/local/bin/baph
+#rm -rf baph
