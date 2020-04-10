@@ -29,10 +29,12 @@ pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps
-flatpak install -y flathub org.mozilla.firefox           #freedesktop platform 19.08
-flatpak install -y flathub com.georgefb.haruna           #kde platform. MPV qt frontend
-flatpak install -y flathub org.gnome.Tau                 #no platform. Similar to npqq/geany
-flatpak install -y flathub org.kde.krita                 #no platform. Image editor
+flatpak install -y flathub org.mozilla.firefox             #freedesktop platform 19.08
+flatpak install -y flathub org.gnome.Tau                   #no platform. Similar to npqq/geany
+flatpak install -y flathub com.transmissionbt.Transmission #no platform. torrent
+flatpak install -y flathub io.github.celluloid_player.Celluloid #? platform. mpv gtk frontend
+flatpak install -y flathub org.kde.krita                   #no platform. Image editor
+#flathub com.georgefb.haruna          #kde platform. MPV qt frontend
 #com.uploadedlobster.peek             #no platform. Screen recorder
 #org.fedoraproject.MediaWriter        #no platform. Similiar to Etcher
 #org.libreoffice.LibreOffice          #no platform
@@ -44,6 +46,7 @@ flatpak install -y flathub org.kde.krita                 #no platform. Image edi
 #org.remmina.Remmina                  #gnome platform 3.36
 #org.kde.kolourpaint                  #no platform
 #com.github.muriloventuroso.easyssh   #no platform
+#com.obsproject.Studio                #Screen recorder
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
