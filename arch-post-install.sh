@@ -7,7 +7,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 # Gnome
 pacman -S --noconfirm gnome-shell gdm gnome-terminal nautilus
 pacman -S --noconfirm file-roller gnome-tweaks gthumb
-#gnome-control-center chrome-gnome-shell eog
+#gnome-control-center gnome-system-monitor chrome-gnome-shell xarchiver
 systemctl enable gdm
 
 # Gnome custom
@@ -25,11 +25,12 @@ pacman -S --noconfirm git p7zip unzip zip youtube-dl
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
-pacman -S --noconfirm flatpak
+pacman -S --noconfirm flatpak #gnome-software
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps - Typical
 flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub org.gnome.Calculator                 
 flatpak install -y flathub org.gnome.Tau
 flatpak install -y flathub org.kde.kolourpaint
@@ -39,13 +40,18 @@ flatpak install -y flathub org.remmina.Remmina
 flatpak install -y flathub org.fedoraproject.MediaWriter
 flatpak install -y flathub io.github.celluloid_player.Celluloid
 
+# Flatpak 3rd party
+flatpak install --from https://gitlab.gnome.org/GNOME/recipes/raw/master/flatpak/gnome-recipes.flatpakref
+
 # Flatpak apps - large
+#flatpak install flathub com.valvesoftware.Steam
 #flatpak install flathub com.visualstudio.code
 #flatpak install flathub org.libreoffice.LibreOffice
 #flatpak install flathub org.libretro.RetroArch
 #flatpak install flathub org.kde.krita
 
 # Flatpak apps - unused currently
+#flatpak install flathub org.gnome.Geary                  #gtk. email client
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
 #flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
 #flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
@@ -90,13 +96,13 @@ echo "Done! Reboot now"
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
 #pacman -S --noconfirm lxappearance-gtk3 lximage-qt lxrandr-gtk3 obconf-qt pcmanfm-qt xarchiver mate-panel #tint2
-#pacman -S --noconfirm compton flameshot galculator i3lock lightdm-gtk-greeter rofi sxhkd xterm
+#pacman -S --noconfirm compton flameshot galculator i3lock lightdm-gtk-greeter rofi sxhkd xterm #sakura
 #pacman -S --noconfirm alsa-utils papirus-icon-theme pavucontrol pulseaudio-alsa 
 #systemctl enable lightdm
 
 # Unused Apps
 #alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop glances kate kitty lf-bin neovim network-manager-applet 
-#nitrogen nnn qimgv-git qview peek rclone rsync slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
+#nitrogen nnn qimgv-git qview peek rclone rsync sakura slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 
 # AUR helper
