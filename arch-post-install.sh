@@ -5,9 +5,9 @@ set -x  #echo on
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
-pacman -S --noconfirm gnome-shell gdm nemo tilix #gnome-terminal nautilus
+pacman -S --noconfirm gnome-shell gdm nemo tilix
 pacman -S --noconfirm file-roller gnome-tweaks gthumb
-#gnome-control-center chrome-gnome-shell xarchiver
+#chrome-gnome-shell gnome-control-center gnome-terminal nautilus 
 systemctl enable gdm
 
 # KDE
