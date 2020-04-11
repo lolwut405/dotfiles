@@ -5,13 +5,10 @@ set -x  #echo on
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
-pacman -S --noconfirm gnome-shell gdm gnome-terminal nautilus
+pacman -S --noconfirm gnome-shell gdm nemo tilix #gnome-terminal nautilus
 pacman -S --noconfirm file-roller gnome-tweaks gthumb
-#gnome-control-center gnome-system-monitor chrome-gnome-shell xarchiver
+#gnome-control-center chrome-gnome-shell xarchiver
 systemctl enable gdm
-
-# Gnome custom
-wget https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/gnome-control-center -O pkgbuild
 
 # KDE
 #pacman -S --noconfirm plasma-desktop dolphin konsole sddm
@@ -30,8 +27,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Flatpak apps - Typical
 flatpak install -y flathub org.mozilla.firefox
-flatpak install -y flathub org.mozilla.Thunderbird
-flatpak install -y flathub org.gnome.Calculator                 
+flatpak install -y flathub org.gnome.Calculator   
+flatpak install -y flathub org.gnome.meld
 flatpak install -y flathub org.gnome.Tau
 flatpak install -y flathub org.kde.kolourpaint
 flatpak install -y flathub org.keepassxc.KeePassXC
@@ -53,6 +50,7 @@ flatpak install --from https://gitlab.gnome.org/GNOME/recipes/raw/master/flatpak
 # Flatpak apps - unused currently
 #flatpak install flathub org.gnome.Geary                  #gtk. email client
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
+#flatpak install flathub org.mozilla.Thunderbird.         #gtk. email
 #flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
 #flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
