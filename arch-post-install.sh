@@ -7,7 +7,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 # Gnome
 pacman -S --noconfirm gnome-shell gdm nemo tilix
 pacman -S --noconfirm file-roller gnome-tweaks gthumb
-#chrome-gnome-shell gnome-control-center gnome-terminal nautilus 
+#chrome-gnome-shell gnome-control-center gnome-terminal nautilus
 systemctl enable gdm
 
 # KDE
@@ -62,8 +62,8 @@ git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
 # AUR - Gnome AUR
-su - blah -c "baph -inN gnome-control-center-nocheese nautilus-typeahead"
-#su - blah -c "baph -inN haruna-git tau-editor qimgv"
+su - blah -c "baph -inN gnome-control-center-nocheese "
+#qtfm nautilus-typeahead haruna-git tau-editor qimgv"
 
 # Dracut switch from mkinitcpio
 pacman -Sy --noconfirm dracut
