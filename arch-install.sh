@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker earlyoom systemd-swap #dhclient networkmanager chrony
+pacstrap /mnt base base-devel linux linux-firmware grub htop neofetch openssh sudo vi vim wget xfsprogs dbus-broker earlyoom systemd-swap 
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -73,6 +73,7 @@ chroot /mnt passwd blah
 #echo $LANG UTF-8 > /mnt/etc/locale.gen
 #chroot /mnt locale-gen
 
+#pacstrap dhclient networkmanager chrony
 # NTP
 #chroot /mnt systemctl enable chronyd
 #sed -i "s/! server/server/" /mnt/etc/chrony.conf
