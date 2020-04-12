@@ -26,7 +26,7 @@ pacman -S --noconfirm flatpak #gnome-software
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps - Typical
-flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
 flatpak install -y flathub org.gnome.Calculator   
 flatpak install -y flathub org.gnome.meld
 flatpak install -y flathub org.gnome.Tau
@@ -81,10 +81,19 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 #useradd -m -g users -G guest
 #passwd guest
 
-# Laptop only
-#pacman -S broadcom-wl networkmanager
-#systemctl disable systemd-networkd
-#systemctl enable NetworkManager
+# Laptop wifi
+#pacman -S broadcom-wl iwd
+#systemctl enable iwd
+#cat <<EOF > /mnt/etc/systemd/network/25-wireless.network
+#[Match]
+#Name=wl*
+#[Network]
+#DHCP=ipv4
+#EOF
+#iwctl --passphrase passphrase station device connect SSID
+
+# Laptop audio
+#sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
 
 # Done
 rm fjkRv
