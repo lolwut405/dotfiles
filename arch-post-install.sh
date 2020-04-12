@@ -37,9 +37,6 @@ flatpak install -y flathub org.remmina.Remmina
 flatpak install -y flathub org.fedoraproject.MediaWriter
 flatpak install -y flathub io.github.celluloid_player.Celluloid
 
-# Flatpak 3rd party
-flatpak install --from https://gitlab.gnome.org/GNOME/recipes/raw/master/flatpak/gnome-recipes.flatpakref
-
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
 #flatpak install flathub com.visualstudio.code
