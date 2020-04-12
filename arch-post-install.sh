@@ -5,14 +5,14 @@ set -x  #echo on
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
-pacman -S --noconfirm gnome-shell gdm nemo tilix
-pacman -S --noconfirm file-roller gnome-tweaks gthumb
+pacman -S --noconfirm gnome-shell gdm
+pacman -S --noconfirm file-roller gnome-tweaks gthumb nemo tilix
 #chrome-gnome-shell gnome-control-center gnome-terminal nautilus
 systemctl enable gdm
 
 # KDE
-#pacman -S --noconfirm plasma-desktop dolphin konsole sddm
-#pacman -S --noconfirm ark breeze-gtk khotkeys kinfocenter kscreen plasma-pa 
+#pacman -S --noconfirm plasma-desktop sddm
+#pacman -S --noconfirm ark breeze-gtk dolphin khotkeys kinfocenter konsole kscreen plasma-pa 
 #gwenview kolourpaint plasma-nm spectacle
 #systemctl enable sddm
 
@@ -22,7 +22,7 @@ pacman -S --noconfirm git p7zip unzip zip youtube-dl
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
-pacman -S --noconfirm flatpak #gnome-software
+pacman -S --noconfirm flatpak  #gnome-software
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps - Typical
@@ -56,6 +56,7 @@ flatpak install --from https://gitlab.gnome.org/GNOME/recipes/raw/master/flatpak
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
+#flatpak install flathub com.notepadqq.Notepadqq       #qt. test editor
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
