@@ -17,7 +17,9 @@ systemctl enable gdm
 #systemctl enable sddm
 
 # Typical Apps
-pacman -S --noconfirm git p7zip unzip zip #youtube-dl
+pacman -S --noconfirm git p7zip unzip zip 
+pacman -S --noconfirm firefox
+pacman -S --noconfirm youtube-dl
 #firefox keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
@@ -55,7 +57,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
-#flatpak install -y flathub com.notepadqq.Notepadqq
+#flatpak install flathub com.notepadqq.Notepadqq
+#flatpak install flathub org.kde.okular
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
