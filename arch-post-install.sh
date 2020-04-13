@@ -6,8 +6,8 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks gthumb nemo tilix
-#chrome-gnome-shell gnome-control-center gnome-terminal nautilus
+pacman -S --noconfirm file-roller gnome-tweaks gthumb tilix
+#chrome-gnome-shell gnome-control-center gnome-terminal nautilus nemo
 systemctl enable gdm
 
 # KDE
@@ -26,16 +26,17 @@ pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps - Typical
-#flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
-#flatpak install -y flathub org.gnome.Calculator   
+####flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
+#flatpak install -y flathub org.gnome.Calculator
+#flatpak install flathub org.gnome.gedit
 #flatpak install -y flathub org.gnome.meld
+#flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kolourpaint
 #flatpak install -y flathub org.keepassxc.KeePassXC
 #flatpak install -y flathub org.qbittorrent.qBittorrent
 #flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub org.fedoraproject.MediaWriter
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
-#flatpak install -y flathub com.notepadqq.Notepadqq
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -54,6 +55,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
+#flatpak install -y flathub com.notepadqq.Notepadqq
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
