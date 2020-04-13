@@ -60,7 +60,6 @@ git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
 # AUR packages
-su - blah -c "baph -inN xfe"
 su - blah -c "baph -inN gnome-control-center-nocheese"
 
 # Dracut switch
