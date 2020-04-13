@@ -29,13 +29,13 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
 flatpak install -y flathub org.gnome.Calculator   
 flatpak install -y flathub org.gnome.meld
-flatpak install -y flathub org.gnome.Tau
 flatpak install -y flathub org.kde.kolourpaint
 flatpak install -y flathub org.keepassxc.KeePassXC
 flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub org.remmina.Remmina
 flatpak install -y flathub org.fedoraproject.MediaWriter
 flatpak install -y flathub io.github.celluloid_player.Celluloid
+flatpak install -y flathub com.notepadqq.Notepadqq
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -46,6 +46,7 @@ flatpak install -y flathub io.github.celluloid_player.Celluloid
 
 # Flatpak apps - unused currently
 #flatpak install flathub org.gnome.Geary                  #gtk. email client
+#flatpak install flathub org.gnome.Tau                    #gtk. text editor
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
 #flatpak install flathub org.mozilla.Thunderbird.         #gtk. email
 #flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
@@ -53,7 +54,6 @@ flatpak install -y flathub io.github.celluloid_player.Celluloid
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
-#flatpak install flathub com.notepadqq.Notepadqq       #qt. test editor
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
