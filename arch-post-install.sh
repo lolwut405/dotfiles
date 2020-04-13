@@ -6,8 +6,8 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks gthumb nemo tilix
-#chrome-gnome-shell gnome-control-center gnome-terminal nautilus
+pacman -S --noconfirm file-roller gnome-tweaks gthumb tilix
+#chrome-gnome-shell gnome-control-center gnome-terminal nautilus nemo
 systemctl enable gdm
 
 # KDE
@@ -17,25 +17,25 @@ systemctl enable gdm
 #systemctl enable sddm
 
 # Typical Apps
-pacman -S --noconfirm git p7zip unzip zip youtube-dl
+pacman -S --noconfirm git p7zip unzip zip #youtube-dl
 #firefox keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
-pacman -S --noconfirm flatpak  #gnome-software
+pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Flatpak apps - Typical
-flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
-flatpak install -y flathub org.gnome.Calculator   
-flatpak install -y flathub org.gnome.meld
-flatpak install -y flathub org.kde.kolourpaint
-flatpak install -y flathub org.keepassxc.KeePassXC
-flatpak install -y flathub org.qbittorrent.qBittorrent
-flatpak install -y flathub org.remmina.Remmina
-flatpak install -y flathub org.fedoraproject.MediaWriter
-flatpak install -y flathub io.github.celluloid_player.Celluloid
-flatpak install -y flathub com.notepadqq.Notepadqq
+#flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
+#flatpak install -y flathub org.gnome.Calculator   
+#flatpak install -y flathub org.gnome.meld
+#flatpak install -y flathub org.kde.kolourpaint
+#flatpak install -y flathub org.keepassxc.KeePassXC
+#flatpak install -y flathub org.qbittorrent.qBittorrent
+#flatpak install -y flathub org.remmina.Remmina
+#flatpak install -y flathub org.fedoraproject.MediaWriter
+#flatpak install -y flathub io.github.celluloid_player.Celluloid
+#flatpak install -y flathub com.notepadqq.Notepadqq
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -48,7 +48,7 @@ flatpak install -y flathub com.notepadqq.Notepadqq
 #flatpak install flathub org.gnome.Geary                  #gtk. email client
 #flatpak install flathub org.gnome.Tau                    #gtk. text editor
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
-#flatpak install flathub org.mozilla.Thunderbird.         #gtk. email
+#flatpak install flathub org.mozilla.Thunderbird          #gtk. email
 #flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
 #flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
@@ -59,24 +59,23 @@ flatpak install -y flathub com.notepadqq.Notepadqq
 git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
-# AUR - Gnome AUR
-su - blah -c "baph -inN gnome-control-center-nocheese "
-#qtfm nautilus-typeahead haruna-git tau-editor qimgv"
+# AUR packages
+su - blah -c "baph -inN qtfm"
+su - blah -c "baph -inN gnome-control-center-nocheese"
 
-# Dracut switch from mkinitcpio
+# Dracut switch
 pacman -Sy --noconfirm dracut
 echo -e 'hostonly="yes" \ncompress="lz4"' >> /etc/dracut.conf.d/custom.conf
 dracut --force /boot/initramfs-linux.img
 dracut --force -N /boot/initramfs-linux-fallback.img
 su - blah -c "baph -inN dracut-hook"
-pacman -Rcs --noconfirm mkinitcpio
 
 # Experimental
 echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
 #vnc set-up
 
 # Additional user
-#useradd -m -g users -G guest
+#useradd -m -g users -G users guest
 #passwd guest
 
 # Laptop wifi
