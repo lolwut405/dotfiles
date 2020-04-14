@@ -18,10 +18,18 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm firefox
+#pacman -S --noconfirm firefox
 pacman -S --noconfirm youtube-dl
 #firefox keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
+
+# Firefox bin
+curl -L -o firefox-latest-linux64.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" 
+tar -xvf firefox-latest-linux64.tar.bz2 -C /opt/
+chown -R root:users /opt/firefox
+chmod 750 /opt/firefox
+rm firefox-latest-linux64.tar.bz2
+sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
 
 # Flatpak
 pacman -S --noconfirm flatpak
