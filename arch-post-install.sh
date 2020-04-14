@@ -18,26 +18,34 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm firefox youtube-dl
-#keepassxc mpv qbittorrent speedcrunch
+pacman -S --noconfirm youtube-dl
+#firefox keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
 # Flatpak
 pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Flatpak apps - Typical
-####flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
-#flatpak install -y flathub org.gnome.Calculator
+# FF beta
+#flatpak install https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
+####flatpak install -y flathub org.mozilla.firefox
+
+# Gnome 3.36 Platform
+#flatpak install -y flathub org.gnome.calculator
 #flatpak install -y flathub org.gnome.gedit
 #flatpak install -y flathub org.gnome.meld
+#flatpak install -y flathub org.remmina.Remmina
+#flatpak install -y flathub com.transmissionbt.Transmission
+#flatpak install -y flathub io.github.celluloid_player.Celluloid
+
+# KDE 5.14 Platform
+#flatpak install -y flathub org.keepassxc.KeePassXC
 #flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kolourpaint
-#flatpak install -y flathub org.keepassxc.KeePassXC
-#flatpak install -y flathub org.qbittorrent.qBittorrent
-#flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub org.fedoraproject.MediaWriter
-#flatpak install -y flathub io.github.celluloid_player.Celluloid
+
+# KDE 5.13 Platform
+###flatpak install -y flathub org.qbittorrent.qBittorrent
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -51,7 +59,6 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub org.gnome.Tau                    #gtk. text editor
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
 #flatpak install flathub org.mozilla.Thunderbird          #gtk. email
-#flatpak install flathub com.transmissionbt.Transmission  #gtk. qbittorrent better
 #flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
@@ -66,15 +73,8 @@ cd baph; make install; cd ../; rm -rf baph
 # AUR packages
 su - blah -c "baph -inN gnome-control-center-nocheese"
 
-# Dracut switch
-pacman -Sy --noconfirm dracut
-echo -e 'hostonly="yes" \ncompress="lz4"' >> /etc/dracut.conf.d/custom.conf
-dracut --force /boot/initramfs-linux.img
-dracut --force -N /boot/initramfs-linux-fallback.img
-su - blah -c "baph -inN dracut-hook"
-
 # Experimental
-echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
+#echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
 #vnc set-up
 
 # Additional user
@@ -100,6 +100,13 @@ rm fjkRv
 echo "Done! Reboot now"
 
 ######
+# Dracut switch
+#pacman -Sy --noconfirm dracut
+#echo -e 'hostonly="yes" \ncompress="lz4"' >> /etc/dracut.conf.d/custom.conf
+#dracut --force /boot/initramfs-linux.img
+#dracut --force -N /boot/initramfs-linux-fallback.img
+#su - blah -c "baph -inN dracut-hook"
+
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
 #pacman -S --noconfirm lxappearance-gtk3 lximage-qt lxrandr-gtk3 obconf-qt pcmanfm-qt xarchiver mate-panel #tint2
