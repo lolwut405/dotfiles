@@ -18,19 +18,9 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-#pacman -S --noconfirm firefox
-pacman -S --noconfirm youtube-dl
-#firefox keepassxc mpv qbittorrent speedcrunch
+pacman -S --noconfirm firefox youtube-dl
+#keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
-
-# Firefox bin
-curl -L -o firefox-latest-linux64.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" 
-tar -xvf firefox-latest-linux64.tar.bz2 -C /opt/
-chown -R root:users /opt/firefox
-chmod 750 /opt/firefox
-curl -L -o /usr/share/applications/firefox.desktop "https://git.io/JfeZ1"
-ln -sf /opt/firefox/firefox /usr/bin/firefox
-rm firefox-latest-linux64.tar.bz2
 
 # Flatpak
 pacman -S --noconfirm flatpak
@@ -122,8 +112,11 @@ echo "Done! Reboot now"
 #nitrogen nnn qimgv-git qview peek rclone rsync sakura slock textosaurus tmux udevil volumeicon xautomation xwallpaper lavalauncher 
 #kde-gtk-config kdeplasma-addons sddm-kcm user-manager
 
-# AUR helper
-#git clone https://bitbucket.org/natemaia/baph.git
-#cp baph/baph /usr/local/bin
-#chmod +x /usr/local/bin/baph
-#rm -rf baph
+# Firefox bin
+#curl -L -o firefox-latest-linux64.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" 
+#tar -xvf firefox-latest-linux64.tar.bz2 -C /opt/
+#chown -R root:users /opt/firefox
+#chmod 750 /opt/firefox
+#curl -L -o /usr/share/applications/firefox.desktop "https://git.io/JfeZ1"
+#ln -sf /opt/firefox/firefox /usr/bin/firefox
+#rm firefox-latest-linux64.tar.bz2
