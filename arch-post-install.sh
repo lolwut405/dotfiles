@@ -29,7 +29,8 @@ tar -xvf firefox-latest-linux64.tar.bz2 -C /opt/
 chown -R root:users /opt/firefox
 chmod 750 /opt/firefox
 rm firefox-latest-linux64.tar.bz2
-sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
+ln -sf /opt/firefox/firefox /usr/bin/firefox
+https://superuser.com/questions/322376/how-to-install-the-real-firefox-on-debian
 
 # Flatpak
 pacman -S --noconfirm flatpak
