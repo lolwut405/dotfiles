@@ -30,7 +30,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Flatpak apps - Typical
 ####flatpak install -y flathub org.mozilla.firefox  #dblcheck video performance
 #flatpak install -y flathub org.gnome.Calculator
-#flatpak install flathub org.gnome.gedit
+#flatpak install -y flathub org.gnome.gedit
 #flatpak install -y flathub org.gnome.meld
 #flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kolourpaint
