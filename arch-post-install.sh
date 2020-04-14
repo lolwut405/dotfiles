@@ -28,9 +28,9 @@ curl -L -o firefox-latest-linux64.tar.bz2 "https://download.mozilla.org/?product
 tar -xvf firefox-latest-linux64.tar.bz2 -C /opt/
 chown -R root:users /opt/firefox
 chmod 750 /opt/firefox
-rm firefox-latest-linux64.tar.bz2
+curl -L -o /usr/share/applications/firefox.desktop "https://git.io/JfeZ1"
 ln -sf /opt/firefox/firefox /usr/bin/firefox
-https://superuser.com/questions/322376/how-to-install-the-real-firefox-on-debian
+rm firefox-latest-linux64.tar.bz2
 
 # Flatpak
 pacman -S --noconfirm flatpak
