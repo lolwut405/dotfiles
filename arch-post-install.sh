@@ -27,8 +27,9 @@ pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # FF beta
-#flatpak install https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
-####flatpak install -y flathub org.mozilla.firefox
+#flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
+####flatpak install flathub org.mozilla.firefox
+####flatpak install flathub org.freedesktop.Platform.ffmpeg
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
