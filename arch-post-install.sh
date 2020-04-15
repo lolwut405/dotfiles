@@ -34,21 +34,24 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
-#flatpak install -y flathub org.gnome.gedit
+#flatpak install -y flathub org.gnome.meld
 #flatpak install -y flathub org.remmina.Remmina
-#flatpak install -y flathub com.transmissionbt.Transmission
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
-#####flatpak install -y flathub org.gnome.meld
+#####flatpak install -y flathub org.gnome.gedit
+#####flatpak install -y flathub com.transmissionbt.Transmission
 
 # KDE 5.14 Platform
 #flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kate
 #flatpak install -y flathub org.kde.kolourpaint
 #flatpak install -y flathub org.fedoraproject.MediaWriter
-###flatpak install -y flathub org.qbittorrent.qBittorrent
+#flatpak install -y flathub org.qbittorrent.qBittorrent
 
 # KDE 5.13 Platform
 #flatpak install -y flathub org.keepassxc.KeePassXC
+
+# ?
+#flatpak install -y flathub org.nomacs.ImageLounge #disable scroll zoom
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -68,6 +71,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
 #flatpak install flathub com.notepadqq.Notepadqq
 #flatpak install flathub org.kde.okular
+#flatpak install flathub com.github.tchx84.Flatseal
 
 # AUR helper
 git clone https://bitbucket.org/natemaia/baph.git
