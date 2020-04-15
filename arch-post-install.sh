@@ -6,7 +6,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks pcmanfm-gtk3 tilix
+pacman -S --noconfirm file-roller gnome-tweaks nemo tilix
 #chrome-gnome-shell gnome-control-center gnome-terminal gthumb nautilus nemo
 systemctl enable gdm
 
@@ -40,10 +40,10 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #####flatpak install -y flathub org.gnome.gedit
 
 # KDE 5.14 Platform
-#flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kate
 #flatpak install -y flathub org.nomacs.ImageLounge
 #flatpak install -y flathub org.qbittorrent.qBittorrent
+#####flatpak install -y flathub org.kde.dolphin
 #####flatpak install -y flathub org.kde.kolourpaint
 #####flatpak install -y flathub org.fedoraproject.MediaWriter
 
