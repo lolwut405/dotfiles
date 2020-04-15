@@ -6,8 +6,8 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks gthumb tilix
-#chrome-gnome-shell gnome-control-center gnome-terminal nautilus nemo
+pacman -S --noconfirm file-roller gnome-tweaks pcmanfm-gtk3 tilix
+#chrome-gnome-shell gnome-control-center gnome-terminal gthumb nautilus nemo
 systemctl enable gdm
 
 # KDE
@@ -38,20 +38,17 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
 #####flatpak install -y flathub org.gnome.gedit
-#####flatpak install -y flathub com.transmissionbt.Transmission
 
 # KDE 5.14 Platform
 #flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.kde.kate
-#flatpak install -y flathub org.kde.kolourpaint
-#flatpak install -y flathub org.fedoraproject.MediaWriter
+#flatpak install -y flathub org.nomacs.ImageLounge
 #flatpak install -y flathub org.qbittorrent.qBittorrent
+#####flatpak install -y flathub org.kde.kolourpaint
+#####flatpak install -y flathub org.fedoraproject.MediaWriter
 
 # KDE 5.13 Platform
 #flatpak install -y flathub org.keepassxc.KeePassXC
-
-# ?
-#flatpak install -y flathub org.nomacs.ImageLounge #disable scroll zoom
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -70,6 +67,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub com.uploadedlobster.peek         #x11 Screen recorder
 #flatpak install flathubcom.obsproject.Studio             #X11 Screen recorder
 #flatpak install flathub com.notepadqq.Notepadqq
+#flatpak install -y flathub com.transmissionbt.Transmission
 #flatpak install flathub org.kde.okular
 #flatpak install flathub com.github.tchx84.Flatseal
 
