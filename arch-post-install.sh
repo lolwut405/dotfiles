@@ -29,24 +29,26 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # FF beta
 #flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
 ####flatpak install flathub org.mozilla.firefox
-####flatpak install flathub org.freedesktop.Platform.ffmpeg
+#flatpak override --socket=wayland org.mozilla.firefox
+#flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
 #flatpak install -y flathub org.gnome.gedit
-#flatpak install -y flathub org.gnome.meld
 #flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub com.transmissionbt.Transmission
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
+#####flatpak install -y flathub org.gnome.meld
 
 # KDE 5.14 Platform
-#flatpak install -y flathub org.keepassxc.KeePassXC
 #flatpak install -y flathub org.kde.dolphin
+#flatpak install -y flathub org.kde.kate
 #flatpak install -y flathub org.kde.kolourpaint
 #flatpak install -y flathub org.fedoraproject.MediaWriter
+###flatpak install -y flathub org.qbittorrent.qBittorrent
 
 # KDE 5.13 Platform
-###flatpak install -y flathub org.qbittorrent.qBittorrent
+#flatpak install -y flathub org.keepassxc.KeePassXC
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
