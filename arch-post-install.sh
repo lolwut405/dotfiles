@@ -40,15 +40,13 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #####flatpak install -y flathub org.gnome.gedit
 
 # KDE 5.14 Platform
+#flatpak install -y flathub org.keepassxc.KeePassXC
 #flatpak install -y flathub org.nomacs.ImageLounge
 #flatpak install -y flathub org.qbittorrent.qBittorrent
 #####flatpak install -y flathub org.kde.dolphin
 #####flatpak install -y flathub org.kde.kate  #no middleclick paste
 #####flatpak install -y flathub org.kde.kolourpaint
 #####flatpak install -y flathub org.fedoraproject.MediaWriter
-
-# KDE 5.13 Platform
-#flatpak install -y flathub org.keepassxc.KeePassXC
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
