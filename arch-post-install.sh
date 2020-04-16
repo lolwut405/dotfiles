@@ -26,27 +26,28 @@ pacman -S --noconfirm youtube-dl
 pacman -S --noconfirm flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# FF beta
+# Freedesktop Platform
 #flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
-####flatpak install flathub org.mozilla.firefox
 #flatpak override --socket=wayland org.mozilla.firefox
 #flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+#flatpak install flathub io.atom.Atom
+####flatpak install flathub org.mozilla.firefox
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
 #flatpak install -y flathub org.gnome.meld
 #flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
-#####flatpak install -y flathub org.gnome.gedit
+#####flatpak install flathub org.gnome.gedit
 
 # KDE 5.14 Platform
 #flatpak install -y flathub org.keepassxc.KeePassXC
-#flatpak install -y flathub org.nomacs.ImageLounge
+#flatpak install -y flathub org.nomacs.ImageLounge  #disable smooth scroll
 #flatpak install -y flathub org.qbittorrent.qBittorrent
-#####flatpak install -y flathub org.kde.dolphin
-#####flatpak install -y flathub org.kde.kate  #no middleclick paste
-#####flatpak install -y flathub org.kde.kolourpaint
-#####flatpak install -y flathub org.fedoraproject.MediaWriter
+#####flatpak install flathub org.kde.dolphin
+#####flatpak install flathub org.kde.kate 
+#####flatpak install flathub org.kde.kolourpaint
+#####flatpak install flathub org.fedoraproject.MediaWriter
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
