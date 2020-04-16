@@ -30,7 +30,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
 #flatpak override --socket=wayland org.mozilla.firefox
 #flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-#flatpak install flathub io.atom.Atom  #see github atom config
+#flatpak install -y flathub com.sublimetext.three
 ###flatpak install flathub org.mozilla.firefox
 
 # Gnome 3.36 Platform
@@ -55,6 +55,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub org.kde.krita
 
 # Flatpak apps - unused currently
+#flatpak install flathub io.atom.Atom  #see github atom config
 #flatpak install flathub org.gnome.gedit                  #gtk. text editor
 #flatpak install flathub org.gnome.Geary                  #gtk. email client
 #flatpak install flathub org.gnome.Tau                    #gtk. text editor
