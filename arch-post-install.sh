@@ -31,23 +31,21 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak override --socket=wayland org.mozilla.firefox
 #flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 #flatpak install flathub io.atom.Atom  #see github atom config
-####flatpak install flathub org.mozilla.firefox
+###flatpak install flathub org.mozilla.firefox
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
 #flatpak install -y flathub org.gnome.meld
 #flatpak install -y flathub org.remmina.Remmina
 #flatpak install -y flathub io.github.celluloid_player.Celluloid
-#####flatpak install flathub org.gnome.gedit
 
 # KDE 5.14 Platform
+#flatpak install -y flathub org.kde.dolphin
 #flatpak install -y flathub org.keepassxc.KeePassXC
 #flatpak install -y flathub org.nomacs.ImageLounge  #disable smooth scroll
 #flatpak install -y flathub org.qbittorrent.qBittorrent
-#####flatpak install flathub org.kde.dolphin
-#####flatpak install flathub org.kde.kate 
-#####flatpak install flathub org.kde.kolourpaint
-#####flatpak install flathub org.fedoraproject.MediaWriter
+###flatpak install flathub org.kde.kolourpaint
+###flatpak install flathub org.fedoraproject.MediaWriter
 
 # Flatpak apps - large
 #flatpak install flathub com.valvesoftware.Steam
@@ -57,9 +55,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install flathub org.kde.krita
 
 # Flatpak apps - unused currently
+#flatpak install flathub org.gnome.gedit                  #gtk. text editor
 #flatpak install flathub org.gnome.Geary                  #gtk. email client
 #flatpak install flathub org.gnome.Tau                    #gtk. text editor
 #flatpak install flathub com.georgefb.haruna              #qt. mpv frontend
+#flatpak install flathub org.kde.kate                     #qt. text edito
 #flatpak install flathub org.mozilla.Thunderbird          #gtk. email
 #flatpak install flathub org.gnome.Boxes                  #gtk. kvm is better, but prefer virtualbox
 #flatpak install flathub org.speedcrunch.SpeedCrunch      #qt. gnome calculator slightly better
@@ -100,7 +100,7 @@ su - blah -c "baph -inN gnome-control-center-nocheese"
 #sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
 
 # Done
-rm fjkRv
+#rm fjkRv
 echo "Done! Reboot now"
 
 ######
