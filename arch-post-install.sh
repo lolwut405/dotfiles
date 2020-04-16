@@ -6,7 +6,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks nemo tilix
+pacman -S --noconfirm file-roller gnome-tweaks tilix
 #chrome-gnome-shell gnome-control-center gnome-terminal gthumb nautilus nemo
 systemctl enable gdm
 
