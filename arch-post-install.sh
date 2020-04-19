@@ -6,8 +6,9 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-tweaks tilix
-#chrome-gnome-shell gnome-control-center gnome-terminal gthumb nautilus nemo
+pacman -S --noconfirm file-roller gnome-terminal gnome-tweaks gthumb
+pacman -S --noconfirm gedit gedit-plugins
+#chrome-gnome-shell nautilus nemo
 systemctl enable gdm
 
 # KDE
@@ -18,20 +19,22 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm ffmepg youtube-dl
-#firefox keepassxc mpv qbittorrent speedcrunch
-#meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
+pacman -S --noconfirm firefox mpv youtube-dl
+pacman -S --noconfirm keepassxc qbittorrent
+pacman -S --noconfirm meld ncdu remmina freerdp libvncserver
+#galculator tilix
+#virtualbox virtualbox-host-modules-arch
 
 # Flatpak
-pacman -S --noconfirm flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#pacman -S --noconfirm flatpak
+#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Freedesktop Platform
-#flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
-#flatpak override --socket=wayland org.mozilla.firefox
-#flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+###flatpak install -y https://flathub.org/beta-repo/appstream/org.mozilla.firefox.flatpakref
+###flatpak override --socket=wayland org.mozilla.firefox
+###flatpak override --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 ###flatpak install flathub org.mozilla.firefox
-#flatpak install flathub io.atom.Atom  #see github atom config
+###flatpak install flathub io.atom.Atom  #see github atom config
 
 # Gnome 3.36 Platform
 #flatpak install -y flathub org.gnome.calculator
@@ -76,9 +79,10 @@ cd baph; make install; cd ../; rm -rf baph
 
 # AUR packages
 su - blah -c "baph -inN gnome-control-center-nocheese"
+su - blah -c "baph -inN nautilus-typeahead"
 
 # Experimental
-#echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
+echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
 #vnc set-up
 
 # Additional user
