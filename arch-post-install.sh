@@ -18,7 +18,7 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm youtube-dl
+pacman -S --noconfirm ffmepg youtube-dl
 #firefox keepassxc mpv qbittorrent speedcrunch
 #meld ncdu remmina freerdp libvncserver virtualbox virtualbox-host-modules-arch
 
