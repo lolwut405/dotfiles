@@ -51,8 +51,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 #sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
 
 # Done
-#rm fjkRv
-echo "Done! Reboot now"
+echo "Done! Reboot now. Remove this file"
 
 ######
 # Dracut switch
