@@ -6,9 +6,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-terminal gnome-tweaks gthumb
-pacman -S --noconfirm gedit gedit-plugins
-#chrome-gnome-shell nautilus nemo
+pacman -S --noconfirm chrome-gnome-shell file-roller gedit gnome-calculator gnome-tweaks gthumb nemo tilix
 systemctl enable gdm
 
 # KDE
@@ -19,11 +17,10 @@ systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm firefox mpv youtube-dl
+pacman -S --noconfirm firefox mpv youtube-dl #galculator
 pacman -S --noconfirm keepassxc qbittorrent
 pacman -S --noconfirm meld ncdu remmina freerdp libvncserver
-#galculator tilix
-#virtualbox virtualbox-host-modules-arch
+#galculator #virtualbox virtualbox-host-modules-arch
 
 # Flatpak
 #pacman -S --noconfirm flatpak
@@ -77,13 +74,11 @@ pacman -S --noconfirm meld ncdu remmina freerdp libvncserver
 git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
-# AUR packages
-su - blah -c "baph -inN gnome-control-center-nocheese"
-su - blah -c "baph -inN nautilus-typeahead"
+# Gnome AUR packages
+#su - blah -c "baph -inN gnome-control-center-nocheese"
 
-# Experimental
+# Experimental #VNC 
 echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
-#vnc set-up
 
 # Additional user
 #useradd -m -g users -G users guest
