@@ -7,7 +7,6 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
 pacman -S --noconfirm ark breeze-gtk dolphin khotkeys kinfocenter konsole kscreen plasma-pa 
-#gwenview kolourpaint plasma-nm spectacle
 systemctl enable sddm
 
 # Gnome
@@ -19,7 +18,7 @@ systemctl enable sddm
 pacman -S --noconfirm git p7zip unzip zip 
 pacman -S --noconfirm firefox geany mpv youtube-dl
 pacman -S --noconfirm keepassxc qbittorrent
-pacman -S --noconfirm meld ncdu remmina freerdp libvncserver
+pacman -S --noconfirm meld ncdu nnn remmina freerdp libvncserver
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
@@ -54,12 +53,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 echo "Done! Reboot now. Remove this file"
 
 ######
-# Dracut switch
-#pacman -Sy --noconfirm dracut
-#echo -e 'hostonly="yes" \ncompress="lz4"' >> /etc/dracut.conf.d/custom.conf
-#dracut --force /boot/initramfs-linux.img
-#dracut --force -N /boot/initramfs-linux-fallback.img
-#su - blah -c "baph -inN dracut-hook"
+#gwenview kde-gtk-config kdeplasma-addons kolourpaint plasma-nm sddm-kcm spectacle user-manager
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
@@ -71,4 +65,3 @@ echo "Done! Reboot now. Remove this file"
 # Unused Apps
 #alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop glances kate kitty lf-bin neovim network-manager-applet 
 #nitrogen nnn qimgv-git qview peek rclone rsync sakura slock tmux udevil volumeicon xautomation xwallpaper lavalauncher 
-#kde-gtk-config kdeplasma-addons sddm-kcm user-manager
