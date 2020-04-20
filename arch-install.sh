@@ -55,22 +55,3 @@ echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", AT
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
-
-#######
-# Config
-#pacstrap dhclient networkmanager chrony
-#echo vm > /mnt/etc/hostname  #desktop/laptop
-#chroot /mnt hwclock --systohc --utc
-#chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-#export LANG=en_US.UTF-8
-#echo LANG=$LANG > /mnt/etc/locale.conf
-#echo $LANG UTF-8 > /mnt/etc/locale.gen
-#chroot /mnt locale-gen
-
-# NTP
-#chroot /mnt systemctl enable chronyd
-#sed -i "s/! server/server/" /mnt/etc/chrony.conf
-
-# Network
-#chroot /mnt systemctl enable NetworkManager
-#echo -e '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
