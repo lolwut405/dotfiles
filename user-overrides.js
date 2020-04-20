@@ -21,14 +21,12 @@ ViolentMonkey;
 https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/
 Vimium-FF; #import backup 
 https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/
-LocalCDN; create rules for ublock
-https://addons.mozilla.org/en-US/firefox/addon/localcdn-fork-of-decentraleyes/
-Group Speed Dial;
-https://addons.mozilla.org/en-US/firefox/addon/groupspeeddial/
 # ff2mpv;
 https://addons.mozilla.org/en-US/firefox/addon/ff2mpv/?src=search
 
 # Recently disabled
+LocalCDN; create rules for ublock
+https://addons.mozilla.org/en-US/firefox/addon/localcdn-fork-of-decentraleyes/
 Firemonkey; #import backup;
 https://addons.mozilla.org/en-US/firefox/addon/firemonkey/
 Tomato Clock;
@@ -49,6 +47,8 @@ Smart Referer;
 https://addons.mozilla.org/en-US/firefox/addon/smart-referer/
 Containerise; 
 https://addons.mozilla.org/en-US/firefox/addon/containerise/
+Group Speed Dial;
+https://addons.mozilla.org/en-US/firefox/addon/groupspeeddial/
 
 # Disabled
 Bypass paywalls; 
@@ -63,14 +63,13 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
 
 /* PERSONAL */
    user_pref("browser.ctrlTab.recentlyUsedOrder", false);
-// user_pref("browser.download.folderList", 0); // save downloads to desktop
    user_pref("browser.download.useDownloadDir", true); // dont prompt for download locations
    user_pref("browser.search.context.loadInBackground", true);
    user_pref("browser.uidensity", 1); 
-   user_pref("browser.urlbar.oneOffSearches", false);
-// user_pref("browser.urlbar.suggest.openpage", false); // disable search for open tabs
-// user_pref("browser.tabs.closeWindowWithLastTab", false); // keep window open
-   user_pref("dom.event.clipboardevents.enabled", true); // gitlab copy/paste issue
+   user_pref("browser.urlbar.oneOffSearches", false); //disable search icons in urlbar
+   user_pref("browser.urlbar.openViewOnFocus", false); //close urlbar dropdown when empty
+   user_pref("browser.urlbar.suggest.openpage", false); // disable search for open tabs
+   user_pref("dom.event.clipboardevents.enabled", true); // github/lab copy/paste issue
    user_pref("extensions.pocket.enabled", false); // disable Pocket
    user_pref("findbar.highlightAll", true); // highlight all hits on search
    user_pref("general.smoothScroll", false);
@@ -84,10 +83,10 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
    user_pref("toolkit.cosmeticAnimations.enabled", false); // disable tab animations
    user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // enable userchrome
    user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar
-   
+
 /* Enable history and session restore... */
-// user_pref("browser.startup.page", 3); //restore previous sessons
-// user_pref("privacy.clearOnShutdown.history", false); // Browsing & Download History
+   user_pref("browser.startup.page", 3); //restore previous sessons
+   user_pref("privacy.clearOnShutdown.history", false); // Browsing & Download History
 
 /* FPI annoying window dimensions - 1440p montior */
    user_pref("privacy.window.maxInnerWidth", 1700); // set 1700px width at start
@@ -99,9 +98,9 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
   user_pref("browser.newtabpage.activity-stream.showSearch", false);
  
 /* DRM */
-// user_pref("media.gmp-widevinecdm.visible", true); // enable widevine CDM; Netflix, Amazon Prime, Hulu
-// user_pref("media.gmp-widevinecdm.enabled", true); // enable widevine CDM; Netflix, Amazon Prime, Hulu
-// user_pref("media.eme.enabled", true); //enable DRM EME (Encryption Media Extension)
+   user_pref("media.gmp-widevinecdm.visible", true); // enable widevine CDM; Netflix, Amazon Prime, Hulu
+   user_pref("media.gmp-widevinecdm.enabled", true); // enable widevine CDM; Netflix, Amazon Prime, Hulu
+   user_pref("media.eme.enabled", true); // enable DRM EME (Encryption Media Extension)
 
 /* From Ghacks */
 /* Disable What's New */
@@ -126,12 +125,14 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
 
 /* LINUX TWEAKS ***/
     user_pref("browser.tabs.drawInTitlebar", true);
-    user_pref("browser.urlbar.clickSelectsAll", true); //obsolete in ff75+
-    user_pref("browser.urlbar.doubleClickSelectsAll", false); //obsolete in ff75+
     user_pref("general.autoScroll", true);
     user_pref("gfx.webrender.all", true);
     user_pref("layers.acceleration.force-enabled", true);
     user_pref("mousewheel.min_line_scroll_amount", 20);
+
+/* LINUX WAYLAND ***/
+    user_pref("widget.wayland-dmabuf-webgl.enabled", true);
+    user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
 
 /* LINUX Fonts ***/
 //REFERENCES: https://github.com/ghacksuserjs/ghacks-user.js/issues/888 + https://github.com/pyllyukko/user.js/issues/286
@@ -329,6 +330,7 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
    user_pref("font.name.serif.zh-TW", "Noto Sans TC Regular");
 
 /* DISABLED FOR NOW */
+// user_pref("browser.download.folderList", 0); // save downloads to desktop
 // user_pref("browser.download.forbid_open_with", true); // disable open with when downloading
 // user_pref("browser.tabs.selectOwnerOnClose", false);
 // user_pref("extensions.update.autoUpdateDefault", true); // enable auto-installing Firefox extensions
@@ -336,4 +338,5 @@ https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
 // user_pref("security.ssl.require_safe_negotiation", false); //allow weak ciphers
 // user_pref("layers.omtp.enabled", true);
 // user_pref("layout.display-list.retain", true);]
+   
 
