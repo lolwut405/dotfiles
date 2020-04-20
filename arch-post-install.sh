@@ -12,12 +12,12 @@ systemctl enable sddm
 
 # Gnome
 #pacman -S --noconfirm gnome-shell gdm
-#pacman -S --noconfirm chrome-gnome-shell file-roller gedit gnome-calculator gnome-tweaks gthumb tilix #nemo
+#pacman -S --noconfirm chrome-gnome-shell file-roller gnome-calculator gnome-tweaks gthumb tilix #nemo
 #systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
-pacman -S --noconfirm firefox mpv youtube-dl
+pacman -S --noconfirm firefox geany mpv youtube-dl
 pacman -S --noconfirm keepassxc qbittorrent
 pacman -S --noconfirm meld ncdu remmina freerdp libvncserver
 #galculator #virtualbox virtualbox-host-modules-arch
