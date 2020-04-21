@@ -6,7 +6,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview spectacle speedcrunch #plasma-pa 
+pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview spectacle speedcrunch plasma-pa 
 systemctl enable sddm
 
 # Gnome
@@ -27,6 +27,9 @@ cd baph; make install; cd ../; rm -rf baph
 
 # Gnome AUR packages
 #su - blah -c "baph -inN gnome-control-center-nocheese"
+
+# KDE AUR packages
+#su - blah -c "baph -inN ksnip"
 
 # Experimental #VNC 
 echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
