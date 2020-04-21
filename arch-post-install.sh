@@ -6,7 +6,7 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark breeze-gtk dolphin khotkeys kinfocenter konsole kscreen gwenview #plasma-pa 
+pacman -S --noconfirm ark breeze-gtk dolphin kdeplasma-addons khotkeys kinfocenter konsole kscreen gwenview spectacle #plasma-pa 
 systemctl enable sddm
 
 # Gnome
@@ -53,7 +53,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 echo "Done! Reboot now. Remove this file"
 
 ######
-#kde-gtk-config kdeplasma-addons kolourpaint plasma-nm sddm-kcm spectacle user-manager
+#kde-gtk-config  kolourpaint plasma-nm sddm-kcm spectacle user-manager
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
