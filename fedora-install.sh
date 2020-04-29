@@ -44,12 +44,7 @@ systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=Americ
 
 # Systemd-networkd
 systemctl enable systemd-networkd --root=/mnt
-cat <<EOF > /mnt/etc/systemd/network/20-wired.network
-[Match]
-Name=en*
-[Network]
-DHCP=ipv4
-EOF
+printf '[Match] \nName=en* \n[Network] \nDHCP=ipv4' > /mnt/etc/systemd/network/20-wired.network
 
 # Systemd-resolved
 systemctl enable systemd-resolved --root=/mnt
