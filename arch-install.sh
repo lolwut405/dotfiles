@@ -30,8 +30,8 @@ systemctl enable systemd-networkd --root=/mnt
 printf '[Match] \nName=en* \n[Network] \nDHCP=ipv4' > /mnt/etc/systemd/network/20-wired.network
 
 # Systemd-resolved
-systemctl enable systemd-resolved --root=/mnt
-chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+#systemctl enable systemd-resolved --root=/mnt
+#chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Other services
 systemctl enable earlyoom --root=/mnt
