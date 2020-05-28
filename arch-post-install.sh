@@ -42,15 +42,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 #passwd guest
 
 # Laptop wifi
-#pacman -S broadcom-wl iwd
-#systemctl enable iwd
-#cat <<EOF > /mnt/etc/systemd/network/25-wireless.network
-#[Match]
-#Name=wl*
-#[Network]
-#DHCP=ipv4
-#EOF
-#iwctl --passphrase passphrase station device connect SSID
+#pacman -S broadcom-wl
 
 # Laptop audio
 #sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
