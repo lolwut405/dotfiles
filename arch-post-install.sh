@@ -42,7 +42,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 #passwd guest
 
 # Laptop wifi
-#pacman -S broadcom-wl
+#pacman -S --noconfirm broadcom-wl
 
 # Laptop audio
 #sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
