@@ -11,7 +11,7 @@ systemctl enable sddm
 
 # Gnome
 #pacman -S --noconfirm gnome-shell gdm
-#pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix pcmanfm-gtk3  #nemo
+#pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix nemo #pcmanfm-gtk3
 #pacman -S --noconfirm chrome-gnome-shell
 #systemctl enable gdm
 
