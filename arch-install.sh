@@ -10,9 +10,9 @@ mkfs.xfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Install
-echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs dbus-broker earlyoom networkmanager systemd-swap 
+echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs earlyoom networkmanager systemd-swap #dbus-broker
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
@@ -32,7 +32,7 @@ printf '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.c
 # Other services
 systemctl enable earlyoom --root=/mnt
 systemctl enable systemd-timesyncd --root=/mnt
-systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
+#systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Swap
 systemctl enable systemd-swap --root=/mnt
@@ -42,10 +42,10 @@ printf 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=1G' >> /mnt/etc/systemd/swa
 # Arch specific tweaks
 echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
 chroot /mnt locale-gen
-systemctl enable dbus-broker --root=/mnt
-systemctl --global enable dbus-broker --root=/mnt
 systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
+#systemctl enable dbus-broker --root=/mnt
+#systemctl --global enable dbus-broker --root=/mnt
 
 # User account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
