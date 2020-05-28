@@ -4,16 +4,16 @@ set -x  #echo on
 # Xorg/Fonts
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
-# Gnome
-pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix pcmanfm-gtk3  #nemo
-#pacman -S --noconfirm chrome-gnome-shell
-systemctl enable gdm
-
 # KDE
-#pacman -S --noconfirm plasma-desktop sddm
-#pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
-#systemctl enable sddm
+pacman -S --noconfirm plasma-desktop sddm
+pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
+systemctl enable sddm
+
+# Gnome
+#pacman -S --noconfirm gnome-shell gdm
+#pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix pcmanfm-gtk3  #nemo
+#pacman -S --noconfirm chrome-gnome-shell
+#systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
@@ -28,13 +28,13 @@ git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
 # Gnome AUR packages
-su - blah -c "baph -inN gnome-control-center-nocheese"
+#su - blah -c "baph -inN gnome-control-center-nocheese"
 #xrdp
 
 # KDE AUR packages
 #su - blah -c "baph -inN ksnip"
 
-# Experimental #VNC 
+# Experimental 
 echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/profile.d/freetype2.sh
 
 # Additional user
