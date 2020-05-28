@@ -4,21 +4,21 @@ set -x  #echo on
 # Xorg/Fonts
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
-# KDE
-pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
-systemctl enable sddm
-
 # Gnome
-#pacman -S --noconfirm gnome-shell gdm
-#pacman -S --noconfirm chrome-gnome-shell file-roller gnome-calculator gnome-tweaks gthumb tilix #nemo
-#systemctl enable gdm
+pacman -S --noconfirm gnome-shell gdm
+pacman -S --noconfirm chrome-gnome-shell file-roller gnome-calculator gnome-tweaks gthumb tilix #nemo
+systemctl enable gdm
+
+# KDE
+#pacman -S --noconfirm plasma-desktop sddm
+#pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
+#systemctl enable sddm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
 pacman -S --noconfirm firefox geany mpv youtube-dl
 pacman -S --noconfirm keepassxc qbittorrent
-pacman -S --noconfirm meld ncdu nnn remmina freerdp libvncserver
+pacman -S --noconfirm meld ncdu nnn remmina freerdp #libvncserver
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
@@ -26,7 +26,8 @@ git clone https://bitbucket.org/natemaia/baph.git
 cd baph; make install; cd ../; rm -rf baph
 
 # Gnome AUR packages
-#su - blah -c "baph -inN gnome-control-center-nocheese"
+su - blah -c "baph -inN gnome-control-center-nocheese"
+#xrdp
 
 # KDE AUR packages
 #su - blah -c "baph -inN ksnip"
