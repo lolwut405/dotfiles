@@ -51,11 +51,3 @@ echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", AT
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
-
-# Systemd-networkd
-#systemctl enable systemd-networkd --root=/mnt
-#printf '[Match] \nName=en* \n[Network] \nDHCP=ipv4' > /mnt/etc/systemd/network/20-wired.network
-
-# Systemd-resolved
-#systemctl enable systemd-resolved --root=/mnt
-#chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
