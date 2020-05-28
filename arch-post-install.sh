@@ -6,7 +6,8 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm chrome-gnome-shell file-roller gnome-calculator gnome-tweaks gthumb tilix #nemo
+pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix pcmanfm-gtk3  #nemo
+#pacman -S --noconfirm chrome-gnome-shell
 systemctl enable gdm
 
 # KDE
@@ -18,7 +19,8 @@ systemctl enable gdm
 pacman -S --noconfirm git p7zip unzip zip 
 pacman -S --noconfirm firefox geany mpv youtube-dl
 pacman -S --noconfirm keepassxc qbittorrent
-pacman -S --noconfirm meld ncdu nnn remmina freerdp #libvncserver
+pacman -S --noconfirm meld ncdu nnn 
+pacman -S --noconfirm remmina freerdp #libvncserver
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
