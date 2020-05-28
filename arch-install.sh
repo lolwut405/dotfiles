@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs dbus-broker earlyoom systemd-swap 
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs dbus-broker earlyoom networkmanager systemd-swap 
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
@@ -25,13 +25,9 @@ chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Systemd-firstboot
 systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=arch --setup-machine-id
 
-# Systemd-networkd
-systemctl enable systemd-networkd --root=/mnt
-printf '[Match] \nName=en* \n[Network] \nDHCP=ipv4' > /mnt/etc/systemd/network/20-wired.network
-
-# Systemd-resolved
-#systemctl enable systemd-resolved --root=/mnt
-#chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+# NetworkManager
+systemctl enable networkmanager --root=/mnt
+printf '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
 
 # Other services
 systemctl enable earlyoom --root=/mnt
@@ -55,3 +51,11 @@ echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", AT
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
 chroot /mnt useradd -m -g users -G wheel blah
 chroot /mnt passwd blah
+
+# Systemd-networkd
+#systemctl enable systemd-networkd --root=/mnt
+#printf '[Match] \nName=en* \n[Network] \nDHCP=ipv4' > /mnt/etc/systemd/network/20-wired.network
+
+# Systemd-resolved
+#systemctl enable systemd-resolved --root=/mnt
+#chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
