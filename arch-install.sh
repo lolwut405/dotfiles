@@ -6,16 +6,15 @@ set -x  #echo on
 wipefs -a /dev/sda
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 1Mib 100%
-mkfs.xfs /dev/sda1 -f
+##mkfs.xfs /dev/sda1 -f
 mkfs.btrfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Install
 echo "Server = http://mirrors.acm.wpi.edu/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-#echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-#echo "Server = http://mirror.siena.edu/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-#echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-#echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+pacman -Syy
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs earlyoom networkmanager systemd-swap dbus-broker
 genfstab -U /mnt >> /mnt/etc/fstab
 
