@@ -17,7 +17,7 @@ mount /dev/sda1 /mnt
 curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=US&protocol=http"
 sed -i 's/#Server/Server/g' /etc/pacman.d/mirrorlist
 #pacman -Syy
-pacman -S archlinux-keyring --noconfirm
+pacman -Sy archlinux-keyring --noconfirm
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs earlyoom networkmanager systemd-swap dbus-broker
 genfstab -U /mnt >> /mnt/etc/fstab
 
