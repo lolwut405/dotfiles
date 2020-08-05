@@ -14,6 +14,7 @@ echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > 
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 timedatectl set-ntp true
+sed -i "s/Required DatabaseOptional/Never/" /etc/pacman.conf
 pacman -Sy archlinux-keyring --noconfirm
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget earlyoom networkmanager systemd-swap dbus-broker #xfsprogs
 genfstab -U /mnt >> /mnt/etc/fstab
