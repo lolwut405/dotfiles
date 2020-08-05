@@ -16,7 +16,7 @@ mount /dev/sda1 /mnt
 #echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=US&protocol=http"
 sed -i 's/#Server/Server/g' /etc/pacman.d/mirrorlist
-pacman -Syy
+pacman -Syyu
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget xfsprogs earlyoom networkmanager systemd-swap dbus-broker
 genfstab -U /mnt >> /mnt/etc/fstab
 
