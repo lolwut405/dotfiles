@@ -12,6 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+timedatectl set-ntp true
 pacman -Sy archlinux-keyring --noconfirm
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget earlyoom networkmanager systemd-swap dbus-broker #xfsprogs
 genfstab -U /mnt >> /mnt/etc/fstab
