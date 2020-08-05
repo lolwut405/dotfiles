@@ -16,7 +16,7 @@ echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >>
 #timedatectl set-ntp true
 #pacman -Sy archlinux-keyring --noconfirm
 sed -i "s/Required DatabaseOptional/Never/" /etc/pacman.conf
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget earlyoom networkmanager systemd-swap dbus-broker #xfsprogs
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget earlyoom networkmanager systemd-swap dbus-broker btrfs-progs #xfsprogs
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
