@@ -12,7 +12,7 @@ mount /dev/sda1 /mnt
 # Install
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-sed -i "s/Required DatabaseOptional/Never/" /etc/pacman.conf
+#sed -i "s/Required DatabaseOptional/Never/" /etc/pacman.conf
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget networkmanager systemd-swap dbus-broker btrfs-progs #xfsprogs earlyoom
 genfstab -U /mnt >> /mnt/etc/fstab
 
