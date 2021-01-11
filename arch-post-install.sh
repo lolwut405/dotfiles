@@ -4,16 +4,18 @@ set -x  #echo on
 # Xorg/Fonts
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
-# KDE
-pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
-systemctl enable sddm
 
 # Gnome
-#pacman -S --noconfirm gnome-shell gdm
-#pacman -S --noconfirm file-roller gnome-calculator gnome-tweaks gthumb tilix nemo #pcmanfm-gtk3
-#pacman -S --noconfirm chrome-gnome-shell
-#systemctl enable gdm
+pacman -S --noconfirm gnome-shell gdm
+pacman -S --noconfirm file-roller gnome-calculator gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #nemo tilix
+pacman -S --noconfirm gnome-control-center
+pacman -S --noconfirm chrome-gnome-shell
+systemctl enable gdm
+
+# KDE
+#pacman -S --noconfirm plasma-desktop sddm
+#pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
+#systemctl enable sddm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
