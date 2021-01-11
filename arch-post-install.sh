@@ -4,7 +4,6 @@ set -x  #echo on
 # Xorg/Fonts
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
-
 # Gnome
 pacman -S --noconfirm gnome-shell gdm
 pacman -S --noconfirm file-roller gnome-calculator gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #nemo tilix
