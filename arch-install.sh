@@ -13,7 +13,7 @@ mount /dev/sda1 /mnt
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 timedatectl set-timezone America/New_York; timedatectl set-ntp true
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget networkmanager systemd-swap dbus-broker btrfs-progs #xfsprogs earlyoom
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget networkmanager btrfs-progs #dbus-broker systemd-swap earlyoom xfsprogs 
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
@@ -36,17 +36,17 @@ systemctl enable systemd-timesyncd --root=/mnt
 #systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 
 # Swap
-systemctl enable systemd-swap --root=/mnt
+#systemctl enable systemd-swap --root=/mnt
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
-printf 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=$(( RAM_SIZE / 8))' >> /mnt/etc/systemd/swap.conf
+#printf 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=$(( RAM_SIZE / 8))' >> /mnt/etc/systemd/swap.conf
 
 # Arch specific tweaks
 echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 #systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
-systemctl enable dbus-broker --root=/mnt
-systemctl --global enable dbus-broker --root=/mnt
+#systemctl enable dbus-broker --root=/mnt
+#systemctl --global enable dbus-broker --root=/mnt
 
 # User account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
