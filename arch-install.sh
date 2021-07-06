@@ -54,8 +54,6 @@ systemctl --global enable dbus-broker
 echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
 chroot /mnt locale-gen
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
-#systemctl enable dbus-broker --root=/mnt
-#systemctl --global enable dbus-broker --root=/mnt
 
 # User account
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /mnt/etc/sudoers.d/wheel
