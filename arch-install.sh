@@ -40,9 +40,8 @@ systemctl enable systemd-timesyncd --root=/mnt
 # Systemd-oomd
 systemctl enable systemd-oomd --root=/mnt
 
-# Swap
+# Zram
 printf '[zram0] \nzram-fraction = 1.0 \nmax-zram-size=8192' > /mnt/etc/systemd/zram-generator.conf
-printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Dbus-broker
 systemctl disable dbus.service
@@ -69,3 +68,4 @@ chroot /mnt passwd blah
 # Other
 #systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 #systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
+#printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
