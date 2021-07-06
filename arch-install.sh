@@ -25,7 +25,7 @@ chroot /mnt grub-install /dev/sda
 chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Systemd-firstboot
-systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=vm --setup-machine-id
+systemd-firstboot --root=/mnt --locale=en_US.UTF-8 --keymap=us --timezone=America/New_York --hostname=arch --setup-machine-id
 
 # Systemd-networkd
 systemctl enable systemd-networkd --root=/mnt
