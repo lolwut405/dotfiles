@@ -14,7 +14,7 @@ echo "Server = https://america.mirror.pkgbuild.com/\$repo/os/\$arch" > /etc/pacm
 echo "Server = https://mirror.arizona.edu/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 
 timedatectl set-timezone America/New_York; timedatectl set-ntp true
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs dbus-broker zram-generator booster
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs dbus-broker zram-generator
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
