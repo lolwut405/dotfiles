@@ -4,24 +4,24 @@ set -x  #echo on
 # Xorg/Fonts
 pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
-# Gnome
-pacman -S --noconfirm gnome-shell gdm
-pacman -S --noconfirm file-roller gnome-calculator gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #nemo tilix
-pacman -S --noconfirm gnome-control-center
-pacman -S --noconfirm chrome-gnome-shell
-systemctl enable gdm
-
 # KDE
-#pacman -S --noconfirm plasma-desktop sddm
-#pacman -S --noconfirm ark dolphin khotkeys kinfocenter konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
-#systemctl enable sddm
+pacman -S --noconfirm plasma-desktop sddm
+pacman -S --noconfirm ark dolphin khotkeys konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
+systemctl enable sddm
+
+# Gnome
+#pacman -S --noconfirm gnome-shell gdm
+#pacman -S --noconfirm file-roller gnome-calculator gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #nemo tilix
+#pacman -S --noconfirm gnome-control-center
+#pacman -S --noconfirm chrome-gnome-shell
+#systemctl enable gdm
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
 pacman -S --noconfirm firefox geany mpv youtube-dl
 pacman -S --noconfirm keepassxc qbittorrent
-pacman -S --noconfirm meld ncdu nnn 
-pacman -S --noconfirm remmina freerdp #libvncserver
+#pacman -S --noconfirm meld ncdu nnn 
+#pacman -S --noconfirm remmina freerdp #libvncserver
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
@@ -45,14 +45,11 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=36"' >> /etc/prof
 # Laptop wifi
 #pacman -S --noconfirm broadcom-wl
 
-# Laptop audio
-#sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
-
 # Done
 echo "Done! Reboot now. Remove this file"
 
 ######
-#breeze-gtk kde-gtk-config kdeplasma-addons kolourpaint plasma-nm sddm-kcm user-manager
+#breeze-gtk kde-gtk-config kdeplasma-addons kinfocenter kolourpaint plasma-nm sddm-kcm user-manager
 
 # Openbox
 #pacman -S --noconfirm xorg-server openbox xorg-xinit ttf-dejavu
@@ -64,3 +61,6 @@ echo "Done! Reboot now. Remove this file"
 # Unused Apps
 #alacritty autorandr bash-completion chrony dunst eog fff gsimplecal jnettop glances kate kitty lf-bin neovim network-manager-applet 
 #nitrogen nnn qimgv-git qview peek rclone rsync sakura slock tmux udevil volumeicon xautomation xwallpaper lavalauncher 
+
+# Laptop audio
+#sed -i "s/load-module module-switch-on-port-available/#load-module module-switch-on-port-available/" /etc/pulse/default.pa
