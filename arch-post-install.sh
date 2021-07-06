@@ -2,7 +2,7 @@
 set -x  #echo on
 
 # Xorg/Fonts
-pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
+pacman -S --noconfirm xorg-server ttf-croscore noto-fonts #ttf-dejavu
 
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
