@@ -41,7 +41,7 @@ systemctl enable systemd-timesyncd --root=/mnt
 systemctl enable systemd-oomd --root=/mnt
 
 # Swap
-printf '[zram0] \nzram-fraction = 0.1' > /mnt/etc/systemd/zram-generator.conf
+printf '[zram0] \nzram-fraction = 0.5 \nmax-zram-size=8192' > /mnt/etc/systemd/zram-generator.conf
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Dbus-broker
