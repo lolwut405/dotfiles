@@ -18,7 +18,7 @@ pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Booster
-chroot /mnt pacman -R mkinitcpio
+chroot /mnt pacman -Rnscu mkinicpio
 
 # Grub
 mount -t proc /proc /mnt/proc
