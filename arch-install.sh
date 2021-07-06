@@ -13,7 +13,7 @@ mount /dev/sda1 /mnt
 echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 timedatectl set-timezone America/New_York; timedatectl set-ntp true
-pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs zram-generator #dbus-broker 
+pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs dbus-broker zram-generator 
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Grub
@@ -41,14 +41,17 @@ systemctl enable systemd-timesyncd --root=/mnt
 systemctl enable systemd-oomd --root=/mnt
 
 # Swap
-
+printf '[zram0] \nzram-fraction = 0.1' > /mnt/etc/systemd/zram-generator.conf
 printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
-#printf 'zswap_enabled=0 \nzram_enabled=1 \nzram_size=$(( RAM_SIZE / 8))' >> /mnt/etc/systemd/swap.conf
+
+# Dbus-broker
+systemctl disable dbus.service
+systemctl enable dbus-broker.service
+systemctl --global enable dbus-broker
 
 # Arch specific tweaks
 echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
 chroot /mnt locale-gen
-#systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
 echo 'ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0|1", ATTR{queue/scheduler}="bfq"' > /mnt/etc/udev/rules.d/60-ioschedulers.rules
 #systemctl enable dbus-broker --root=/mnt
 #systemctl --global enable dbus-broker --root=/mnt
@@ -63,8 +66,6 @@ chroot /mnt passwd blah
 #systemctl enable NetworkManager --root=/mnt
 #printf '[connectivity]\nuri=' > /mnt/etc/NetworkManager/conf.d/20-connectivity.conf
 
-# Other services
+# Other
 #systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
-
-# Swap
-#systemctl enable systemd-swap --root=/mnt
+#systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
