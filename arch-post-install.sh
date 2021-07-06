@@ -6,7 +6,8 @@ pacman -S --noconfirm xorg-server ttf-croscore ttf-dejavu noto-fonts
 
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark dolphin khotkeys konsole kscreen gwenview powerdevil speedcrunch plasma-pa 
+pacman -S --noconfirm ark dolphin khotkeys konsole kscreen gwenview powerdevil speedcrunch 
+#laptop: powerdevil plasma-pa 
 systemctl enable sddm
 
 # Gnome
