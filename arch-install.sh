@@ -17,9 +17,6 @@ timedatectl set-timezone America/New_York; timedatectl set-ntp true
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs dbus-broker zram-generator booster
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Booster
-chroot /mnt pacman -Rnscu mkinicpio
-
 # Grub
 mount -t proc /proc /mnt/proc
 mount -t sysfs /sys /mnt/sys
