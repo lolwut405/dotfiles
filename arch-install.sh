@@ -10,8 +10,9 @@ mkfs.btrfs /dev/sda1 -f
 mount /dev/sda1 /mnt
 
 # Install
-echo "Server = http://mirror.wdc1.us.leaseweb.net/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-echo "Server = http://mirrors.advancedhosters.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+echo "Server = https://america.mirror.pkgbuild.com/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = https://mirror.arizona.edu/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+
 timedatectl set-timezone America/New_York; timedatectl set-ntp true
 pacstrap /mnt base base-devel linux linux-firmware grub htop openssh sudo vi vim wget btrfs-progs dbus-broker zram-generator 
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -42,6 +43,7 @@ systemctl enable systemd-oomd --root=/mnt
 
 # Zram
 printf '[zram0] \nzram-fraction = 1.0 \nmax-zram-size=8192' > /mnt/etc/systemd/zram-generator.conf
+printf 'vm.swappiness = 100 \nvm.vfs_cache_pressure = 500' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Dbus-broker
 systemctl disable dbus.service
@@ -68,4 +70,3 @@ chroot /mnt passwd blah
 # Other
 #systemctl mask systemd-homed systemd-userdbd.{service,socket} --root=/mnt
 #systemctl mask lvm2-lvmetad.{service,socket} --root=/mnt
-#printf 'vm.swappiness = 5 \nvm.vfs_cache_pressure = 50' >> /mnt/etc/sysctl.d/99-sysctl.conf
