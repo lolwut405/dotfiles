@@ -46,9 +46,9 @@ printf '[zram0] \nzram-fraction = 1.0 \nmax-zram-size=8192' > /mnt/etc/systemd/z
 printf 'vm.swappiness = 100 \nvm.vfs_cache_pressure = 500' >> /mnt/etc/sysctl.d/99-sysctl.conf
 
 # Dbus-broker
-systemctl disable dbus.service
-systemctl enable dbus-broker.service
-systemctl --global enable dbus-broker
+systemctl disable dbus --root=/mnt
+systemctl enable dbus-broker --root=/mnt
+systemctl --global enable dbus-broker --root=/mnt
 
 # Arch specific tweaks
 echo 'en_US.UTF-8 UTF-8' > /mnt/etc/locale.gen
