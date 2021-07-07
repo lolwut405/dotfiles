@@ -6,16 +6,27 @@ pacman -S --noconfirm xorg-server ttf-croscore noto-fonts #ttf-dejavu
 
 # KDE
 pacman -S --noconfirm plasma-desktop sddm
-pacman -S --noconfirm ark dolphin khotkeys konsole kscreen gwenview powerdevil speedcrunch 
-#laptop: powerdevil plasma-pa 
+pacman -S --noconfirm khotkeys konsole kscreen plasma-pa #dolphin gwenview ksnip powerdevil Kalk [aur]
 systemctl enable sddm
+#https://flathub.org/apps/details/org.kde.dolphin
+#https://flathub.org/apps/details/org.kde.ark
+#https://flathub.org/apps/details/org.kde.gwenview
+#https://flathub.org/apps/details/org.kde.kalk
+#https://flathub.org/apps/details/org.ksnip.ksnip
 
 # Gnome
 #pacman -S --noconfirm gnome-shell gdm
-#pacman -S --noconfirm file-roller gnome-calculator gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #nemo tilix
+#pacman -S --noconfirm gnome-terminal gnome-tweaks gthumb pcmanfm-gtk3 #file-roller nemo tilix
+#pacman -S --noconfirm 
+#pacman -S --noconfirm 
 #pacman -S --noconfirm gnome-control-center
-#pacman -S --noconfirm chrome-gnome-shell
 #systemctl enable gdm
+#https://flathub.org/apps/details/org.cubocore.CoreFM
+#https://flathub.org/apps/details/org.gnome.Extensions
+#https://flathub.org/apps/details/org.gnome.Calculator
+#https://flathub.org/apps/details/org.gnome.FileRoller
+#https://flathub.org/apps/details/com.github.maoschanz.drawing
+#https://flathub.org/apps/details/com.github.kmwallio.thiefmd
 
 # Typical Apps
 pacman -S --noconfirm git p7zip unzip zip 
