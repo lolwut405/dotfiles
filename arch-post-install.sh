@@ -37,8 +37,8 @@ pacman -S --noconfirm keepassxc qbittorrent
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
-git clone https://aur.archlinux.org/paru.git
-cd paru; make install; cd ../; rm -rf paru
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin; make install; cd ../; rm -rf paru-bin
 
 # AUR helper
 #git clone https://bitbucket.org/natemaia/baph.git
