@@ -37,8 +37,12 @@ pacman -S --noconfirm keepassxc qbittorrent
 #galculator #virtualbox virtualbox-host-modules-arch
 
 # AUR helper
-git clone https://bitbucket.org/natemaia/baph.git
-cd baph; make install; cd ../; rm -rf baph
+git clone https://aur.archlinux.org/paru.git
+cd paru; make install; cd ../; rm -rf paru
+
+# AUR helper
+#git clone https://bitbucket.org/natemaia/baph.git
+#cd baph; make install; cd ../; rm -rf baph
 
 # Gnome AUR packages
 #su - blah -c "baph -inN gnome-control-center-nocheese"
